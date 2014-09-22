@@ -1,0 +1,22 @@
+*.log
+*.aux
+*.swp
+*.DS_Store
+*.make
+*.d
+*~
+*.fls
+*.temp
+*.dvi
+*.out
+*.gnuplot
+*.table
+*.toc
+*.synctex.gz
+
+# latexmk
+*.fdb_latexmk
+*.fls
+
+# config file for smartcp
+config.yml
