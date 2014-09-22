@@ -1,0 +1,144 @@
+\documentclass[pdf]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[squaren, Gray]{SIunits}
+\usepackage{amsmath} 
+\usepackage{tabularx}
+
+\usetheme{warsaw}
+\mode<presentation>{}
+
+\title{Physique}
+\subtitle{APP 2 : Propagation des ondes électromagnétiques}
+\author{Groupe 124.3}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}{Réponses aux questions du texte}
+\textbf{Quelle est la quantité moyenne d'énergie provenant du rayonnement du soleil
+arrivant sur la surface de la terre?}
+D'après \textsc{Rosner} et \textsc{Robert} dans \textit{MacMillan Encyclopedia of Physics, vol. 4}, cette énergie 
+moyenne, appelée constante solaire vaut approximativement $\unit{1.4}{\kilo\watt\per\meter\squared}$.
+
+% On devait calculer cette valeur ou bien la trouver par une recherche?
+
+\textbf{Comment expliquer l'existence des saisons?}
+L'axe de rotation de la terre est penché par rapport à son plan orbital, et c'est ce qui cause les saisons
+sur terre. Selon l'inclinaison de la terre, les rayonnements de soleil s'étaleront plus ou moins
+sur différentes zones de la terre. La densité d'énergie variera alors aussi.
+\end{frame}
+
+\begin{frame}{Comment expliquer l'existence des saisons?}
+	\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.75]{whyseasons.jpg}
+		\caption{Inclinaison de la terre par rapport au soleil. (Source : http://www.lpi.usra.edu/)}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Réponses aux questions du texte}
+\textbf{Comment distinguer/classer les ondes électromagnétiques?}
+On peut distinguer differents types d'ondes électromagnétiques selon leur fréquence
+et leur longueur d'onde (exemples : microonde, infrarouge, ultraviolet, rayons X, 
+rayons gammas, etc).
+\textbf{Combien de temps met la lumière du soleil pour nous arriver?}
+Etant donné la vitesse de la lumière $c = \unit{3 \cdot 10^8}{\meter\per\second}$ et la
+distance terre soleil $d_{t-s} = \unit{149600000}{\kilo\meter}$, on trouve $t = \unit{498.66}{\second}
+= \unit{8.31}{\minute}$. \\
+\textbf{Même question pour le signal envoyé par un satellite géostationnaire?}
+Cette fois, $d_{t-sat} = \unit{35786}{\kilo\meter}$ (pour un satellite géostationnaire, selon
+Wikipédia). On a donc $t = \unit{0.11}{\second}$.
+\end{frame}
+
+\begin{frame}{Propagation d'un champ magnétique et d'un champ électrique sans support}
+	Sans support $\Rightarrow \rho = 0$ et $\vec{J} = \vec{0}$.
+	La loi de \textsc{Faraday} et la loi d'\textsc{Ampère} peuvent donc se réecrire :
+	
+	$$
+	\left\{
+		\begin{array}{rl}
+			\vec{\nabla} \times \vec{E} &= -\frac{\delta \vec{B}}{\delta t}\\
+			\vec{\nabla} \times \vec{B} &= \mu_0 \epsilon_0 \frac{\delta \vec{E}}{\delta t}
+		\end{array}
+	\right
+	$$
+	
+	On voit donc qu'une variation spatiale de $\vec{E}$ entraine une variation temporelle de $\vec{B}$
+	et qu'une variation spatiale de $\vec{B}$ entraine une variation temporelle de $\vec{E}$.
+	On remarque donc très facilement que le champ magnétique et le champ électrique sont dépendants l'un de l'autre.
+	
+	% A expliquer plus en profondeur.
+\end{frame}
+
+\begin{frame}{Temps de propagation dans un diélectrique}
+	En sachant
+	que l'indice de réfraction $n$ du verre est approximativement de $1.6$ (Source : List of refractive indices sur Wikipedia)
+	, on peut calculer la vitesse de propagation de la lumière dans le verre.
+	
+	$$n = \frac{c}{v} \Rightarrow v = \frac{c}{1.6} = \unit{1.875 \cdot 10^8}{\meter\per\second}$$
+	
+	En reprenant la distance terre-soleil $d = \unit{149600000}{\kilo\meter}$, on a alors $t = \unit{797.86}{\second} =
+	\unit{13.29}{\minute}$.
+\end{frame}
+
+\begin{frame}{Seconde étape}
+	\textbf{Forme générale d'une fonction qui se déplace à une vitesse $v$ dans la direction $x$ :}
+	$$u(x, t) = f(x - vt)$$
+	
+	\textbf{Cas sinusoidal :}
+	$$u(x, t) = A \cos{(kx - \omega t)}$$
+\end{frame}
+
+\begin{frame}{Seconde étape}
+	\textbf{Orientations vectorielles des champs électrique et magnétique et direction de propagation :}
+		$\vec{B}$ et $\vec{E}$ sont perpendiculaires et la direction de propagation est donnée par $\vec{E} \times
+		\vec{B}$.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[scale=0.4]{direction-be.jpg}
+			\caption{(Source : http://res-nlp.univ-lemans.fr/)}
+		\end{figure}
+\end{frame}
+
+\begin{frame}{Propagation du signal en fonction du temps et de l'espace parcouru}
+	\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.7]{signal.png}
+		\caption{(Source : sweetrandomscience)}
+	\end{figure}
+\end{frame}
+
+%\begin{frame}{Comparaisons de différents types d'ondes électromagnétiques}
+		%
+	%\begin{center}
+		%\begin{tabular}{c|c|c|c}
+											%& Bande de fréquences		& Longueurs d'ondes 			& Nombre d'ondes							 \\
+			%\hline
+			%Rayons X				& $\unit{3 \cdot 10^{16}}{\hertz}$ à $\unit{3 \cdot 10^{19}}{\hertz}$		
+											%& 								
+											%& $\unit{10^{-11}}{\meter}$ à $\unit{10^{-8}{\meter}$ \\
+			%\hline
+			%Lumière visibe	& 											
+											%& 												
+											%&  \\
+			%\hline
+			%Ondes radio			& 											
+											%& 												
+											%&  \\
+			%\hline
+			%Hyperfréquence	& 											
+											%& 												
+											%&  \\
+			%\hline
+			%Infrarouge			& 											
+											%& 												
+											%&  \\
+		%\end{tabular}
+	%\end{center}
+%\end{frame}
+
+\end{document}
