@@ -15,9 +15,16 @@
 \vspace{0.5cm}}
 
 \title{Projet 3 - Rapport de tâche 1}
-\author{Groupe 124.3}
-\date{\today}
-
+\author{\textbf{Groupe 124.3}
+\\
+\textsc{Frenyo} P\'eter (6266-12-00)\\
+\textsc{Gillain} Nathan (7879-12-00)\\
+\textsc{Lamine} Guillaume (7109-13-00)\\
+\textsc{Piraux} Pauline (2520-13-00)\\
+\textsc{Paris} Antoine (3158-13-00)\\
+\textsc{Quiriny} Simon (4235-13-00)\\
+\textsc{Schrurs} Sebastien ()}
+\date{\today} 
 \begin{document}
 
 \maketitle
@@ -87,4 +94,86 @@ flux d'eau égal à
 
 $$m_{H_2O} = \unit{6.07 \cdot 10^6}{\kilo\gram\per\dday} \Rightarrow V_{H_2O} \approx \unit{6.07 \cdot 10^6}{\liter\per\dday}$$
 
+\section{Sources des réactifs}
+	\subsection{Sources de diazote}
+	\subsubsection{Procédé cryogénique}
+	Ce procédé se base sur la séparation des différents constituants de l'air en fonction de leur température 
+	d'ébullition (l'oxygène (\chemform{O_2}) se condense avant le diazote (	\chemform{N_2})).
+	L'air est purifié jusqu'à liquéfaction et les différents constituants sont séparés dans une colonne de 
+	rectification par distillation fractionnée. Cette méthode permet d'avoir du diazote (\chemform{N_2}) pur 
+	à \numprint{99,99}\%. Cette méthode est efficace pour une consommation au-delà de $\unit{200}{\meter\cubed\per\hour}$. 
+
+	\subsubsection{Perméation gazeuse}
+	Ce procédé utilise les différentes vitesses d'effusion des molécules de gaz à travers une membrane. 
+	L'\chemform{O_2}, \chemform{H_2O} et le \chemform{CO_2} s'effusent plus rapidement que le \chemform{N_2}.
+	Cette méthode nous permet d'obtenir du \chemform{N_2} sec pur à \numprint{95-99}\$. Ce procédé s'utilise pour des 
+	débits forts variables ($\unit{3-1000}{\meter\cubed\per\hour}$).
+
+	\subsubsection{Méthode de Ramsay}
+	
+	\begin{chemmath}
+			NaNO_2(aq) + NH_4Cl(aq) \longrightarrow NaCl(aq) + 2 H_2O(l) + N_2(g)
+	\end{chemmath}
+	
+	On chauffe le mélange de \chemform{NaNO_2} et \chemform{NH_4Cl} pour obtenir le \chemform{N_2} sous forme gazeuse.
+	Un désavantage de cette méthode par rapport aux 2 premières est qu'il faut acheter les réactifs. De plus, il faut utiliser de l'énergie pour chauffer la réaction.
+
+	\subsection{Sources de dihydrogène}
+		\subsubsection{Vaporeformage de méthane}
+		2 réactions sont utilisées pour ce procédé :
+		
+		\begin{chemmath} 
+			CH_4 + H_2O \longleftrightarrow CO + 3H_2
+		\end{chemmath}
+		
+		\begin{chemmath}
+			CO + H_2O \longleftrightarrow CO_2 + H_2
+		\end{chemmath}
+		
+		L'équation bilan obtenue est la suivante :
+		
+		\begin{chemmath}
+			CH_4 + 2H_2O \longleftrightarrow CO_2 + 4 H_2
+		\end{chemmath}
+		
+			Cette réaction nécessite un catalyseur : le nickel. Le rendement varie entre $40-45\%$. Le problème de cette 
+			méthode est qu'elle rejette une grande quantité de \chemform{CO_2}, gaz à effet de serre.
+			
+		\subsubsection{Oxydation partielle d'hydrocarbure}
+		\begin{chemmath}
+			C_nH_m + \frac{n}{2} O_2 + \frac{3,76n}{2} N_2 \longrightarrow \frac{m}{2} H_2 + n CO + \frac{3,76n}{2} N_2
+		\end{chemmath}
+		L'air est comburant pour cette réaction, qui a besoin d'être catalysée. Son caractère exothermique aide à la catalyse. 
+		L'inconvénient de cette méthode est son faible rendement.
+
+		\subsubsection{Electrolyse}
+		Réaction à l'anode : 
+		
+		\begin{chemmath}
+			2H_2O(l) \longrightarrow O_2(g) + 4 H^+(aq) + 4e^-
+		\end{chemmath}
+		
+		Réaction à la cathode :
+		
+		\begin{chemmath}
+			4H_2O(l) + 4e^- \longrightarrow 2H_2O(g) + 4OH^-(aq)
+		\end{chemmath}
+		
+		L'équation bilan obtenue est la suivante :
+		
+		\begin{chemmath}
+			2H_2O(l) \longrightarrow 2H_2(g) + O_2(g)
+		\end{chemmath}
+		
+	La réaction nécessite une grande quantité d'électricité. L'eau, quant à elle, est présente en quantité illimitée 
+	et est peu coûteuse. En pratique, cette méthode est très peu utilisée.
+	
+	\section{Flowsheet}
+	
+	\begin{figure}[ht!]
+		\centering
+		\rotatebox{90}{\includegraphics[scale=0.50]{flow-sheet.png}}
+		\caption{Flowsheet.}
+	\end{figure}
+	
 \end{document}
