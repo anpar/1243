@@ -1,19 +1,17 @@
 \documentclass[pdf]{beamer} 
+
 \usepackage[utf8]{inputenc} 
 \usepackage{graphicx} 
 \usepackage[squaren, Gray]{SIunits} 
 \usepackage{amsmath}  
 \usepackage{tabularx} 
 
- 
 \usetheme{warsaw} 
 \mode<presentation>{} 
- 
  
 \title{Physique} 
 \subtitle{APP 2 : Propagation des ondes électromagnétiques} 
 \author{Groupe 1243} 
- 
  
 \begin{document} 
  
@@ -21,16 +19,13 @@
 	\titlepage 
  \end{frame} 
  
- 
 \begin{frame}{Réponses aux questions du texte} 
 \textbf{Quelle est la quantité moyenne d'énergie provenant du rayonnement du soleil 
  arrivant sur la surface de la terre?} 
 D'après \textsc{Rosner} et \textsc{Robert} dans \textit{MacMillan Encyclopedia of Physics, vol. 4}, cette énergie  
  moyenne, appelée constante solaire vaut approximativement $\unit{1.4}{\kilo\watt\per\meter\squared}$. 
  
- 
  % On devait calculer cette valeur ou bien la trouver par une recherche? 
- 
  
 \textbf{Comment expliquer l'existence des saisons?} 
  L'axe de rotation de la terre est penché par rapport à son plan orbital, et c'est ce qui cause les saisons 
@@ -38,15 +33,13 @@ D'après \textsc{Rosner} et \textsc{Robert} dans \textit{MacMillan Encyclopedia 
  sur différentes zones de la terre. La densité d'énergie variera alors aussi. 
  \end{frame} 
  
- 
 \begin{frame}{Comment expliquer l'existence des saisons?} 
  	\begin{figure}[ht!] 
      \centering 
      \includegraphics[scale=0.75]{whyseasons.jpg} 
  		\caption{Inclinaison de la terre par rapport au soleil. (Source : http://www.lpi.usra.edu/)} 
  	\end{figure} 
- \end{frame} 
- 
+\end{frame} 
  
  \begin{frame}{Réponses aux questions du texte} 
  \textbf{Comment distinguer/classer les ondes électromagnétiques?} 
@@ -61,7 +54,6 @@ D'après \textsc{Rosner} et \textsc{Robert} dans \textit{MacMillan Encyclopedia 
  Cette fois, $d_{t-sat} = \unit{35786}{\kilo\meter}$ (pour un satellite géostationnaire, selon 
  Wikipédia). On a donc $t = \unit{0.11}{\second}$. 
  \end{frame} 
- 
  
  \begin{frame}{Propagation d'un champ magnétique et d'un champ électrique sans support} 
  	Sans support $\Rightarrow \rho = 0$ et $\vec{J} = \vec{0}$. 
@@ -95,14 +87,12 @@ D'après \textsc{Rosner} et \textsc{Robert} dans \textit{MacMillan Encyclopedia 
  	\unit{13.29}{\minute}$. 
  \end{frame} 
  
- 
  \begin{frame}{Seconde étape} 
  	\textbf{Forme générale d'une fonction qui se déplace à une vitesse $v$ dans la direction $x$ :} 
  	$$u(x, t) = f(x - vt)$$  	 
  	\textbf{Cas sinusoidal :} 
  	$$u(x, t) = A \cos{(kx - \omega t)}$$ 
  \end{frame} 
- 
  
  \begin{frame}{Seconde étape} 
  	\textbf{Orientations vectorielles des champs électrique et magnétique et direction de propagation :} 
@@ -115,7 +105,6 @@ D'après \textsc{Rosner} et \textsc{Robert} dans \textit{MacMillan Encyclopedia 
  		\end{figure} 
  \end{frame} 
  
- 
  \begin{frame}{Propagation du signal en fonction du temps et de l'espace parcouru} 
  	\begin{figure}[ht!] 
      \centering 
@@ -123,87 +112,33 @@ D'après \textsc{Rosner} et \textsc{Robert} dans \textit{MacMillan Encyclopedia 
 		\caption{(Source : sweetrandomscience)} 
  	\end{figure} 
  \end{frame} 
+
+ %\begin{frame}{Comparaisons de différents types d'ondes électromagnétiques}  
+ 	%\begin{center} 
+		%\begin{tabular}{c|c|c|c} 
+ 											%& Bande de fréquences		& Longueurs d'ondes 			& Nombre d'ondes \\ 
+ 			%\hline 
+ 			%Rayons X				& \unit{3 \cdot 10^{16}}{\hertz} à \unit{3 \cdot 10^{19}}{\hertz}		 
+											%& \unit{10^{-11}}{\meter} à \unit{10^{-8}{\meter}								 
+ 											%& ... \\ 
+ 			%\hline 					 
+ 			%Lumière visibe	& \unit{4 \cdot 10^{14}}{\hertz} à \unit{8 \cdot 10^{14}}{\hertz}
+ 											%& \unit{7,8 \cdot 10^{-7}}{\meter} à \unit{3,8 \cdot 10^{-7}{\meter}
+ 											%& ... \\ 
+ 			%\hline 
+ 			%Ondes radio			& \unit{1}{\hertz} à \unit{1 \cdot 10^{9}}{\hertz}											 
+ 											%& \unit{1000}{\meter} à \unit{0,3 {\meter}
+ 											%& ... \\ 
+ 			%\hline 
+ 			%Hyperfréquence	& \unit{1 \cdot 10{9}}{\hertz} à \unit{3 \cdot 10^{11}}{\hertz}											 
+ 											%& \unit{0.3}{\meter} à \unit{1 \cdot 10^{-3}{\meter}										 
+ 											%&  ... \\ 
+ 			%\hline 
+ 			%Infrarouge			& \unit{3 \cdot 10{11}}{\hertz} à \unit{4 \cdot 10^{14}}{\hertz}											 
+											%& \unit{1 \cdot 10^{-3}}{\meter} à \unit{7,8 \cdot 10^{-7}{\meter}										 
+ 											%& ... \\ 
+ 		%\end{tabular} 
+ 	%\end{center} 
+ %\end{frame} 
  
- 
- \begin{frame}{Comparaisons de différents types d'ondes électromagnétiques} 
- 		% 
- 	\begin{center} 
-		\begin{tabular}{c|c|c|c} 
- 											& Bande de fréquences		& Longueurs d'ondes 			& Nombre d'ondes							 \\ 
- 			\hline 
- 			Rayons X				& $\unit{3 \cdot 10^{16}}{\hertz}$ à $\unit{3 \cdot 10^{19}}{\hertz}$		 
-											& 								 
- 											& $\unit{10^{-11}}{\meter}$ à $\unit{10^{-8}{\meter}$ \\ 
- 			\hline 				& $\unit{4 \cdot 10^{14}}{\hertz}$ à $\unit{8 \cdot 10^{14}}{\hertz}$ 
- 			Lumière visibe	& 											 
- 											& 												 
- 											& $\unit{7,8\cdot10^{-7}}{\meter}$ à $\unit{3,8 \cdot 10^{-7}{\meter}$ \\ 
- 			\hline 
- 			Ondes radio				& $\unit{1}{\hertz}$ à $\unit{1 \cdot 10^{9}}{\hertz}$											 
- 											& 												 
- 											& $\unit{1000}{\meter}$ à $\unit{0,3 {\meter}$\\ 
- 			\hline 
- 			Hyperfréquence				& $\unit{1 \cdot 10{9}}{\hertz}$ à $\unit{3 \cdot 10^{11}}{\hertz}$											 
- 											& 												 
- 											& $\unit{0.3}{\meter}$ à $\unit{1 \cdot 10^{-3} {\meter}$\\ \\ 
- 			\hline 
- 			Infrarouge				& $\unit{3 \cdot 10{11}}{\hertz}$ à $\unit{4 \cdot 10^{14}}{\hertz}$											 
-											& 												 
- 											& $\unit{1 \cdot 10^{-3}}{\meter}$ à $\unit{7,8 \cdot 10^{-7} {\meter}$ \\ 
- 		\end{tabular} 
- 	\end{center} 
- \end{frame} 
- 
- 
- \ end{document} 
-
-
-\begin{frame}{Seconde étape}
-	\textbf{Orientations vectorielles des champs électrique et magnétique et direction de propagation :}
-		$\vec{B}$ et $\vec{E}$ sont perpendiculaires et la direction de propagation est donnée par $\vec{E} \times
-		\vec{B}$.
-		\begin{figure}[ht!]
-			\centering
-			\includegraphics[scale=0.4]{direction-be.jpg}
-			\caption{(Source : http://res-nlp.univ-lemans.fr/)}
-		\end{figure}
-\end{frame}
-
-\begin{frame}{Propagation du signal en fonction du temps et de l'espace parcouru}
-	\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.7]{signal.png}
-		\caption{(Source : sweetrandomscience)}
-	\end{figure}
-\end{frame}
-
-%\begin{frame}{Comparaisons de différents types d'ondes électromagnétiques}
-		%
-	%\begin{center}
-		%\begin{tabular}{c|c|c|c}
-											%& Bande de fréquences		& Longueurs d'ondes 			& Nombre d'ondes							 \\
-			%\hline
-			%Rayons X				& $\unit{3 \cdot 10^{16}}{\hertz}$ à $\unit{3 \cdot 10^{19}}{\hertz}$		
-											%& 								
-											%& $\unit{10^{-11}}{\meter}$ à $\unit{10^{-8}{\meter}$ \\
-			%\hline
-			%Lumière visibe	& 											
-											%& 												
-											%&  \\
-			%\hline
-			%Ondes radio			& 											
-											%& 												
-											%&  \\
-			%\hline
-			%Hyperfréquence	& 											
-											%& 												
-											%&  \\
-			%\hline
-			%Infrarouge			& 											
-											%& 												
-											%&  \\
-		%\end{tabular}
-	%\end{center}
-%\end{frame}
-
 \end{document}
