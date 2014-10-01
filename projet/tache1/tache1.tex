@@ -23,7 +23,7 @@
 \textsc{Piraux} Pauline (2520-13-00)\\
 \textsc{Paris} Antoine (3158-13-00)\\
 \textsc{Quiriny} Simon (4235-13-00)\\
-\textsc{Schrurs} Sebastien ()}
+\textsc{Schrurs} Sébastien (7978-13-00)}
 \date{\today} 
 \begin{document}
 
@@ -36,13 +36,13 @@ Lors du calcul de ces flux, nous avons utilisé l'hypothèse que tous les réact
 consommés par le réacteur.
 
 \paragraph{Calculs}
-L'équation de la réaction de production de l'ammoniac est donnée par :
+L'équation de la réaction de production de l'ammoniac par le procédé \textsc{Haber-Bosch} est donnée par :
 
 	\begin{chemmath}
 			\frac{1}{2}N_2(g) + \frac{3}{2}H_2(g) \longrightarrow NH_3(g) + \Delta H
  	\end{chemmath}
 	
-En sachant que l'on cherche à produire \unit{1000}{\kilo\gram} de \chemform{NH_3} par jour, 
+En sachant que l'on cherche à produire \unit{1000}{\ton} de \chemform{NH_3} par jour, 
 on calcule assez facilement le flux de \chemform{N_2} (les détails de calculs ont été omis
 dans ce rapport)
 
@@ -59,7 +59,7 @@ et le flux de \chemform{H_2}
 	\item La pression dans le réacteur est constante et vaut \unit{10^5}{\pascal}.
 \end{itemize}
 
-\paragraph{Calculs}
+\paragraph{Cas 1 : on considère les capacités calorifiques constantes}
 Pour la réaction donnée dans la section précédente, on a $\Delta H(\unit{298.15}{\kelvin})
  = \unit{-46 \cdot 10^3}{\joule}$ pour une mole de \chemform{NH_3(g)} produite.
 Comme la réaction a lieu à \unit{500}{\celsius} (c'est à dire \unit{773.15}{\kelvin}), il
@@ -70,9 +70,9 @@ de la réaction. Nous trouvons ces données dans une table.
 	$$
 	\left\{
 		\begin{array}{rl}
-			C_{p_{NH_3(g)}} &= \unit{4.6}{\joule\per\gram\kelvin}\\
-			C_{p_{H_2(g)}} 	&= \unit{10.130}{\joule\per\gram\kelvin}\\
-			C_{p_{N_2(g)}} 	&= \unit{0.730}{\joule\per\gram\kelvin}
+			C_{p_{NH_3(g)}} &= \unit{37}{\joule\per\mole\kelvin}\\
+			C_{p_{H_2(g)}} 	&= \unit{28.836}{\joule\per\mole\kelvin}\\
+			C_{p_{N_2(g)}} 	&= \unit{29.124}{\joule\per\mole\kelvin}
 		\end{array}
 	\right
 	$$
@@ -80,19 +80,20 @@ de la réaction. Nous trouvons ces données dans une table.
 On a donc :
 
 $$\Delta H(\unit{773.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin})
-+ \int_{298.15}^{773.15} C_{p_{NH_3(g)}} dT + \frac{1}{2}\int_{773.15}^{298.15} C_{p_{N_2(g)}} dT
-+ \frac{3}{2} \int_{773.15}^{298.15} C_{p_{H_2(g)}} dT = \unit{-28.14475 \cdot 10^3}{\joule}$$
++ \int_{298.15}^{773.15} C_{p_{NH_3(g)}} dT - \frac{1}{2}\int_{298.15}^{773.15} C_{p_{N_2(g)}} dT
+- \frac{3}{2} \int_{298.15}^{773.15} C_{p_{H_2(g)}} dT = \unit{-5.5887 \cdot 10^4}{\joule\per\mole}$$
 
 Pour la quantité de \chemform{NH_3} à produire par jour (à savoir $\unit{58.83 \cdot 10^6}{\mole}$),
 la quantité de chaleur produite est donc :
 
-$$q = \Delta H(\unit{773.15}{\kelvin}) \cdot n_{NH_3} = \unit{1.65 \cdot 10^{12}}{\joule}$$
+$$q = \Delta H(\unit{773.15}{\kelvin}) \cdot n_{NH_3} = \unit{-3.28786 \cdot 10^{12}}{\joule}$$
 
-En connaissant la capacité calorifique de l'eau $C_{H_2O(g)} = \unit{4.18}{\joule\per\gram\kelvin}$ et en égalant
+En connaissant la capacité calorifique de l'eau $C_{H_2O(g)} = \unit{4185.5}{\joule\per\kilo\gram\kelvin}$ et en égalant
 $q$ à $m_{H_2O} \cdot C_{H_2O(g)} \cdot \Delta T$ avec $\Delta T = 90 - 25 = \unit{65}{\kelvin}$, on trouve un
 flux d'eau égal à
 
-$$m_{H_2O} = \unit{6.07 \cdot 10^6}{\kilo\gram\per\dday} \Rightarrow V_{H_2O} \approx \unit{6.07 \cdot 10^6}{\liter\per\dday}$$
+$$m_{H_2O} = \unit{1.2085 \cdot 10^7}{\kilo\gram\per\dday} \Rightarrow V_{H_2O} \approx \unit{1.2085 \cdot 10^7}{\liter\per\dday} 
+= \unit{139.8}{\liter\per\second}$$
 
 \section{Sources des réactifs}
 	\subsection{Sources de diazote}
