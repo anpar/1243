@@ -97,7 +97,7 @@ $$m_{H_2O} = \unit{1.2085 \cdot 10^7}{\kilo\gram\per\dday} \Rightarrow V_{H_2O} 
 
 \paragraph{Deuxième méthode : les capacités calorifiques dépendent de la température}
 En refaisant le calcul ci-dessus en tenant compte de la variation des capacités calorifiques en fonction
-de la température, nous obtenons un débit un peu supérieur de \unit{182.899}{\liter\per\second}. On remarque
+de la température, nous obtenons un débit un peu supérieur de \unit{135.662}{\liter\per\second}. On remarque
 que l'approximation faite ci-dessus n'est pas si mauvaise que ça. Nous vous épargons ici
 les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
 
@@ -105,6 +105,9 @@ les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
 % des termes de degré 3 de l'approximation polynomiale des capacités calorifiques sur la photo que
 % j'ai prise. Mais ça ira vite étant donné que j'ai créé une petite fonction MatLab. Il faudra
 % aussi vérifier qu'il fallait bien diviser Cp par Mu (voir carnet de la tutrice).
+% EDIT : j'ai refais les calculs avec des capacités calorifiques polynomiales venant d'une autre source
+% et j'arrive cette fois à 135l/s, c'est encore plus cohérent qu'avant.
+% TODO : ajouter les Cp(T) + source http://www.edu.upmc.fr/chimie/lc101-202-301/communs/public/capcalo.htm
 
 \section{Sources des réactifs}
 	\subsection{Sources de diazote}
