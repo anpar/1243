@@ -8,6 +8,7 @@
 \usepackage{lewis}
 \usepackage[top=2.5cm,bottom=2.5cm,right=2.5cm,left=2.5cm]{geometry}
 \usepackage[squaren, Gray]{SIunits}
+\usepackage{url}
 
 \newcommand\chemfigc[1]{
 \vspace{0.5cm}
@@ -64,7 +65,7 @@ Pour la réaction donnée dans la section précédente, on a $\Delta H(\unit{298
  = \unit{-46 \cdot 10^3}{\joule}$ pour une mole de \chemform{NH_3(g)} produite \cite{atkins}.
 Comme la réaction a lieu à \unit{500}{\celsius} (c'est à dire \unit{773.15}{\kelvin}), il
 va falloir calculer $\Delta H(\unit{773.15}{\kelvin})$. Pour cela, nous avons besoin
-des capacités calorifiques à pression constante de chacun des réactifs et des produits
+des capacités calorifiques moyenne à pression constante de chacun des réactifs et des produits
 de la réaction. Nous trouvons ces données dans une table \cite{atkins}.
 
 	$$
@@ -96,18 +97,22 @@ $$m_{H_2O} = \unit{1.2085 \cdot 10^7}{\kilo\gram\per\dday} \Rightarrow V_{H_2O} 
 = \unit{139.8}{\liter\per\second}$$
 
 \paragraph{Deuxième méthode : les capacités calorifiques dépendent de la température}
+On peut être plus précis en utilisant les capacités calorifiques suivantes \cite{hc-table} :
+
+	$$
+	\left\{
+		\begin{array}{rl}
+			C_{p_{NH_3(g)}}(T) &= \unit{31.81 + (15.48 \cdot 10^{-3})T + (5.86 \cdot 10^{-6})T^2}{\joule\per\mole\kelvin}\\
+			C_{p_{H_2(g)}}(T) 	&= \unit{29.30 - (0.84 \cdot 10^{-3})T + (2.09 \cdot 10^{-6})T^2}{\joule\per\mole\kelvin}\\
+			C_{p_{N_2(g)}}(T) 	&= \unit{27.62 + (4.19 \cdot 10^{-3})T}{\joule\per\mole\kelvin}
+		\end{array}
+	\right
+	$$
+
 En refaisant le calcul ci-dessus en tenant compte de la variation des capacités calorifiques en fonction
-de la température, nous obtenons un débit un peu supérieur de \unit{135.662}{\liter\per\second}. On remarque
+de la température, nous obtenons un débit un peu inférieur de \unit{135.662}{\liter\per\second}. On remarque
 que l'approximation faite ci-dessus n'est pas si mauvaise que ça. Nous vous épargons ici
 les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
-
-% Remarque : il faudra encore une fois refaire les caluls car je ne savais pas lire les coéfficients
-% des termes de degré 3 de l'approximation polynomiale des capacités calorifiques sur la photo que
-% j'ai prise. Mais ça ira vite étant donné que j'ai créé une petite fonction MatLab. Il faudra
-% aussi vérifier qu'il fallait bien diviser Cp par Mu (voir carnet de la tutrice).
-% EDIT : j'ai refais les calculs avec des capacités calorifiques polynomiales venant d'une autre source
-% et j'arrive cette fois à 135l/s, c'est encore plus cohérent qu'avant.
-% TODO : ajouter les Cp(T) + source http://www.edu.upmc.fr/chimie/lc101-202-301/communs/public/capcalo.htm
 
 \section{Sources des réactifs}
 	\subsection{Sources de diazote}
