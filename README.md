@@ -17,4 +17,6 @@ Projet
 Physique
 ---------
 
-* Faire les slides du laboratoire ;
+* Faire les slides du laboratoire 
+* => Expérience 1,2 (Pauline);
+* => Expérience 3,4,5 (Le reste);
