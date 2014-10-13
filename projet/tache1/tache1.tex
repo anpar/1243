@@ -199,7 +199,81 @@ les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
 	\end{figure}
 
 \section{Bilan de matiere}
-% To do
+On pose le flux de NH_3(g) à la sortie = a{\ton\per\dday}
+
+Nous partons de la réaction : 
+	\begin{chemmath}
+			\frac{1}{2}N_2(g) + \frac{3}{2}H_2(g) \longrightarrow NH_3(g) 
+ 	\end{chemmath}
+ 	
+m_{NH_3}= a {\ton\per\dday}
+
+Et donc, 
+ 
+$$ n_{NH_3}= frac{a}{17} {\mol} $$
+
+Ce qui donne 
+
+$$ n_{N_2}=\frac{n_[NH_3]}{2} = \frac{a}{34} {\mol} $$ 
+
+et 
+
+$$ n_{H_2}= \frac{3}{2} * n_{NH_3} $$
+
+On sait que le N_2(g) provient uniquement de l'air entrant dans le réacteur du  réformage primaire.
+
+Et comme on peut considérer que l'air est composé de 78% de N_2(g), 21% de O_2(g) et 1% d'Ar(g), 
+
+on peut déduire que n_{air} entrant dans le réacteur du réformage primaire vaut : 
+
+n_{air}= n_{N_2}*\frac{100}{78} = \frac{25a}{663} {\mol}
+ Et :
+n_{0_2}= n_{air}*\frac{21}{100} = \frac{28a}{221} {\mol}
+
+n_{Ar}= n_{air}*\frac{1}{100} = \frac{10a}{663} {\mol}
+
+On sait par la réaction du réformage primaire suivante et par l'hypothèse que le CH_4(g) et le O_2(g) sont présents en quantité stoechiométrique : 
+
+\begin{chemmath}
+	CH_4 + 2O_2 \Longrightarrow CO_2 + 4 H_2O
+\end{chemmath} 
+
+que :
+
+n_{CH_4} = 2n_{O_2}= \frac{7a}{442} {\mol}
+n_{CO} = n_{CH_4}=  \frac{7a}{442} {\mol}
+n_{H_2} = 2*n_{CH_4}=  \frac{7a}{221} {\mol}
+
+On s'intéresse ensuite à la réaction du Water-Gas-Shift.
+
+On sait que n_{CO} = n_{CO} produit au réformage primaire + n_{CO} produit au réfomarge secondaire. 
+
+Et donc on a : 
+
+n_{C0_2} = n_{CO} = n_{H_2O}
+
+S'il reste du H_20 à la fin de cette réaction, n_{H2_0} sera égal à n_{H2_O} du réformage primaire moins le n_{CO} du WGS.
+
+On peut aussi déduire que CO_2_{tot} = n_{CO_2-réformage primaire} du réformage primaire + n_{CO_2-WGS}.
+
+On peut aussi conclure que : 
+
+n_{H_2-réformage primaire}= n_{H_2-synthèse NH_3} - n_{H_2-réformarge secondaire} - n_{H_2-WGS}.
+
+Après la résolution de l'équilibre du réformage primaire, 
+on obtient les valeurs suivantes : 
+
+n_{H_2O-réformage primaire} = 
+n_{CO_réformage primaire} = 
+n_{CO_2-réformage primaire} = 
+n_{H_2-réformage primaire} = 
+
+n_{CO-WGS} = 
+n_{CO2-WGS} = 
+n_{H_2-WGS} = 
+
+n_{CO_2-final} = 
+n_{H_2O-final} = 
 
 \section{Equilibre du reformage primaire}
 % To do
