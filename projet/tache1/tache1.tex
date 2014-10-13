@@ -205,7 +205,138 @@ les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
 % To do
 
 \section{Bilan d'energie}
-% To do
+% La partie que Sébastien a envoyé par mail. A relire et vérifier.
+% A remettre en bonne forme également.
+Equation de combustion :
+\begin{chemmath}
+	CH_4 + 2O_2 \Longrightarrow CO_2 + 4 H_2O
+\end{chemmath}
+
+$\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
+						= ((-393.51) + (2*(-241.82))) - ((-74.81) + 2*0))\\
+						= (-877.15) - (-74.81)\\
+						= -802.34 kJ/mol $
+
+Reformage primaire :
+\begin{chemmath}
+ CH_4 + 2H_2O \Longleftrightarrow 4H_2 + CO_2
+\end{chemmath}
+
+$\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
+						= (4*0 + (-393.51)) - (-74.81 + 2*(-241.82))\\
+						= (-393.51) - (-558.45)\\
+						= 164.94 kJ/mol $		
+
+		
+Reformage secondaire :
+\begin{chemmath}
+	CH_4 + \frac{1}{2}O_2 \Longrightarrow CO + 2H_2
+\end{chemmath}
+
+$\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
+						= ((-110.53)) + (2*0)) - ((-74.81) + \frac{1}{2} *0))\\
+						= (-110.53) - (-74.81)\\
+						= -35.72 kJ/mol$
+
+$\\$Le reformage secondaire s'opere generalement a une temperature de $\unit{1173}{\kelvin}$.\\ %ajouter les accents
+Calculons les $C_{p}$ des differents composants a cette temperature :
+$\\C_{p_{CH_{4}}}(\unit{1173.15}{\kelvin}) :\\ 14.23 + 75.3*10^{-3}*T + (-18*10^{-6})*T^2
+ = 14.23 + 75.3*10^{-3}*1173.15 + (-18*10^{-6})*(1173.15)^2
+ = 14.23 + 88.34 - 24.77
+ = 77.8 (J.mol^{-1}.K^{-1})$
+ 
+$\\C_{p_{O_{2}}}(\unit{1173.15}{\kelvin}) :\\ 25.73 + 12.97*10^{-3}*T + (-3.77*10^{-6})*T^2
+ = 25.73 + 12.97*10^{-3}*1173.15 + (-3.77*10^{-6})*(1173.15)^2
+ = 25.73 + 15.22 - 5.19
+ = 35.76 (J.mol^{-1}.K^{-1})$
+ 
+$\\C_{p_{CO}}(\unit{1173.15}{\kelvin}) :\\ 27.62 + 5.02*10^{-3}*T + (0*10^{-6})*T^2
+ = 27.62 + 5.02*10^{-3}*1173.15
+ = 27.62 + 5.89
+ = 33.5 (J.mol^{-1}.K^{-1})$
+ 
+$\\C_{p_{H_{2}}}(\unit{1173.15}{\kelvin}) :\\ 29.3 + (-0.84)*10^{-3}*T + (2.09*10^{-6})*T^2
+ = 29.3 - 0.84*10^{-3}*1173.15 + (2.09*10^{-6})*(1173.15)^2
+ = 29.3 - 0.98 + 2.88
+ \\= 31.19 (J.mol^{-1}.K^{-1})$
+
+$\\$Calculons maintenant le \Delta H a $\unit{1173.15}{\kelvin}$ :
+
+$$\Delta H(\unit{1173.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
++ \int_{1173.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1173.15} C_{p_{produits}} dT$$
+
+$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{1173.15}^{298.15} C_{p_{CH_{4}}} dT +\frac{1}{2}\int_{1173.15}^{298.15} C_{p_{O_{2}}} dT + \int_{298.15}^{1173.15} C_{p_{CO}} dT + 2\int_{1173.15}^{298.15} C_{p_{H_{2}}} dT$
+$ \\= -35.72 kJ/mol 
++\int_{1173.15}^{298.15} (14.23 + 75.3*10^{-3}T + (-18*10^{-6})T^2) dT 
++\frac{1}{2}\int_{1173.15}^{298.15} (25.73 + 12.97*10^{-3}T + (-3.77*10^{-6})T^2) dT
++\int_{298.15}^{1173.15} (27.62 + 5.02*10^{-3}T + (0*10^{-6})T^2) dT 
++2\int_{298.15}^{1173.15} (29.3 + (-0.84)*10^{-3}T + (2.09*10^{-6})T^2) dT$			
+$ \\= -35.72 kJ/mol 
+- [14.23T + \frac{75.3*10^{-3}}{2}T^2 + (\frac{-18*10^{-6}}{3})T^3]_{298.15}^{1173.15} 
+-\frac{1}{2} [25.73T + \frac{12.97*10^{-3}}{2}T^2 + (\frac{-3.77*10^{-6}}{3})T^3]_{298.15}^{1173.15} 
++ [27.62T + \frac{5.02*10^{-3}}{2}T^2 + \frac{(0*10^{-6})}{3}T^3]_{298.15}^{1173.15}  
++2 [29.3T + \frac{(-0.84)*10^{-3}}{2}T^2 + \frac{(2.09*10^{-6})}{3}T^3]_{298.15}^{1173.15} $
+$ \\= -35720
+-(58823.4-7430.5) -\frac{1}{2}(37081-8214.57)+(35856.9-8458.03)+2(34920.1-7986.16)$		
+$ \\= -35720 - 51392.9 - 14433.215 + 27398.87 + 53867.88 $
+$ \\= -20279.365 J $
+		
+Water-Gas-Shift :
+\begin{chemmath}
+	CO + H_2O \Longrightarrow H_2 + CO_2
+\end{chemmath}	
+
+$\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
+						= (0 + (-393.51)) - (-110.53 + (-241.82))\\
+						= (-393.51) - (-352.35)\\
+						= -41.16 kJ/mol $
+
+Le Water Gas Shift s'opere generalement entre 200 et \unit{400}{\degree}. Nous considererons alors une temperature de reaction de $\unit{300}{\degree}$, soit $\unit{573.15}{\kelvin}$.
+						
+Calculons les $C_{p}$ des differents composants a cette temperature :
+						
+$\\C_{p_{CO}}(\unit{573.15}{\kelvin}) :\\ 27.62 + 5.04*10^{-3}*T + (0*10^{-6})*T^2
+ = 27.62 + 5.04*10^{-3}*573.15 + (0*10^{-6})*(1173.15)^2
+ = 27.62 + 2.89
+ \\= 30.5 (J.mol^{-1}.K^{-1})$	
+ 
+$\\C_{p_{H_{2}O}}(\unit{573.15}{\kelvin}) :\\ 30.13 + 10.46*10^{-3}*T + (0*10^{-6})*T^2
+ = 30.13 + 10.46*10^{-3}*573.15 + (0*10^{-6})*(573.15)^2
+ = 30.13 + 5.99
+ \\= 36.12 (J.mol^{-1}.K^{-1})$ 
+ 
+
+$\\C_{p_{CO_{2}}}(\unit{573.15}{\kelvin}) :\\ 32.22 + 22.18*10^{-3}*T + (-3.35*10^{-6})*T^2
+ = 32.22 + 22.18*10^{-3}*573.15 + (-3.35*10^{-6})*(573.15)^2
+ = 32.22 + 12.71 - 1.1
+ \\= 43.83 (J.mol^{-1}.K^{-1})$ 
+ 					
+					
+$\\C_{p_{H_{2}}}(\unit{573.15}{\kelvin}) :\\ 29.3 + (-0.84)*10^{-3}*T + (2.09*10^{-6})*T^2
+ = 29.3 - 0.84*10^{-3}*573.15 + (2.09*10^{-6})*(573.15)^2
+ = 29.3 - 0.48 + 0.69
+ \\= 29.5 (J.mol^{-1}.K^{-1})$					
+					
+$\\$Calculons maintenant le \Delta H a $\unit{573.15}{\kelvin}$ :				
+$$\Delta H(\unit{573.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
++ \int_{573.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{573.15} C_{p_{produits}} dT$$
+
+
+$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{573.15}^{298.15} C_{p_{CO}} dT +\int_{573.15}^{298.15} C_{p_{H_{2}O}} dT + \int_{298.15}^{573.15} C_{p_{CO_{2}}} dT + \int_{298.15}^{573.15} C_{p_{H_{2}}} dT$
+$ \\= -41.16 kJ/mol 
++\int_{573.15}^{298.15} (27.62 + 5.04*10^{-3}T + (0*10^{-6})T^2) dT 
++\int_{573.15}^{298.15} (30.13 + 10.46*10^{-3}T + (0*10^{-6})T^2) dT
++\int_{298.15}^{573.15} (32.22 + 22.18*10^{-3}T + (-3.35*10^{-6})T^2) dT 
++\int_{298.15}^{573.15} (29.3 + (-0.84)*10^{-3}T + (2.09*10^{-6})T^2) dT$			
+$ \\= -41.16 kJ/mol 
+- [27.62T + \frac{5.04*10^{-3}}{2}T^2 + (\frac{0*10^{-6}}{3})T^3]_{298.15}^{573.15} 
+- [30.13T + \frac{10.46*10^{-3}}{2}T^2 + (\frac{0*10^{-6}}{3})T^3]_{298.15}^{573.15} 
++ [32.22T + \frac{22.18*10^{-3}}{2}T^2 + \frac{(-3.35*10^{-6})}{3}T^3]_{298.15}^{573.15}  
++ [29.3T + \frac{(-0.84)*10^{-3}}{2}T^2 + \frac{(2.09*10^{-6})}{3}T^3]_{298.15}^{573.15} $
+$ \\= -41160
+-(16658.2-8458.91)-(18987.1-9448.17)+(21899.7-10562.6)+(16786.5-8716.92)$		
+$ \\= -41160 - 8199.29 - 9538.93 + 11337.1 + 8069.58 $
+$ \\= -55630.7 J $
 
 \section{Outil de gestion}
 % To do
