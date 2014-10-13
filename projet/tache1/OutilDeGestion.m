@@ -10,13 +10,12 @@ MNH3 = 17;
 NH3 = (NH3*1000*1000)/MNH3;
 
 R = 8.3144621;
-% G1 et G2 à changer, mauvaises Cp utilisée lors du calcul
-G1 = (-2.14e14)-(T*(71.16*log(T)))+(T*(1.08e12))+(41630*(T^2))-(4045000*(T^3));
-K1 = exp(-G1/(R*T));
-G2 = (1.1e13)-(T*(5.6e10))-(2930*(T^2))+(210000*(T^3));
+G1 = 1;
+K1 = exp(-G1/(R*T)); 
+G2 = (-42533.33) + (69.67*T) - (2.93e-3)*(T^2) + (2.1e-7)*(T^3);
 K2 = exp(-G2/(R*T));
 ptot = 28e5;
-p0 = 10e5;
+p0 = 1e5;
 
 syms x y H2O CH4 positive;
 eqn1 = K1 == ((x-y)*((3*x + y)^3)*ptot^2)/((H2O-x)*(H2O-x-y)*(H2O+CH4+(2*x))*p0^2);
@@ -29,5 +28,7 @@ eqn4 = 3*x + y == (9/221 * NH3) -x+y;
 pretty(eqn4)
 eqns = [eqn1 eqn2 eqn3 eqn4];
 
+% A modifier pour retourner des tonnes
+% Ne doit pas retourner x, y
 [x, y, H2O, CH4] = solve(eqns);
 end
