@@ -13,6 +13,7 @@ Projet
 * Questions pour les visites (tout le monde) ;
 * Bilan d'énergie (Sébastien) ;
 * Etude de l'impact environnemental (Tout le monde) ;
+* Faire le calcul pour les tuyaux ;
 
 Physique
 ---------
