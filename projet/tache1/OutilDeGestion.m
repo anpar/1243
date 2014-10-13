@@ -4,7 +4,7 @@ function [Ar, N2, O2, H2O, CH4] = OutilDeGestion(T, NH3)
 % - Air : N2, O2, Ar, CO ;
 % - CH4, H20
 % Input : T en Kelvin et NH3 en t/d.
-% Output : matières premières.
+% Output : matières premières en tonnes.
 
 MNH3 = 17;
 nNH3 = (NH3*1000*1000)/MNH3;
@@ -37,5 +37,5 @@ MCH4 = 16;
 % On transforme les valeurs en tonnes
 % Il faut vérifier la valeur de Ar car Pauline et Nathan
 % n'arrivent pas aux mêmes valeurs.
-[(((10/663)*nNH3)*(MAr))/(1e06), ((nNH3/34)*(MN2))/(1e06), ((7.91855e-3)*nNH3*MO2)/(1e06), (H2O*MH2O)/(1e06), (CH4*MCH4)/(1e06)]
+[(((0.25/663)*nNH3)*(MAr))/(1e06), ((nNH3/34)*(MN2))/(1e06), ((7.91855e-3)*nNH3*MO2)/(1e06), (H2O*MH2O)/(1e06), (CH4*MCH4)/(1e06)]
 end
