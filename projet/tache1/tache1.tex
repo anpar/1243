@@ -9,6 +9,14 @@
 \usepackage[top=2.5cm,bottom=2.5cm,right=2.5cm,left=2.5cm]{geometry}
 \usepackage[squaren, Gray]{SIunits}
 \usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
 \newcommand\chemfigc[1]{
 \vspace{0.5cm}
@@ -296,9 +304,6 @@ $$n_{H_2-\text{WGS}} = $$
 $$n_{CO_2-\text{final}} = $$ 
 $$n_{H_2O-\text{final}} = $$
 
-
-
-
 \section{Equilibre du reformage primaire}
 \subsection{Calcul de la constante d'équilibre}
 
@@ -349,7 +354,6 @@ Nous obtenons donc
 $$K_1 = \exp{\frac{-\Delta G_1}{RT}}$$
 avec la valeur de $\Delta G_1$ calculée plus tôt.
 
-
 \subsubsection{Deuxième équation}
 \begin{chemmath} 
  CO(g) + H_{2}O(g) \longrightarrow CO_2(g) + H_2
@@ -395,60 +399,59 @@ avec la valeur de $\Delta G_2$ calculée plus tôt.
 \section{Bilan d'energie}
 % La partie que Sébastien a envoyé par mail. A relire et vérifier.
 % A remettre en bonne forme également.
-Equation de combustion :
+\paragraph{Equation de combustion}
 \begin{chemmath}
 	CH_4 + 2O_2 \Longrightarrow CO_2 + 4 H_2O
 \end{chemmath}
 
 $\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
-						= ((-393.51) + (2*(-241.82))) - ((-74.81) + 2*0))\\
+						= ((-393.51) + (2\cdot(-241.82))) - ((-74.81) + 2\cdot 0))\\
 						= (-877.15) - (-74.81)\\
-						= -802.34 kJ/mol $
+						= \unit{-802.34}{\kilo\joule\per\mole}$
 
-Reformage primaire :
+\paragraph{Reformage primaire}
 \begin{chemmath}
  CH_4 + 2H_2O \Longleftrightarrow 4H_2 + CO_2
 \end{chemmath}
 
 $\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
-						= (4*0 + (-393.51)) - (-74.81 + 2*(-241.82))\\
+						= (4\cdot0 + (-393.51)) - (-74.81 + 2\cdot(-241.82))\\
 						= (-393.51) - (-558.45)\\
-						= 164.94 kJ/mol $		
+						= \unit{164.94}{\kilo\joule\per\mole} $		
 
-		
-Reformage secondaire :
+\paragraph{Reformage secondaire}
 \begin{chemmath}
 	CH_4 + \frac{1}{2}O_2 \Longrightarrow CO + 2H_2
 \end{chemmath}
 
 $\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
-						= ((-110.53)) + (2*0)) - ((-74.81) + \frac{1}{2} *0))\\
+						= ((-110.53)) + (2\cdot 0)) - ((-74.81) + \frac{1}{2}\cdot 0))\\
 						= (-110.53) - (-74.81)\\
-						= -35.72 kJ/mol$
+						= -\unit{35.72}{\kilo\joule\per\mole}$
 
-$\\$Le reformage secondaire s'opere generalement a une temperature de $\unit{1173}{\kelvin}$.\\ %ajouter les accents
-Calculons les $C_{p}$ des differents composants a cette temperature :
-$\\C_{p_{CH_{4}}}(\unit{1173.15}{\kelvin}) :\\ 14.23 + 75.3*10^{-3}*T + (-18*10^{-6})*T^2
- = 14.23 + 75.3*10^{-3}*1173.15 + (-18*10^{-6})*(1173.15)^2
+Le reformage secondaire s'opere generalement a une temperature de $\unit{1173}{\kelvin}$.
+Calculons les $C_p$ des differents composants a cette temperature :
+$\\C_{p_{CH_{4}}}(\unit{1173.15}{\kelvin}) :\\ 14.23 + 75.3\cdot10^{-3}T + (-18\cdot10^{-6})T^2
+ = 14.23 + 75.3\cdot10^{-3}\cdot1173.15 + (-18\cdot10^{-6})\cdot(1173.15)^2
  = 14.23 + 88.34 - 24.77
- = 77.8 (J.mol^{-1}.K^{-1})$
+ = \unit{77.8}{\joule\per\mole\per\kelvin}$
  
-$\\C_{p_{O_{2}}}(\unit{1173.15}{\kelvin}) :\\ 25.73 + 12.97*10^{-3}*T + (-3.77*10^{-6})*T^2
- = 25.73 + 12.97*10^{-3}*1173.15 + (-3.77*10^{-6})*(1173.15)^2
+$\\C_{p_{O_{2}}}(\unit{1173.15}{\kelvin}) :\\ 25.73 + 12.97\cdot10^{-3}T + (-3.77\cdot10^{-6})T^2
+ = 25.73 + 12.97\cdot10^{-3}\cdot1173.15 + (-3.77\cdot10^{-6})\cdot(1173.15)^2
  = 25.73 + 15.22 - 5.19
- = 35.76 (J.mol^{-1}.K^{-1})$
+ = \unit{35.76}{\joule\per\mole\per\kelvin}$
  
-$\\C_{p_{CO}}(\unit{1173.15}{\kelvin}) :\\ 27.62 + 5.02*10^{-3}*T + (0*10^{-6})*T^2
- = 27.62 + 5.02*10^{-3}*1173.15
+$\\C_{p_{CO}}(\unit{1173.15}{\kelvin}) :\\ 27.62 + 5.02\cdot10^{-3}T + (0\cdot10^{-6})T^2
+ = 27.62 + 5.02\cdot10^{-3}\cdot1173.15
  = 27.62 + 5.89
- = 33.5 (J.mol^{-1}.K^{-1})$
+ = \unit{33.5}{\joule\per\mole\per\kelvin}$
  
-$\\C_{p_{H_{2}}}(\unit{1173.15}{\kelvin}) :\\ 29.3 + (-0.84)*10^{-3}*T + (2.09*10^{-6})*T^2
- = 29.3 - 0.84*10^{-3}*1173.15 + (2.09*10^{-6})*(1173.15)^2
+$\\C_{p_{H_{2}}}(\unit{1173.15}{\kelvin}) :\\ 29.3 + (-0.84)\cdot10^{-3}T + (2.09\cdot10^{-6})T^2
+ = 29.3 - 0.84\cdot10^{-3}\cdot1173.15 + (2.09\cdot10^{-6})\cdot(1173.15)^2
  = 29.3 - 0.98 + 2.88
- \\= 31.19 (J.mol^{-1}.K^{-1})$
+ \\= \unit{31.19}{\joule\per\mole\per\kelvin}$
 
-$\\$Calculons maintenant le \Delta H a $\unit{1173.15}{\kelvin}$ :
+Calculons maintenant le $\Delta H$ a $\unit{1173.15}{\kelvin}$ :
 
 $$\Delta H(\unit{1173.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
 + \int_{1173.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1173.15} C_{p_{produits}} dT$$
