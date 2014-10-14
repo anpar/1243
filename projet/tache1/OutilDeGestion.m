@@ -51,11 +51,11 @@ MO2 = 31.998;
 MH2O = 18.0148;
 MCH4 = 16.0426;
 
-nAr = (0.01*mNH3)/26.52 %26.52 = 34*0.78
-nN2 =  mNH3/34
-nO2 = (0.21*mNH3)/26.52
+nAr = (0.01*mNH3)/26.52; %26.52 = 34*0.78
+nN2 =  mNH3/34;
+nO2 = (0.21*mNH3)/26.52;
 %nAIR = mNH3/26.52; %=nAR+nO2+nN2
-mAIR = ((nAr)*(MAr))/(1e06) + ((nN2)*(MN2))/(1e06) + (nO2*MO2)/(1e06) %masse d'air en tonnes
+mAIR = ((nAr)*(MAr))/(1e06) + ((nN2)*(MN2))/(1e06) + (nO2*MO2)/(1e06); %masse d'air en tonnes
 
 % On transforme les valeurs en tonnes
 [mAIR, (H2O*MH2O)/(1e06), (CH4*MCH4)/(1e06)]
