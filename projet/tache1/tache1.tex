@@ -656,36 +656,38 @@ Il s'agit donc d'une réaction exothermique.
 % Critiquez le code MatLab, proposer des améliorations, etc.
 
 \section{Calcul du nombre de tuyaux}
-Maintenant, nous allons calculer le nombre de tubes dont nous aurons
-besoin pour notre réacteur multi-tubulaire. Nous avons ces données de base :
+Maintenant, nous allons calculer le nombre de tubes dont nous aurons besoin pour
+notre réacteur multi-tubulaire. Nous avons ces données de base : $\dot{m_{réactifs}} = \unit{517.05}{\ton\per\dday}$, 
+$T = \unit{1080}{K}$, $d_{tube} = \unit{10^{-1}}{\meter}$ et $c = \unit{2}{\meter\per\second}$ où $\dot{m_{réactifs}}$ 
+est le débit massique par jour de réactifs (déterminé avec l'outil de gestion pour une température citée ci-après et
+un débit massique de $NH_{3}$ de $\unit{1500}{\ton\per\dday}$, $T$ une température plausible choisie pour le dimensionnement
+du réacteur multi-tubulaire, $d_{tube}$ est le diamètre d'un tube et $c$ est la vitesse superficielle à l'entrée du réacteur.
+Transformons d'abord le débit massique en débit volumique :
 
-$$\dot{m_{NH_{3}}} = \unit{1500}{\ton\per\dday} = \text{débit massique par jour d'ammoniac}$$
+$$\unit{517.05}{\ton\per\dday} = \unit{5.984\cdot 10^{-3}}{\ton\per\second} = \unit{5.984\cdot \nu}{\meter^{3}\per\second} = \dot{V}$$
 
-$$d_{tube} = \unit{10^{-1}}{\meter} = \text{diamètre d'un tube}$$
-
-$$c = \unit{2}{\meter\per\second} = \text{vitesse superficielle à l'entrée du réacteur}$$
-Transformons d'abord le débit massique en débit volumique.
-
-$$ \unit{1500}{\ton\per\dday} =  \unit{1.736\cdot 10^{-2}}{\ton\per\second} = 
-\unit{17.36 \cdot \nu}{\meter^{3}\per\second} = \dot{V} $$
-
-avec $v$ le volume massique (en \unit{}{\meter\cubed\per\kilo\gram}) du mélange que l'on introduit dans le réacteur. 
-Nous pouvons déterminer $\nu$ grâce à l'expression de la loi des gaz parfaits 
-sous forme thremodynamique $\nu = \frac{R^*T}{31 \cdot 10^{5}}$ où $R^*$
-vaut $\frac{R}{\frac{16\cdot x_{CH_{4}}+18\cdot x_{H_{2}O}}{2}}}$ ($x_{CH_{4}$ 
-et $x_{H_{2}O}$ sont les fractions molaire du méthane et de l'eau entrant dans le système).
-Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m_{\text{entrée}}} = \dot{m_{\text{sortie}}}$, 
-nous obtenons que $\dot{V} = c \cdot A$ avec $\dot{V}$ le débit volumique et $A$ 
-la somme des sections de tous les tubes.
+avec $\nu$ le volume massique du mélange que l'on introduit dans le réacteur. Nous pouvons déterminer $\nu$ grâce à 
+l'expression de la loi des gaz parfaits sous forme thremodynamique $\nu = \frac{R^*\cdot T}{31\cdot 10^{5}}$ où $R^{*}$ vaut 
+$\frac{R}{\frac{16\cdot x_{CH_{4}}+18\cdot x_{H_{2}O}}{2}}}$ ($x_{CH_{4}$ et $x_{H_{2}O}$ sont les fractions molaire du méthane
+et de l'eau entrant dans le système). Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m_{entrée}} = \dot{m_{sortie}}$,
+nous obtenons que $\dot{V} = c \cdot  A$ avec $\dot{V}$ le débit volumique et $A$ la somme des sections de tous les tubes. 
 En remplaçant par les valeurs que nous possédons, nous obtenons :
 
-$$A = \frac{\dot{V}}{c} = \frac{1.736\cdot 10\cdot \nu}{2} = \unit{8.68\cdot \nu}{\meter^{2}}$$
+$$A = \frac{\dot{V}}{c} = \frac{5.984\dot \nu}{2} = \unit{2.992\cdot \nu}{\meter\square}$$
 
-Or, on sait que la surface d'un tube vaut $\pi\cdot(\frac{d}{2})^{2} = \unit{7.85 \cdot 10^{-3}}{\meter\squared}$. 
-Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur 
-la section d'un tube. Ce qui nous donne finalement : 
+Or, on sait que la surface d'un tube vaut $\pi\cdot (\frac{d}{2})^{2} = \unit{7.85\cdot 10^{-3}}{\meter\square}$. 
+Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur la section d'un tube. 
+Ce qui nous donne finalement : 
 
-$$\text{Nombre de tubes} = \frac{8.68\cdot \nu}{7.854\cdot 10^{-3}} = 1105.17\cdot v$$
+$$\text{Nombre de tubes} = \frac{2.992\cdot \nu}{7.854\cdot 10^{-3}} = 380.98\cdot \nu$$
+
+Pour terminer cette partie, nous allons calculer un nombre de tuyaux sous certaines hypothèses et conditions.
+Nous supposons que les fractions molaires de $CH_{4}$ et de $NH_{3}$ sont identiques (hypothèses valables à \unit{1080}{\kelvin}),
+c'est-à-dire que $x_{CH_{4} = x_{H_{2}O}$. Dès lors, le volume massique $\nu$ devient:
+
+$$\nu = \frac{R^{*}\cdot T}{31\cdot 10^{5}} = \frac{\frac{8.314}{17\cdot 10^{-3}}\cdot 1080}{31\cdot 10^{5}} = 0.17$$
+
+Ce qui nous donne un nombre de tube approximatif de $65$ ($64.77$).
 
 \bibliography{source-tache1}
 \bibliographystyle{plain}
