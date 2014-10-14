@@ -1,5 +1,5 @@
 function [Ar, N2, O2, H2O, CH4] = OutilDeGestion(T, NH3)
-% Groupe 124.3 - 13/10/014 
+% Groupe 124.3 - 13/10/2014 
 % Retourne les masses/jour de matières premières :
 % - Air : N2, O2, Ar, CO ;
 % - CH4, H20
@@ -20,7 +20,7 @@ R = 8.3144621; % Constante des gaz parfaits
 % ----------------------------------------------------------
 G1 = (188369.9) - (71.16*T*log(T)) + (238.21*T) + (0.04163*T^2) - ((4.045e-6)*T^3);
 K1 = exp(-G1/(R*T)); 
-G2 = (-42533.33) + (69.67*T) - (2.93e-3)*(T^2) + (2.1e-7)*(T^3);
+G2 = (-42533.33) + (69.67*T) - (2.93e-3)*(T^2) + (2.1e-7)*(T^3) - (3.77*T*log(T));
 K2 = exp(-G2/(R*T));
 % ptot = 28bars, pression à la sortie du réformage primaire
 ptot = 28e5;
