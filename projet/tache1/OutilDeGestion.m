@@ -16,7 +16,7 @@ nNH3 = (NH3*1000*1000)/MNH3;
 R = 8.3144621; % Constante des gaz parfaits
 
 % ----------------------------------------------------------
-%      Constantes d'équilibre (c) by Simon Quiriny
+%      Constantes d'équilibre © by Simon Quiriny
 % ----------------------------------------------------------
 G1 = (188369.9) - (71.16*T*log(T)) + (238.21*T) + (0.04163*T^2) - ((4.045e-6)*T^3);
 K1 = exp(-G1/(R*T)); 
