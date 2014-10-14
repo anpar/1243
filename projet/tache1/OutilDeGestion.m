@@ -28,7 +28,12 @@ p0 = 1e5;
 
 % On montre à MatLab quelles sont les variables du système et on lui dit de
 % choisir les valeurs positives uniquement.
-% Quelles sont les inconnues? A mettre au clair.
+% Quelles sont les inconnues? A mettre au clair, surtout au niveau des
+% unités.
+% x : []
+% y : []
+% CH4 : []
+% H2O : []
 syms x y H2O CH4 positive;
 eqn1 = K1 == ((x-y)*((3*x + y)^3)*ptot^2)/((H2O-x)*(H2O-x-y)*(H2O+CH4+(2*x))*p0^2);
 eqn2 = K2 == (y*(3*x + y))/((x-y)*(H2O-x-y));
