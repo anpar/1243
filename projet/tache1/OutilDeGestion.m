@@ -4,7 +4,7 @@ function [Ar, N2, O2, H2O, CH4] = OutilDeGestion(T, NH3)
 % - Air : N2, O2, Ar;
 % - CH4, H20
 % Input : T en Kelvin et NH3 en tonnes/jour.
-% Output : matières premières en tonnes.
+% Output : matières premières en tonnes/jour.
 %
 % Sponsorisé par The Coca-Cola Company. Open Happiness.
 
