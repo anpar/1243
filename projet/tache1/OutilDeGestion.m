@@ -1,4 +1,4 @@
-function [Ar, N2, O2, H2O, CH4] = OutilDeGestion(T, NH3)
+function [AIR, H2O, CH4] = OutilDeGestion(T, NH3)
 % Groupe 124.3 - 13/10/2014 
 % Retourne les masses/jour de matières premères :
 % - Air : N2, O2, Ar;
@@ -54,11 +54,9 @@ MCH4 = 16.0426;
 nAr = (0.01*mNH3)/26.52 %26.52 = 34*0.78
 nN2 =  mNH3/34
 nO2 = (0.21*mNH3)/26.52
-nAIR = mNH3/26.52; %=nAR+nO2+nN2
-nCO2 = ((0.42*mNH3)/26.52) + x; %SORTIE
-nH2O = H2O - 2*x ((0.42*mNH3)/26.52); %SORTIE
-
+%nAIR = mNH3/26.52; %=nAR+nO2+nN2
+mAIR = ((nAr)*(MAr))/(1e06) + ((nN2)*(MN2))/(1e06) + (nO2*MO2)/(1e06) %masse d'air en tonnes
 
 % On transforme les valeurs en tonnes
-[((nAr)*(MAr))/(1e06), ((nN2)*(MN2))/(1e06), (nO2*MO2)/(1e06), (H2O*MH2O)/(1e06), (CH4*MCH4)/(1e06)]
+[mAIR, (H2O*MH2O)/(1e06), (CH4*MCH4)/(1e06)]
 end
