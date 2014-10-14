@@ -399,7 +399,23 @@ avec la valeur de $\Delta G_2$ calculée plus tôt.
 \section{Bilan d'energie}
 % La partie que Sébastien a envoyé par mail. A relire et vérifier.
 % A remettre en bonne forme également.
-\paragraph{Equation de combustion}
+% Seb : J'ai rajouté du texte, et ai ajouté quelques modifications. J'ai aussi supprimé quelques 
+% 	petites choses inutiles que j'avais faites (calcul du Cp à la température donnée, pas nécessaire).
+
+Afin d'\'evaluer la quantit\'e totale d'\'energie dont nous avons besoin pour mener \`{a} bien la synth\`{e}se d'ammoniac, nous allons regarder les quantit\'es requises \`{a} chaque \'etape du processus pour ensuite d\'eterminer la totalit\'e des besoins \'energ\'etiques du syst\`{e}me.
+
+Comme chaque r\'eaction se passe \`{a} des temp\'eratures diff\'erentes de la temp\'erature ambiante, nous calculerons le $\Delta H_{reaction}$ \`{a} temp\'erature ambiante selon l'\'equation suivante 
+$$\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}$$
+
+Ensuite, \`{a} l'aide des $C_{p}$ variables en fonction de la temp\'erature, nous serons alors en mesure de d\'eterminer le $\Delta H_{reaction}$ \`{a} la temp\'erature voulue selon l'\'equation
+$$\Delta H(T_{2}) = \Delta H(T_{1}) 
++ \int_{T_{2}}^{T_{1}} C_{p_{reactifs}} dT + \int_{T_{1}}^{T_{2}} C_{p_{produits}} dT$$ 
+
+o\`{u} $T_{1}$ est ici la temp\'erature ambiante, soit \unit{298.15}{\kelvin}.
+
+\paragraph{\'Equation de combustion}
+La combustion du m\'ethane se passe dans le four, et fournit la totalit\'e de l'\'energie requise par l'ensemble du processus, avec un rendement de 75 pourcents.
+La r\'eaction se produit selon l'\'equation chimique suivante :
 \begin{chemmath}
 	CH_4 + 2O_2 \Longrightarrow CO_2 + 4 H_2O
 \end{chemmath}
@@ -408,6 +424,34 @@ $\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reacti
 						= ((-393.51) + (2\cdot(-241.82))) - ((-74.81) + 2\cdot 0))\\
 						= (-877.15) - (-74.81)\\
 						= \unit{-802.34}{\kilo\joule\per\mole}$
+
+$\\$ La r\'eaction se passe g\'en\'eralement \`{a} une temp\'erature avoisinant les $\unit{1300}{\kelvin}$.\\
+Voici les $C_{p}$ variables en fonction de la temp\'erature des diff\'erents composants :
+$\\C_{p_{CH_{4}}}(\unit{1300}{\kelvin}) :\\ 14.23 + 75.3\cdot10^{-3}\cdotT + (-18\cdot10^{-6})\cdotT^2$
+$\\C_{p_{O_{2}}}(\unit{1300}{\kelvin}) :\\ 25.73 + 12.97\cdot10^{-3}\cdotT + (-3.77\cdot10^{-6})\cdotT^2$
+$\\C_{p_{CO_{2}}}(\unit{1300}{\kelvin}) :\\ 32.22 + 22.18\cdot10^{-3}\cdotT + (-3.35\cdot10^{-6})\cdotT^2$
+$\\C_{p_{H_{2}O}}(\unit{1300}{\kelvin}) :\\ 30.13 + 10.46\cdot10^{-3}\cdotT + (0\cdot10^{-6})\cdotT^2$
+
+$\\$Calculons maintenant le \Delta H pour une temp\'erature $T_{2}$ de $\unit{1300}{\kelvin}$ :
+
+$$\Delta H(\unit{1300}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
++ \int_{1300}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1300} C_{p_{produits}} dT$$
+
+$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{1300}^{298.15} C_{p_{CH_{4}}} dT +2\int_{1300}^{298.15} C_{p_{O_{2}}} dT + \int_{298.15}^{1300} C_{p_{CO_{2}}} dT + 2\int_{1300}^{298.15} C_{p_{H_{2}O}} dT$
+$ \\= -802.34 kJ/mol 
++\int_{1300}^{298.15} (14.23 + 75.3\cdot10^{-3}T + (-18\cdot10^{-6})T^2) dT 
++2\int_{1300}^{298.15} (25.73 + 12.97\cdot10^{-3}T + (-3.77\cdot10^{-6})T^2) dT
++\int_{298.15}^{1300} (32.22 + 22.18\cdot10^{-3}T + (-3.35\cdot10^{-6})T^2) dT 
++2\int_{298.15}^{1300} (30.13 + 10.46\cdot10^{-3}T + (0\cdot10^{-6})T^2) dT$			
+$ \\= -802.34 kJ/mol 
+- [14.23T + \frac{75.3\cdot10^{-3}}{2}T^2 + (\frac{-18\cdot10^{-6}}{3})T^3]_{298.15}^{1300} 
+-2 [25.73T + \frac{12.97\cdot10^{-3}}{2}T^2 + (\frac{-3.77\cdot10^{-6}}{3})T^3]_{298.15}^{1300} 
++ [32.22T + \frac{22.18\cdot10^{-3}}{2}T^2 + \frac{(-3.35\cdot10^{-6})}{3}T^3]_{298.15}^{1300}  
++2 [30.13T + \frac{(10.46)\cdot10^{-3}}{2}T^2 + \frac{(0\cdot10^{-6})}{3}T^3]_{298.15}^{1300} $
+$ \\= -802340
+-(68945.5-7430.5)-2(41647.8-8214.57)+(58174.8-10562.6)+2(48007.7-9448.17)$		
+$ \\= -802340 - 61515 - 66866.46 + 47612.2 + 77119.06 $
+$ \\= -805.99 kJ $
 
 \paragraph{Reformage primaire}
 \begin{chemmath}
@@ -430,26 +474,11 @@ $\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reacti
 						= -\unit{35.72}{\kilo\joule\per\mole}$
 
 Le reformage secondaire s'opere generalement a une temperature de $\unit{1173}{\kelvin}$.
-Calculons les $C_p$ des differents composants a cette temperature :
-$\\C_{p_{CH_{4}}}(\unit{1173.15}{\kelvin}) :\\ 14.23 + 75.3\cdot10^{-3}T + (-18\cdot10^{-6})T^2
- = 14.23 + 75.3\cdot10^{-3}\cdot1173.15 + (-18\cdot10^{-6})\cdot(1173.15)^2
- = 14.23 + 88.34 - 24.77
- = \unit{77.8}{\joule\per\mole\per\kelvin}$
- 
-$\\C_{p_{O_{2}}}(\unit{1173.15}{\kelvin}) :\\ 25.73 + 12.97\cdot10^{-3}T + (-3.77\cdot10^{-6})T^2
- = 25.73 + 12.97\cdot10^{-3}\cdot1173.15 + (-3.77\cdot10^{-6})\cdot(1173.15)^2
- = 25.73 + 15.22 - 5.19
- = \unit{35.76}{\joule\per\mole\per\kelvin}$
- 
-$\\C_{p_{CO}}(\unit{1173.15}{\kelvin}) :\\ 27.62 + 5.02\cdot10^{-3}T + (0\cdot10^{-6})T^2
- = 27.62 + 5.02\cdot10^{-3}\cdot1173.15
- = 27.62 + 5.89
- = \unit{33.5}{\joule\per\mole\per\kelvin}$
- 
-$\\C_{p_{H_{2}}}(\unit{1173.15}{\kelvin}) :\\ 29.3 + (-0.84)\cdot10^{-3}T + (2.09\cdot10^{-6})T^2
- = 29.3 - 0.84\cdot10^{-3}\cdot1173.15 + (2.09\cdot10^{-6})\cdot(1173.15)^2
- = 29.3 - 0.98 + 2.88
- \\= \unit{31.19}{\joule\per\mole\per\kelvin}$
+Voici les $C_{p}$ variables en fonction de la temp\'erature des diff\'erents composants :
+$\\C_{p_{CH_{4}}}(\unit{1173.15}{\kelvin}) :\\ 14.23 + 75.3\cdot10^{-3}T + (-18\cdot10^{-6})T^2$
+$\\C_{p_{O_{2}}}(\unit{1173.15}{\kelvin}) :\\ 25.73 + 12.97\cdot10^{-3}T + (-3.77\cdot10^{-6})T^2$
+$\\C_{p_{CO}}(\unit{1173.15}{\kelvin}) :\\ 27.62 + 5.02\cdot10^{-3}T + (0\cdot10^{-6})T^2$
+$\\C_{p_{H_{2}}}(\unit{1173.15}{\kelvin}) :\\ 29.3 + (-0.84)\cdot10^{-3}T + (2.09\cdot10^{-6})T^2$
 
 Calculons maintenant le $\Delta H$ a $\unit{1173.15}{\kelvin}$ :
 
@@ -470,7 +499,7 @@ $ \\= -35.72 kJ/mol
 $ \\= -35720
 -(58823.4-7430.5) -\frac{1}{2}(37081-8214.57)+(35856.9-8458.03)+2(34920.1-7986.16)$		
 $ \\= -35720 - 51392.9 - 14433.215 + 27398.87 + 53867.88 $
-$ \\= -20279.365 J $
+$ \\= -20.28 kJ $
 		
 Water-Gas-Shift :
 \begin{chemmath}
@@ -484,29 +513,11 @@ $\Delta H_{reaction} 	= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reacti
 
 Le Water Gas Shift s'opere generalement entre 200 et \unit{400}{\degree}. Nous considererons alors une temperature de reaction de $\unit{300}{\degree}$, soit $\unit{573.15}{\kelvin}$.
 						
-Calculons les $C_{p}$ des differents composants a cette temperature :
-						
-$\\C_{p_{CO}}(\unit{573.15}{\kelvin}) :\\ 27.62 + 5.04*10^{-3}*T + (0*10^{-6})*T^2
- = 27.62 + 5.04*10^{-3}*573.15 + (0*10^{-6})*(1173.15)^2
- = 27.62 + 2.89
- \\= 30.5 (J.mol^{-1}.K^{-1})$	
- 
-$\\C_{p_{H_{2}O}}(\unit{573.15}{\kelvin}) :\\ 30.13 + 10.46*10^{-3}*T + (0*10^{-6})*T^2
- = 30.13 + 10.46*10^{-3}*573.15 + (0*10^{-6})*(573.15)^2
- = 30.13 + 5.99
- \\= 36.12 (J.mol^{-1}.K^{-1})$ 
- 
-
-$\\C_{p_{CO_{2}}}(\unit{573.15}{\kelvin}) :\\ 32.22 + 22.18*10^{-3}*T + (-3.35*10^{-6})*T^2
- = 32.22 + 22.18*10^{-3}*573.15 + (-3.35*10^{-6})*(573.15)^2
- = 32.22 + 12.71 - 1.1
- \\= 43.83 (J.mol^{-1}.K^{-1})$ 
- 					
-					
-$\\C_{p_{H_{2}}}(\unit{573.15}{\kelvin}) :\\ 29.3 + (-0.84)*10^{-3}*T + (2.09*10^{-6})*T^2
- = 29.3 - 0.84*10^{-3}*573.15 + (2.09*10^{-6})*(573.15)^2
- = 29.3 - 0.48 + 0.69
- \\= 29.5 (J.mol^{-1}.K^{-1})$					
+Voici les $C_{p}$ variables en fonction de la temp\'erature des diff\'erents composants :
+$\\C_{p_{CO}}(\unit{573.15}{\kelvin}) :\\ 	27.62 + 5.04*10^{-3}*T + (0*10^{-6})*T^2$
+$\\C_{p_{H_{2}O}}(\unit{573.15}{\kelvin}) :\\ 	30.13 + 10.46*10^{-3}*T + (0*10^{-6})*T^2$
+$\\C_{p_{CO_{2}}}(\unit{573.15}{\kelvin}) :\\ 	32.22 + 22.18*10^{-3}*T + (-3.35*10^{-6})*T^2$
+$\\C_{p_{H_{2}}}(\unit{573.15}{\kelvin}) :\	 29.3 + (-0.84)*10^{-3}*T + (2.09*10^{-6})*T^2$	
 					
 $\\$Calculons maintenant le \Delta H a $\unit{573.15}{\kelvin}$ :				
 $$\Delta H(\unit{573.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
@@ -527,7 +538,7 @@ $ \\= -41.16 kJ/mol
 $ \\= -41160
 -(16658.2-8458.91)-(18987.1-9448.17)+(21899.7-10562.6)+(16786.5-8716.92)$		
 $ \\= -41160 - 8199.29 - 9538.93 + 11337.1 + 8069.58 $
-$ \\= -55630.7 J $
+$ \\= -55.63 kJ $
 
 \section{Outil de gestion}
 % To do
