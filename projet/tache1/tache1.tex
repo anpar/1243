@@ -218,7 +218,7 @@ les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
 	\end{figure}
 
 \section{Bilan de matiere}
-On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday}$. 
+On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday}\footnote{grammes par jour}$. 
 
 Nous partons de la réaction : 
 \begin{chemmath}
@@ -242,7 +242,7 @@ $$n_{H_2} = \frac{3}{2} \cdot n_{NH_3}$$
 On sait que le \chemform{N_2(g)} provient uniquement de l'air entrant 
 dans le réacteur du  réformage primaire. Et comme on poser comme hypothèse
 que l'air est composé de 78\% de \chemform{N_2(g)}, 21\% de \chemform{O_2(g)}
-et 1\% d'\chemform{Ar(g)}, on peut déduire que $$n_{air}$$ entrant dans le 
+et 1\% d'\chemform{Ar(g)}, on peut déduire que $n_{air}$ entrant dans le 
 réacteur du réformage primaire vaut : 
 
 $$n_{air}= n_{N_2} \cdot \frac{100}{78} = \unit{\frac{25m_{NH_3}}{663}}{\mole}$$ 
@@ -251,14 +251,13 @@ Et :
 $$n_{O_2}= n_{air} \cdot \frac{21}{100} = \unit{\frac{7m_{NH_3}}{884}}{\mole}$$
 $$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{1m_{NH_3}}{2652}}{\mole}$$
 
-On sait par la réaction du réformage primaire suivante et par l'hypothèse que le
-\chemform{CH_4(g)} et le \chemform{O_2(g)} sont présents en quantité stoechiométrique : 
-
+On sait par la réaction du réformage primaire suivante:
 \begin{chemmath}
 	2CH_4 + O_2 \Longrightarrow 2CO + 4 H_2
-\end{chemmath} 
+\end{chemmath}  
 
-que :
+et par l'hypothèse que le
+\chemform{CH_4(g)} et le \chemform{O_2(g)} sont présents en quantité stoechiométrique : 
 
 $$n_{CH_4} = 2 \cdot n_{O_2} = \unit{\frac{7m_{NH_3}}{442}}{\mole}$$
 $$n_{CO} = n_{CH_4} =  \unit{\frac{7m_{NH_3}}{442}} {\mole}$$
@@ -270,41 +269,26 @@ On s'intéresse ensuite à la réaction du Water-Gas-Shift :
 	CO + H_2O \Longrightarrow CO_2 + H_2
 \end{chemmath} 
 
-On sait que $n_{CO}$ du WGS = $n_{CO}$ produit au réformage primaire
-$+ n_{CO}$ produit au réfomarge secondaire. 
+On sait que $n_{CO}-\text{WGS}$  = $n_{CO}-\text{réformage primaire}$ 
+$+ n_{CO}\text{réformage secondaire}$ 
 
 Et donc on a : 
 
 $$n_{CO_2} = n_{CO} = n_{H_2O}$$
 
-S'il reste du \chemform{H_2O} à la fin de cette réaction, $n_{H2_O}$ 
-sera égal à $n_{H2_O}$ du réformage primaire moins le $n_{CO}$ du WGS.
+S'il reste du \chemform{H_2O} à la fin de cette réaction, $n_{H_2O}$ 
+sera égal à $n_{H_2O}$ du réformage primaire moins le $n_{CO}$ du WGS.
 
 On peut aussi déduire que $n_{CO_2-tot} = n_{{CO_2}-\text{réformage primaire}}
 + n_{{CO_2}-\text{WGS}}$.
 
 On peut aussi conclure que : 
 
-$$n_{H_2-\text{réformage primaire}}= n_{H_2-\text{synthèse} \chemform{NH_3}}
+$$n_{H_2-\text{réformage primaire}}= n_{H_2-\text{synthèse \chemform{NH_3}}}
 - n_{H_2-\text{réformarge secondaire}} - n_{H_2-\text{WGS}}$$
 
-% A transformer en tableau pour plus que ce soit plus clair.
-Après la résolution de l'équilibre du réformage primaire, 
-on obtient les valeurs suivantes : 
-
-$$n_{H_2O-\text{réformage primaire}} = $$
-$$n_{CO-\text{réformage primaire}} = $$
-$$n_{CO_2-\text{réformage primaire}} = $$
-$$n_{H_2-\text{réformage primaire}} = $$
-
-$$n_{CO-\text{WGS}} = $$
-$$n_{CO2-\text{WGS}} = $$
-$$n_{H_2-\text{WGS}} = $$
-
-$$n_{CO_2-\text{final}} = $$ 
-$$n_{H_2O-\text{final}} = $$
-
 \section{Equilibre du reformage primaire}
+
 \subsection{Calcul de la constante d'équilibre}
 
 Pour calculer la constante d'équilibre nous allons utiliser $K= \exp{\frac{-\Delta G}{RT}}$ avec $\Delta G = \Delta H - T \Delta S $
@@ -314,7 +298,7 @@ Pour calculer la constante d'équilibre nous allons utiliser $K= \exp{\frac{-\De
  CH_4(g) + H_{2}O(g) \longrightarrow CO(g) + 3H_2
 \end{chemmath} 
 
-Connaissant les capacités calorifiques dépendantes de la température:
+Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
 $$
 \left\{
 	\begin{array}{rl}
@@ -336,18 +320,22 @@ $$
  = 188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3
  $$ 
  
+ Connaisant l'entropie en conditions standards \cite{atkins}
+ 
  $$
  \Delta S_1(T) = \Delta S(\unit{298.15}{\kelvin}) 
- + \int_{298.15}^{T} C_{p_{CO(g)}} \dfrac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \dfrac{dT}{T} 
- +  \int_{T}^{298.15} C_{p_{CH_4(g)}} \dfrac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\dfrac{dT}{T}
+ + \int_{298.15}^{T} C_{p_{CO(g)}} \frac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \frac{dT}{T} 
+ +  \int_{T}^{298.15} C_{p_{CH_4(g)}} \frac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\frac{dT}{T}
  $$\\ 
  
  $$
- = -167.05 + 71.16 \ln T -0.08326 T + (1.2135\cdot 10^{-5} T^2
+ = -167.05 + 71.16 \ln T -0.08326 T + (1.2135\cdot 10^{-5}) T^2
  $$ 
  
+ Nous pouvons calculer $\Delta G_1$:
+ 
  $$
- \Delta G_1(T) = 188369.9 - (71.16\ln T)T + 238.21T + 0.04163 T^2 -(4.045\cdot 10^{-6}T^3
+ \Delta G_1(T) = 188369.9 - (71.16\ln T)T + 238.21T + 0.04163 T^2 -(4.045\cdot 10^{-6})T^3
  $$ 
 
 Nous obtenons donc
@@ -359,7 +347,7 @@ avec la valeur de $\Delta G_1$ calculée plus tôt.
  CO(g) + H_{2}O(g) \longrightarrow CO_2(g) + H_2
 \end{chemmath} 
 
-Connaissant les capacités calorifiques dépendantes de la température de l'équation précedente et celle-ci:
+Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
 
 $$
 \begin{array}{rl}
@@ -377,15 +365,19 @@ $$
  = -42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3
  $$ 
 
+Connaisant l'entropie en conditions standards \cite{atkins}
+
 $$
 \Delta S_2(T) = \Delta S(\unit{298.15}{\kelvin}) 
- + \int_{298.15}^{T} C_{p_{CO_2(g)}} \dfrac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \dfrac{dT}{T} 
- +  \int_{T}^{298.15} C_{p_{CO(g)}} \dfrac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\dfrac{dT}{T}
+ + \int_{298.15}^{T} C_{p_{CO_2(g)}} \frac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \frac{dT}{T} 
+ +  \int_{T}^{298.15} C_{p_{CO(g)}} \frac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\frac{dT}{T}
  $$\\
   
  $$
  = -65.9 + 3.77 \ln(T) +(5.86\cdot 10^{-3})T -(6.3 \cdot 10^{-7})T^2
  $$ 
+ 
+ Nous pouvons calculer $\Delta G_1$:
  
  $$
  \Delta G_2=-42533.33 - (3.77 \ln(T))T +69.67 T -(2.93 \cdot 10^{-3})T^2
@@ -599,30 +591,36 @@ $$\Delta H(\unit{573.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin})
 \section{Calcul du nombre de tuyaux}
 Maintenant, nous allons calculer le nombre de tubes dont nous aurons
 besoin pour notre réacteur multi-tubulaire. Nous avons ces données de base :
-$\dot{m_{NH_{3}}} = \unit{1500}{\ton\per\dday}$, $d_{tube} = \unit{10^{-1}}{\meter}$ 
-et $c = \unit{2}{\meter\per\second}$ où $\dot{m_{NH_{3}}}$ est le débit massique par
-jour d'ammoniac, $d_{tube}$ est le diamètre d'un tube et $c$ est la vitesse superficielle
-à l'entrée du réacteur. Transformons d'abord le débit massique en débit volumique.
+
+$$\dot{m_{NH_{3}}} = \unit{1500}{\ton\per\dday} \text{débit massique par jour d'ammoniac}$$
+
+$$d_{tube} = \unit{10^{-1}}{\meter}\text{diamètre d'un tube}$$
+
+$$c = \unit{2}{\meter\per\second}\text{vitesse superficielle à l'entrée du réacteur}$$
+Transformons d'abord le débit massique en débit volumique.
 
 $$ \unit{1500}{\ton\per\dday} =  \unit{1.736\cdot 10^{-2}}{\ton\per\second} = 
-\unit{17.36 \cdot v}{\meter^{3}\per\second} = \dot{V} $$
+\unit{17.36 \cdot \nu}{\meter^{3}\per\second} = \dot{V} $$
 
 avec $v$ le volume massique (en \unit{}{\meter\cubed\per\kilo\gram}) du mélange que l'on introduit dans le réacteur. 
-Nous pouvons déterminer $v$ grâce à l'expression de la loi des gaz parfaits 
-sous forme thremodynamique $v = \frac{R^*T}{31 \cdot 10^{5}}$ où $R^*$
+//
+Nous pouvons déterminer $\nu$ grâce à l'expression de la loi des gaz parfaits 
+sous forme thremodynamique $\nu = \frac{R^*T}{31 \cdot 10^{5}}$ où $R^*$
 vaut $\frac{R}{\frac{16\cdot x_{CH_{4}}+18\cdot x_{H_{2}O}}{2}}}$ ($x_{CH_{4}$ 
 et $x_{H_{2}O}$ sont les fractions molaire du méthane et de l'eau entrant dans le système).
 Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m_{entrée}} = \dot{m_{sortie}}$, 
 nous obtenons que $\dot{V} = c \cdot A$ avec $\dot{V}$ le débit volumique et $A$ 
-la somme des sections de tous les tubes. En remplaçant par les valeurs que nous possédons, nous obtenons :
+la somme des sections de tous les tubes.
+//
+En remplaçant par les valeurs que nous possédons, nous obtenons :
 
-$$A = \frac{\dot{V}}{c} = \frac{1.736\cdot 10\cdot v}{2} = \unit{8.68\cdot v}{\meter^{2}}$$
+$$A = \frac{\dot{V}}{c} = \frac{1.736\cdot 10\cdot \nu}{2} = \unit{8.68\cdot \nu}{\meter^{2}}$$
 
 Or, on sait que la surface d'un tube vaut $\pi\cdot(\frac{d}{2})^{2} = \unit{7.85 \cdot 10^{-3}}{\meter\squared}$. 
 Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur 
 la section d'un tube. Ce qui nous donne finalement : 
 
-$$\text{Nombre de tubes} = \frac{8.68\cdot v}{7.854\cdot 10^{-3}} = 1105.17\cdot v$$
+$$\text{Nombre de tubes} = \frac{8.68\cdot \nu}{7.854\cdot 10^{-3}} = 1105.17\cdot v$$
 
 \bibliography{source-tache1}
 \bibliographystyle{plain}
