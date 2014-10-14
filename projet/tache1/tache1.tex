@@ -525,20 +525,20 @@ $ \\= -55630.7 J $
 
 Maintenant, nous allons calculer le nombre de tubes dont nous aurons besoin pour notre réacteur multi-tubulaire. Nous avons ces données de base :
 
-$$ \dot{m_{NH_{3}}} = 1500 [t/j] , d_{tube} = 10^{-1} [m] et c = 2 [m/s]$$
+$$ \dot{m_{NH_{3}}} = \unit{1500}{\ton\per\dday} , d_{tube} = \unit{10^{-1}}{m} et c = \unit{2}{\meter\per\second}$$
 
 où $\dot{m_{NH_{3}}}$ est le débit massique par jour d'ammoniac, $d_{tube}$ est le diamètre d'un tube et $c$ est la vitesse superficielle à l'entrée du réacteur.
 Transformons d'abord le débit massique en débit volumique.
 
-$$ 1500 [t/j] = 1.736*10^{-2} [t/s] = 1.736*10*v [m^{3}/s] = \dot{V} $$
+$$ \unit{1500}{\ton\per\dday} =  \unit{1.736\cdot 10^{-2}}{\ton\per\dday} = \unit{1.736\cdot 10\cdot v}{\meter^{3}\per\second} = \dot{V} $$
 
-avec $v$ le volume massique du mélange que l'on introduit dans le réacteur. Nous pouvons déterminer $v$ grâce à l'expression de la loi des gaz parfaits sous forme thremodynamique $ v = \frac{R^{*}*T}{31*10^{5}} $ où $R^{*}$ vaut $\frac{R}{\frac{16*x_{CH_{4}}+18*x_{H_{2}O}}{2}}}$ ($x_{CH_{4}$ et $x_{H_{2}O}$ sont les fractions molaire du méthane et de l'eau entrant dans le système). Ensuite, à l'aide des notions de système ouvert et à l'hypothèse $\dot{m_{entrée}} = \dot{m_{sortie}}$, nous obtenons que $ \dot{V} = c * A $ avec $ \dot{V} $ le débit volumique et $A$ la somme des sections de tous les tubes. En remplaçant par les valeurs que nous possédons, nous obtenons :
+avec $v$ le volume massique du mélange que l'on introduit dans le réacteur. Nous pouvons déterminer $v$ grâce à l'expression de la loi des gaz parfaits sous forme thremodynamique $ v = \frac{R^{*}\cdot T}{31\cdot 10^{5}} $ où $R^{*}$ vaut $\frac{R}{\frac{16\cdot x_{CH_{4}}+18\cdot x_{H_{2}O}}{2}}}$ ($x_{CH_{4}$ et $x_{H_{2}O}$ sont les fractions molaire du méthane et de l'eau entrant dans le système). Ensuite, à l'aide des notions de système ouvert et à l'hypothèse $\dot{m_{entrée}} = \dot{m_{sortie}}$, nous obtenons que $ \dot{V} = c \cdot A $ avec $ \dot{V} $ le débit volumique et $A$ la somme des sections de tous les tubes. En remplaçant par les valeurs que nous possédons, nous obtenons :
 
-$$ A = \frac{\dot{V}}{c} = \frac{1.736*10*v}{2} = 8.68*v [m^{2}] $$
+$$ A = \frac{\dot{V}}{c} = \frac{1.736\cdot 10\cdot v}{2} = \unit{8.68\cdot v}{\meter^{2}} $$
 
-Or, on sait que la surface d'un tube vaut $\pi*(\frac{d}{2})^{2} = 7.85*10^{-3} [m^{2}]$. Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur la section d'un tube. Ce qui nous donne finalement : 
+Or, on sait que la surface d'un tube vaut $\pi\cdot(\frac{d}{2})^{2} = 7.85\cdot 10^{-3} [m^{2}]$. Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur la section d'un tube. Ce qui nous donne finalement : 
 
-$$ nb tubes = \frac{8.68*v}{7.854*10^{-3}} = 1105.17*v$$
+$$ nb tubes = \frac{8.68\cdot v}{7.854\cdot 10^{-3}} = 1105.17\cdot v$$
 
 \bibliography{source-tache1}
 \bibliographystyle{plain}
