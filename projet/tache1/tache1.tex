@@ -202,22 +202,22 @@ les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
 \section{Bilan de matiere}
 % A relire par ceux qui ont fait le calcul pour vérifier que rien n'é été 
 % modifié en refaisant la mise en page LaTeX
-On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{a}{\ton\per\dday}$. 
+On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday}$. 
 
 Nous partons de la réaction : 
 \begin{chemmath}
 		\frac{1}{2}N_2(g) + \frac{3}{2}H_2(g) \longrightarrow NH_3(g) 
 \end{chemmath}
  	
-$$m_{NH_3} = \unit{a}{\ton\per\dday}$$ 
+$$m_{NH_3} = \unit{m_{NH_3}}{\gram\per\dday}$$ 
 
 Et donc, 
  
-$$n_{NH_3} = \unit{\frac{a}{17}}{\mole}$$
+$$n_{NH_3} = \unit{\frac{m_{NH_3}}{17}}{\mole}$$
 
 Ce qui donne 
 
-$$n_{N_2} = \frac{n_{NH_3}}{2} = \unit{\frac{a}{34}}{\mole}$$ 
+$$n_{N_2} = \frac{n_{NH_3}}{2} = \unit{\frac{m_{NH_3}}{34}}{\mole}$$ 
 
 et 
 
@@ -229,11 +229,11 @@ que l'air est composé de 78\% de \chemform{N_2(g)}, 21\% de \chemform{O_2(g)}
 et 1\% d'\chemform{Ar(g)}, on peut déduire que $$n_{air}$$ entrant dans le 
 réacteur du réformage primaire vaut : 
 
-$$n_{air}= n_{N_2} \cdot \frac{100}{78} = \unit{\frac{25a}{663}}{\mole}$$ 
+$$n_{air}= n_{N_2} \cdot \frac{100}{78} = \unit{\frac{25m_{NH_3}}{663}}{\mole}$$ 
 
 Et :
-$$n_{O_2}= n_{air} \cdot \frac{21}{100} = \unit{\frac{7a}{884}}{\mole}$$
-$$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{1a}{2652}}{\mole}$$
+$$n_{O_2}= n_{air} \cdot \frac{21}{100} = \unit{\frac{7m_{NH_3}}{884}}{\mole}$$
+$$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{1m_{NH_3}}{2652}}{\mole}$$
 
 On sait par la réaction du réformage primaire suivante et par l'hypothèse que le
 \chemform{CH_4(g)} et le \chemform{O_2(g)} sont présents en quantité stoechiométrique : 
@@ -244,13 +244,17 @@ On sait par la réaction du réformage primaire suivante et par l'hypothèse que
 
 que :
 
-$$n_{CH_4} = 2 \cdot n_{O_2} = \unit{\frac{7a}{442}}{\mole}$$
-$$n_{CO} = n_{CH_4} =  \unit{\frac{7a}{442}} {\mole}$$
-$$n_{H_2} = 2 \cdot n_{CH_4} =  \unit{\frac{7a}{221}}{\mole}$$
+$$n_{CH_4} = 2 \cdot n_{O_2} = \unit{\frac{7m_{NH_3}}{442}}{\mole}$$
+$$n_{CO} = n_{CH_4} =  \unit{\frac{7m_{NH_3}}{442}} {\mole}$$
+$$n_{H_2} = 2 \cdot n_{CH_4} =  \unit{\frac{7m_{NH_3}}{221}}{\mole}$$
 
-On s'intéresse ensuite à la réaction du Water-Gas-Shift.
+On s'intéresse ensuite à la réaction du Water-Gas-Shift : 
 
-On sait que $n_{CO} = n_{CO}$ produit au réformage primaire
+\begin{chemmath}
+	CO + H_2O \Longrightarrow CO_2 + H_2
+\end{chemmath} 
+
+On sait que $n_{CO}$ du WGS = $n_{CO}$ produit au réformage primaire
 $+ n_{CO}$ produit au réfomarge secondaire. 
 
 Et donc on a : 
@@ -283,6 +287,9 @@ $$n_{H_2-\text{WGS}} = $$
 
 $$n_{CO_2-\text{final}} = $$ 
 $$n_{H_2O-\text{final}} = $$
+
+
+
 
 \section{Equilibre du reformage primaire}
 \subsection{Calcul de la constante d'équilibre}
