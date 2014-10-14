@@ -10,6 +10,7 @@
 \usepackage[squaren, Gray]{SIunits}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage[numbered, framed]{mcode}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -196,29 +197,9 @@ les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
 		
 	La réaction nécessite une grande quantité d'électricité. L'eau, quant à elle, est présente en quantité illimitée 
 	et est peu coûteuse. En pratique, cette méthode est très peu utilisée \cite{wiki-h2}.
-	
-	\section{Premier jet du flow-sheet simplifié}
-	La première ébauche de notre flow-sheet se trouve à la figure \ref{flow-sheet}.
-	
-	\begin{figure}[htb!]
-		\centering
-		\rotatebox{90}{\includegraphics[scale=0.50]{flow-sheet.png}}
-		\caption{Première ébauche de notre flow-sheet.}
-		\label{flow-sheet}
-	\end{figure}
-	
-	\section{Deuxième version du flow-sheet}
-	La deuxième version de notre flow-sheet se trouve à la figure \ref{flow-sheet-v2}.
-	
-	\begin{figure}[htb!]
-	\centering
-	\includegraphics[scale=0.80]{flow-sheet-v2.jpg}
-	\caption{Deuxième ébauche de notre flow-sheet.}
-	\label{flow-sheet-v2}
-	\end{figure}
 
 \section{Bilan de matiere}
-On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday}\footnote{grammes par jour}$. 
+On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday}\footnote{Avec \unit{\gram\per\day} = grammes par jour.}$. 
 
 Nous partons de la réaction : 
 \begin{chemmath}
@@ -384,6 +365,55 @@ Nous obtenons donc
 $$K_2 = \exp{\frac{-\Delta G_2}{RT}}$$
 avec la valeur de $\Delta G_2$ calculée plus tôt.
 
+\subsection{Etat d'avancement}
+Analysons maintenant plus en détails les deux réactions qui ont lieu dans le réformage primaire.
+Ces deux réactions se passent à l'équilibre dans le même réacteur. 
+De plus, dans la gamme de températures qui nous intéressent, on considère tous les composantes à l'état gazeux.
+Nous ferons l'hypothèse que ces gazs se comportent comme des gazs parfaits.
+Voici donc les tableaux d'avancement en conséquence, à la figure \ref{avancement}.
+  
+	\begin{figure}[htb!]
+		\centering
+		\includegraphics[scale=1.0]{avancements.png}
+		\caption{Les tableaux d'avancement des deux réactions;}
+		\label{avancement}
+	\end{figure}
+  
+Ici, $x$ et $y$ sont respectivement les avancements des première et deuxième réactions. Nous travaillons en moles.
+On remarque bien que les quantités à l'équilibre correspondent dans les deux tableaux.
+Avant de s'attaquer à l'écriture des quotients réactionnels à l'équilibre, notons que le nombre total de moles de gaz
+se trouve en prenant une seule fois le nombre de moles de chaque composant.
+    
+On a donc : $n_{g,tot} = n_{01} + n_{02} + 2x$ 
+  
+Nous pouvons écrire nos deux équilibres : 
+ 
+$$
+	\left\{
+		\begin{array}{rl}
+			K_1 =& \frac{(x-y)(3x+y)^3p_tot^2}{(n_{02}-x)(n_{02}-x-y)n_{g,tot}p_0^2} \\
+			K_2 =& \frac{y(3x+y)}{(x-y)(n_{02-x-y})}
+		\end{array}
+	\right
+$$
+
+Pour ces équations, $p_{tot}$ est la pression à la sortie du réacteur, c'est-à-dire 28 bars
+et $p_0$ est la pression standard, c'est à dire 1 bar.
+$K_1$ et $K_2$ ont été calculés plus tôt en fonction de la température. 
+De plus, grâce au bilan de matière fait précédement, nous obtenons les deux équations suivantes :
+
+$$
+	\left\{
+		\begin{array}{rl}
+			n_{01} - x =& \frac{7}{442} \cdot m_{NH_3} \\
+			3x + y		 =& \frac{9}{221} \cdot m_{NH_3} - (x-y)
+		\end{array}
+	\right
+$$
+ 
+Ainsi, nous avons un système de quatre équations à quatre inconnues qui nous permettra d'exprimer
+toutes les entrées/sorties en fonction de la température et de la masse de \chemform{NH_3}. 
+   
 \section{Bilan d'energie}
 Afin d'évaluer la quantité totale d'énergie dont nous avons besoin pour mener à 
 bien la synthèse d'ammoniac, nous allons regarder les quantités requises à chaque 
@@ -652,8 +682,19 @@ Il s'agit donc d'une réaction exothermique.
 %$ \\= -55.63 kJ $
 
 \section{Outil de gestion}
-% Insèrer le code MatLab coloré, commenté, avec ligne numérotée.
-% Critiquez le code MatLab, proposer des améliorations, etc.
+Notre outil de gestion se base sur les équations écrites lors du
+bilan de matière et lors du calcul de l'état d'avancement des réactions
+dans le reformage primaire. Il résout donc un système à 4 équations
+et à 4 inconnues et ne sélectionne que les solutions positives. Notre programme
+peut être amélioré et nous en sommes conscients. On pourrait le rendre plus robuste 
+en traitant par exemple les cas ou les arguments de notre fonction ne sont pas 
+valides. On peut aussi le rendre plus conviviale en créant un interface graphique
+permettant d'utiliser notre fonction sans passer par la commande. On pourrait également
+lui demander de calculer la quantité de \chemform{CO2} rejetée dans l'atmosphère afin
+de quantifier l'impact environnemental. Toutes ces améliorations seront d'ailleurs ajoutées 
+par la suite. Le code de notre fonction est présenté ci-dessous.
+
+\lstinputlisting{OutilDeGestion.m}
 
 \section{Calcul du nombre de tuyaux}
 Maintenant, nous allons calculer le nombre de tubes dont nous aurons besoin pour
@@ -668,12 +709,15 @@ $$\unit{517.05}{\ton\per\dday} = \unit{5.984\cdot 10^{-3}}{\ton\per\second} = \u
 
 avec $\nu$ le volume massique du mélange que l'on introduit dans le réacteur. Nous pouvons déterminer $\nu$ grâce à 
 l'expression de la loi des gaz parfaits sous forme thremodynamique $\nu = \frac{R^*\cdot T}{31\cdot 10^{5}}$ où $R^{*}$ vaut 
-$\frac{R}{\frac{16\cdot x_{CH_{4}}+18\cdot x_{H_{2}O}}{2}}}$ ($x_{CH_{4}$ et $x_{H_{2}O}$ sont les fractions molaire du méthane
-et de l'eau entrant dans le système). Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m_{entrée}} = \dot{m_{sortie}}$,
+
+$$\frac{R}{\frac{16\cdot x_{CH_{4}}+18\cdot x_{H_{2}O}}{2}}}$$
+
+avec $x_{CH_{4}$ et $x_{H_{2}O}$ les fractions molaire du méthane
+et de l'eau entrant dans le système. Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m}_{\text{entrée}} = \dot{m}_{\text{sortie}}$,
 nous obtenons que $\dot{V} = c \cdot  A$ avec $\dot{V}$ le débit volumique et $A$ la somme des sections de tous les tubes. 
 En remplaçant par les valeurs que nous possédons, nous obtenons :
 
-$$A = \frac{\dot{V}}{c} = \frac{5.984\dot \nu}{2} = \unit{2.992\cdot \nu}{\meter\square}$$
+$$A = \frac{\dot{V}}{c} = \frac{5.984\dot \nu}{2} = \unit{2.992\cdot \nu}{\meter\squared}$$
 
 Or, on sait que la surface d'un tube vaut $\pi\cdot (\frac{d}{2})^{2} = \unit{7.85\cdot 10^{-3}}{\meter\square}$. 
 Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur la section d'un tube. 
@@ -692,5 +736,27 @@ Ce qui nous donne un nombre de tube approximatif de $65$ ($64.77$).
 \bibliography{source-tache1}
 \bibliographystyle{plain}
 \nocite{*}
-	
+
+\appendix
+\section{Annexes}
+\subsection{Premier jet du flow-sheet simplifié}
+La première ébauche de notre flow-sheet se trouve à la figure \ref{flow-sheet}.
+
+\begin{figure}[htb!]
+	\centering
+	\rotatebox{90}{\includegraphics[scale=0.50]{flow-sheet.png}}
+	\caption{Première ébauche de notre flow-sheet.}
+	\label{flow-sheet}
+\end{figure}
+
+\subsection{Deuxième version du flow-sheet}
+La deuxième version de notre flow-sheet se trouve à la figure \ref{flow-sheet-v2}.
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[scale=0.80]{flow-sheet-v2.jpg}
+\caption{Deuxième ébauche de notre flow-sheet.}
+\label{flow-sheet-v2}
+\end{figure}
+
 \end{document}
