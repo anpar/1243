@@ -311,27 +311,25 @@ $$
 $$
 
 $$
-\Delta H_1(T) = \Delta H(\unit{298.15}{\kelvin}) 
- + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
- +  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT
- $$\\
-  
- $$
- = 188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3
- $$ 
+	\begin{array}{rl}
+		 	 \Delta H_1(T)	&=   \Delta H(\unit{298.15}{\kelvin}) 
+												 + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
+												 +  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT\\
+											&= 188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3 
+	\end{array}
+$$	
+
+Connaisant l'entropie en conditions standards \cite{atkins}
  
- Connaisant l'entropie en conditions standards \cite{atkins}
- 
- $$
- \Delta S_1(T) = \Delta S(\unit{298.15}{\kelvin}) 
- + \int_{298.15}^{T} C_{p_{CO(g)}} \frac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \frac{dT}{T} 
- +  \int_{T}^{298.15} C_{p_{CH_4(g)}} \frac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\frac{dT}{T}
- $$\\ 
- 
- $$
- = -167.05 + 71.16 \ln T -0.08326 T + (1.2135\cdot 10^{-5}) T^2
- $$ 
- 
+$$
+	\begin{array}{rl}
+		 	 \Delta S_1(T)	&=  \Delta S(\unit{298.15}{\kelvin}) 
+													 + \int_{298.15}^{T} C_{p_{CO(g)}} \frac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \frac{dT}{T} 
+													 +  \int_{T}^{298.15} C_{p_{CH_4(g)}} \frac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\frac{dT}{T} \\
+											&= -167.05 + 71.16 \ln T -0.08326 T + (1.2135\cdot 10^{-5}) T^2
+	\end{array}
+$$	
+
  Nous pouvons calculer $\Delta G_1$:
  
  $$
@@ -356,28 +354,26 @@ C_{p_{CO_2}}(T)=32.22 +(22.18 \cdot 10^{-3})T + (3.35 \cdot 10^{-6})T^2\\
 $$
 
 $$
-\Delta H_2(T) = \Delta H(\unit{298.15}{\kelvin}) 
- + \int_{298.15}^{T} C_{p_{CO_2(g)}} dT + \int_{298.15}^{T} C_{p_{H_2(g)}} dT 
- +  \int_{T}^{298.15} C_{p_{CO(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT
- $$\\
-  
- $$
- = -42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3
- $$ 
+	\begin{array}{rl}
+		 \Delta H_2(T)	&=  \Delta H(\unit{298.15}{\kelvin}) 
+												 + \int_{298.15}^{T} C_{p_{CO_2(g)}} dT + \int_{298.15}^{T} C_{p_{H_2(g)}} dT 
+												 +  \int_{T}^{298.15} C_{p_{CO(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT \\
+										&=  -42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3
+	\end{array}
+$$	
 
 Connaisant l'entropie en conditions standards \cite{atkins}
 
 $$
-\Delta S_2(T) = \Delta S(\unit{298.15}{\kelvin}) 
- + \int_{298.15}^{T} C_{p_{CO_2(g)}} \frac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \frac{dT}{T} 
- +  \int_{T}^{298.15} C_{p_{CO(g)}} \frac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\frac{dT}{T}
- $$\\
-  
- $$
- = -65.9 + 3.77 \ln(T) +(5.86\cdot 10^{-3})T -(6.3 \cdot 10^{-7})T^2
- $$ 
- 
- Nous pouvons calculer $\Delta G_2$:
+	\begin{array}{rl}
+		 	\Delta S_2(T)	&=  \Delta S(\unit{298.15}{\kelvin}) 
+											 + \int_{298.15}^{T} C_{p_{CO_2(g)}} \frac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \frac{dT}{T} 
+											 +  \int_{T}^{298.15} C_{p_{CO(g)}} \frac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\frac{dT}{T}\\
+										&=   -65.9 + 3.77 \ln(T) +(5.86\cdot 10^{-3})T -(6.3 \cdot 10^{-7})T^2
+	\end{array}
+$$	
+
+Nous pouvons calculer $\Delta G_2$:
  
  $$
  \Delta G_2=-42533.33 - (3.77 \ln(T))T +69.67 T -(2.93 \cdot 10^{-3})T^2
@@ -428,9 +424,6 @@ La réaction se passe généralement à une température avoisinant les $\unit{1
 Voici les $C_p$ variables en fonction de la température des différents composants\cite{hc-table} 
 (exprimés en \unit{\joule\per\mole\kelvin}) :
 
-% Antoine : ici je suppose que \unit{1300}{\kelvin} est une erreure (pusiqu'il reste du T dans 
-% l'expression du Cp et donc je l'ai remplacé par T.
-
 $$
 	\left\{
 		\begin{array}{rl}
@@ -444,8 +437,14 @@ $$
 
 Calculons maintenant le $\Delta H$ pour une température $T_2$ de $\unit{1300}{\kelvin}$ :
 
-$$\Delta H(\unit{1300}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
-+ \int_{1300}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1300} C_{p_{produits}} dT = \unit{-805.99}{\kilo\joule}$$
+$$
+	\begin{array}{rl}
+		 	\Delta H(\unit{1300}{\kelvin}) 	&=  \Delta H(\unit{298.15}{\kelvin}) + \int_{1300}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1300} C_{p_{produits}} dT \\
+																			&=  \unit{-805.99}{\kilo\joule}
+	\end{array}
+$$	
+
+On peut donc voir que cette réaction est largement exothermique, c'est elle qui fournira l'énergie nécessaire aux réactions du réformage primaire.
 
 % J'ai retiré cette partie, personne ne la lire jamais.
 %$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{1300}^{298.15} C_{p_{CH_{4}}} dT +2\int_{1300}^{298.15} C_{p_{O_{2}}} dT + \int_{298.15}^{1300} C_{p_{CO_{2}}} dT + 2\int_{1300}^{298.15} C_{p_{H_{2}O}} dT$
@@ -463,12 +462,10 @@ $$\Delta H(\unit{1300}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin})
 %-(68945.5-7430.5)-2(41647.8-8214.57)+(58174.8-10562.6)+2(48007.7-9448.17)$		
 %$ \\= -802340 - 61515 - 66866.46 + 47612.2 + 77119.06 $
 %$ \\=  $
-On peut donc voir que cette réaction est largement exothermique, c'est elle qui fournira l'énergie nécessaire aux réactions du réformage primaire.
 
 \paragraph{Reformage primaire}
-
 Dans notre travail, la température du réformage primaire est un paramètre. Nous obtiendrons donc une enthalpie 
-dépendant de la température. //
+dépendant de la température. 
 Le réformage primaire est composé de deux équations.
 
 \subparagraphe{Première équation}
@@ -489,15 +486,13 @@ $$
 $$
 
 $$
-\Delta H_1(T) = \Delta H(\unit{298.15}{\kelvin}) 
- + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
- +  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT
- $$\\
-  
- $$
- = 188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3
- $$ 
- 
+	\begin{array}{rl}
+		 	\Delta H_1(T) = \Delta H(\unit{298.15}{\kelvin})	&=  + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
+																														+  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT\\
+																												&=  188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3
+	\end{array}
+$$	
+
 \subparagraphe{Deuxième équation}
 \begin{chemmath} 
  CO(g) + H_{2}O(g) \longrightarrow CO_2(g) + H_2
@@ -512,15 +507,13 @@ C_{p_{CO_2}}(T)=32.22 +(22.18 \cdot 10^{-3})T + (3.35 \cdot 10^{-6})T^2\\
 $$
 
 $$
-\Delta H_2(T) = \Delta H(\unit{298.15}{\kelvin}) 
- + \int_{298.15}^{T} C_{p_{CO_2(g)}} dT + \int_{298.15}^{T} C_{p_{H_2(g)}} dT 
- +  \int_{T}^{298.15} C_{p_{CO(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT
- $$\\
-  
- $$
- = -42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3
- $$ 
-
+	\begin{array}{rl}
+		  \Delta H_2(T)	&=   \Delta H(\unit{298.15}{\kelvin}) 
+											 + \int_{298.15}^{T} C_{p_{CO_2(g)}} dT + \int_{298.15}^{T} C_{p_{H_2(g)}} dT 
+											 +  \int_{T}^{298.15} C_{p_{CO(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT \\
+										&=  -42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3
+	\end{array}
+$$	
 
 %\begin{chemmath}
 %		CH_4 + 2H_2O \Longleftrightarrow 4H_2 + CO_2
@@ -570,9 +563,16 @@ $$
 
 Calculons maintenant le $\Delta H$ a $\unit{1173.15}{\kelvin}$ :
 
-$$\Delta H(\unit{1173.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
-+ \int_{1173.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1173.15} 
-C_{p_{produits}} dT = \unit{-20.29}{\kilo\joule}$$ (réaction exothermique)
+$$
+	\begin{array}{rl}
+		 	\Delta H(\unit{1173.15}{\kelvin}) &=  \Delta H(\unit{298.15}{\kelvin}) 
+																						+ \int_{1173.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1173.15} 
+																						C_{p_{produits}} dT \\
+																				&=  \unit{-20.29}{\kilo\joule}
+	\end{array}
+$$	
+
+Il s'agit donc d'une réaction exothermique.
 
 % De nouveau, je retire les calculs un peu long.
 %$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{1173.15}^{298.15} C_{p_{CH_{4}}} dT +\frac{1}{2}\int_{1173.15}^{298.15} C_{p_{O_{2}}} dT + \int_{298.15}^{1173.15} C_{p_{CO}} dT + 2\int_{1173.15}^{298.15} C_{p_{H_{2}}} dT$
@@ -622,10 +622,17 @@ $$
 	\right
 $$
 					
-Calculons maintenant le $\Delta H$ à $\unit{573.15}{\kelvin}$ :				
-$$\Delta H(\unit{573.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
-+ \int_{573.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{573.15} C_{p_{produits}} dT
-= \unit{-55.63}{\kilo\joule}$$ (réaction exothermique)
+Calculons maintenant le $\Delta H$ à $\unit{573.15}{\kelvin}$ :			
+
+$$
+	\begin{array}{rl}
+		 	 \Delta H(\unit{573.15}{\kelvin})	&=  \Delta H(\unit{298.15}{\kelvin}) 
+																							+ \int_{573.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{573.15} C_{p_{produits}} dT \\
+																				&=  \unit{-55.63}{\kilo\joule}
+	\end{array}
+$$	
+	
+Il s'agit donc d'une réaction exothermique.
 
 % Viré aussi
 %$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{573.15}^{298.15} C_{p_{CO}} dT +\int_{573.15}^{298.15} C_{p_{H_{2}O}} dT + \int_{298.15}^{573.15} C_{p_{CO_{2}}} dT + \int_{298.15}^{573.15} C_{p_{H_{2}}} dT$
@@ -645,32 +652,31 @@ $$\Delta H(\unit{573.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin})
 %$ \\= -55.63 kJ $
 
 \section{Outil de gestion}
-% To do
+% Insèrer le code MatLab coloré, commenté, avec ligne numérotée.
+% Critiquez le code MatLab, proposer des améliorations, etc.
 
 \section{Calcul du nombre de tuyaux}
 Maintenant, nous allons calculer le nombre de tubes dont nous aurons
 besoin pour notre réacteur multi-tubulaire. Nous avons ces données de base :
 
-$$\dot{m_{NH_{3}}} = \unit{1500}{\ton\per\dday} \text{débit massique par jour d'ammoniac}$$
+$$\dot{m_{NH_{3}}} = \unit{1500}{\ton\per\dday} = \text{débit massique par jour d'ammoniac}$$
 
-$$d_{tube} = \unit{10^{-1}}{\meter}\text{diamètre d'un tube}$$
+$$d_{tube} = \unit{10^{-1}}{\meter} = \text{diamètre d'un tube}$$
 
-$$c = \unit{2}{\meter\per\second}\text{vitesse superficielle à l'entrée du réacteur}$$
+$$c = \unit{2}{\meter\per\second} = \text{vitesse superficielle à l'entrée du réacteur}$$
 Transformons d'abord le débit massique en débit volumique.
 
 $$ \unit{1500}{\ton\per\dday} =  \unit{1.736\cdot 10^{-2}}{\ton\per\second} = 
 \unit{17.36 \cdot \nu}{\meter^{3}\per\second} = \dot{V} $$
 
 avec $v$ le volume massique (en \unit{}{\meter\cubed\per\kilo\gram}) du mélange que l'on introduit dans le réacteur. 
-//
 Nous pouvons déterminer $\nu$ grâce à l'expression de la loi des gaz parfaits 
 sous forme thremodynamique $\nu = \frac{R^*T}{31 \cdot 10^{5}}$ où $R^*$
 vaut $\frac{R}{\frac{16\cdot x_{CH_{4}}+18\cdot x_{H_{2}O}}{2}}}$ ($x_{CH_{4}$ 
 et $x_{H_{2}O}$ sont les fractions molaire du méthane et de l'eau entrant dans le système).
-Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m_{entrée}} = \dot{m_{sortie}}$, 
+Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m_{\text{entrée}}} = \dot{m_{\text{sortie}}}$, 
 nous obtenons que $\dot{V} = c \cdot A$ avec $\dot{V}$ le débit volumique et $A$ 
 la somme des sections de tous les tubes.
-//
 En remplaçant par les valeurs que nous possédons, nous obtenons :
 
 $$A = \frac{\dot{V}}{c} = \frac{1.736\cdot 10\cdot \nu}{2} = \unit{8.68\cdot \nu}{\meter^{2}}$$
