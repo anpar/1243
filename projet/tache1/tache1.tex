@@ -377,7 +377,7 @@ $$
  = -65.9 + 3.77 \ln(T) +(5.86\cdot 10^{-3})T -(6.3 \cdot 10^{-7})T^2
  $$ 
  
- Nous pouvons calculer $\Delta G_1$:
+ Nous pouvons calculer $\Delta G_2$:
  
  $$
  \Delta G_2=-42533.33 - (3.77 \ln(T))T +69.67 T -(2.93 \cdot 10^{-3})T^2
@@ -467,6 +467,61 @@ On peut donc voir que cette réaction est largement exothermique, c'est elle qui
 
 \paragraph{Reformage primaire}
 
+Dans notre travail, la température du réformage primaire est un paramètre. Nous obtiendrons donc une enthalpie 
+dépendant de la température. //
+Le réformage primaire est composé de deux équations.
+
+\subparagraphe{Première équation}
+\begin{chemmath} 
+ CH_4(g) + H_{2}O(g) \longrightarrow CO(g) + 3H_2
+\end{chemmath} 
+
+Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
+$$
+\left\{
+	\begin{array}{rl}
+		C_{p_{CO}}(T) 			&= \unit{27.62 +(5.02 \cdot 10^{-3})T}{\joule\per\mole\kelvin} \\
+		C_{p_{H_{2}}}(T) 		&= \unit{29.3-(0.84 \cdot 10^{-3})T + (2.09\cdot 10^{-6})T^2}{\joule\per\mole\kelvin} \\
+		C_{p_{CH_{4}}}(T) 	&= \unit{14.23+(75.3 \cdot 10^{-3})T - (18\cdot 10^{-6})T^2}{\joule\per\mole\kelvin} \\
+		C_{p_{H_{2}O}}(T) 	&= \unit{30.13+(10.46 \cdot 10^{-3})T}{\joule\per\mole\kelvin} 
+	\end{array}
+\right
+$$
+
+$$
+\Delta H_1(T) = \Delta H(\unit{298.15}{\kelvin}) 
+ + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
+ +  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT
+ $$\\
+  
+ $$
+ = 188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3
+ $$ 
+ 
+\subparagraphe{Deuxième équation}
+\begin{chemmath} 
+ CO(g) + H_{2}O(g) \longrightarrow CO_2(g) + H_2
+\end{chemmath} 
+
+Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
+
+$$
+\begin{array}{rl}
+C_{p_{CO_2}}(T)=32.22 +(22.18 \cdot 10^{-3})T + (3.35 \cdot 10^{-6})T^2\\
+\end{array}
+$$
+
+$$
+\Delta H_2(T) = \Delta H(\unit{298.15}{\kelvin}) 
+ + \int_{298.15}^{T} C_{p_{CO_2(g)}} dT + \int_{298.15}^{T} C_{p_{H_2(g)}} dT 
+ +  \int_{T}^{298.15} C_{p_{CO(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT
+ $$\\
+  
+ $$
+ = -42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3
+ $$ 
+
+
 %\begin{chemmath}
 %		CH_4 + 2H_2O \Longleftrightarrow 4H_2 + CO_2
 %	\end{chemmath}
@@ -481,7 +536,8 @@ On peut donc voir que cette réaction est largement exothermique, c'est elle qui
 % $$
 %Pauline : SIMON tu dois mettre ici ton calcul du DeltaH en fonction de T !!!! à remplacer par toute cette merde , qui sert à rien, 
 
-On peut remarquer que cette réaction est endothermique et a besoin de l'énergie de la réaction de combustion pour pouvoir se réaliser.
+%On peut remarquer que cette réaction est endothermique et a besoin de l'énergie de la réaction de combustion pour pouvoir se réaliser.
+% Simon: on n'observe plus vraiment ici car pas de valeur.
 \paragraph{Reformage secondaire}
 
 \begin{chemmath}
