@@ -463,22 +463,25 @@ $$\Delta H(\unit{1300}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin})
 %-(68945.5-7430.5)-2(41647.8-8214.57)+(58174.8-10562.6)+2(48007.7-9448.17)$		
 %$ \\= -802340 - 61515 - 66866.46 + 47612.2 + 77119.06 $
 %$ \\=  $
+On peut donc voir que cette réaction est largement exothermique, c'est elle qui fournira l'énergie nécessaire aux réactions du réformage primaire.
 
 \paragraph{Reformage primaire}
 
-	\begin{chemmath}
-		CH_4 + 2H_2O \Longleftrightarrow 4H_2 + CO_2
-	\end{chemmath}
+%\begin{chemmath}
+%		CH_4 + 2H_2O \Longleftrightarrow 4H_2 + CO_2
+%	\end{chemmath}
+%
+%$$
+%	\begin{array}{rl}
+%	\Delta H_{reaction}		&= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
+%												&= 4 \cdot 0 + -393.51 - (-74.81 + 2\cdot(-241.82))\\
+%												&= -393.51 - (-558.45) \\
+%												&= \unit{164.94}{\kilo\joule\per\mole}
+%	\end{array}
+% $$
+%Pauline : SIMON tu dois mettre ici ton calcul du DeltaH en fonction de T !!!! à remplacer par toute cette merde , qui sert à rien, 
 
-$$
-	\begin{array}{rl}
-	\Delta H_{reaction}		&= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
-												&= 4 \cdot 0 + -393.51 - (-74.81 + 2\cdot(-241.82))\\
-												&= -393.51 - (-558.45) \\
-												&= \unit{164.94}{\kilo\joule\per\mole}
-	\end{array}
-$$
-
+On peut remarquer que cette réaction est endothermique et a besoin de l'énergie de la réaction de combustion pour pouvoir se réaliser.
 \paragraph{Reformage secondaire}
 
 \begin{chemmath}
@@ -513,7 +516,7 @@ Calculons maintenant le $\Delta H$ a $\unit{1173.15}{\kelvin}$ :
 
 $$\Delta H(\unit{1173.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
 + \int_{1173.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1173.15} 
-C_{p_{produits}} dT = \unit{-20.29}{\kilo\joule}$$
+C_{p_{produits}} dT = \unit{-20.29}{\kilo\joule}$$ (réaction exothermique)
 
 % De nouveau, je retire les calculs un peu long.
 %$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{1173.15}^{298.15} C_{p_{CH_{4}}} dT +\frac{1}{2}\int_{1173.15}^{298.15} C_{p_{O_{2}}} dT + \int_{298.15}^{1173.15} C_{p_{CO}} dT + 2\int_{1173.15}^{298.15} C_{p_{H_{2}}} dT$
@@ -531,7 +534,7 @@ C_{p_{produits}} dT = \unit{-20.29}{\kilo\joule}$$
 %-(58823.4-7430.5) -\frac{1}{2}(37081-8214.57)+(35856.9-8458.03)+2(34920.1-7986.16)$		
 %$ \\= -35720 - 51392.9 - 14433.215 + 27398.87 + 53867.88 $
 %$ \\= -20.28 kJ $
-		
+
 \paragraph{Water-Gas-Shift}
 
 \begin{chemmath}
@@ -566,7 +569,7 @@ $$
 Calculons maintenant le $\Delta H$ à $\unit{573.15}{\kelvin}$ :				
 $$\Delta H(\unit{573.15}{\kelvin}) = \Delta H(\unit{298.15}{\kelvin}) 
 + \int_{573.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{573.15} C_{p_{produits}} dT
-= \unit{-55.63}{\kilo\joule}$$
+= \unit{-55.63}{\kilo\joule}$$ (réaction exothermique)
 
 % Viré aussi
 %$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{573.15}^{298.15} C_{p_{CO}} dT +\int_{573.15}^{298.15} C_{p_{H_{2}O}} dT + \int_{298.15}^{573.15} C_{p_{CO_{2}}} dT + \int_{298.15}^{573.15} C_{p_{H_{2}}} dT$
