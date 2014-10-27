@@ -10,3 +10,4 @@ Questions Aspen
 
 * Méthode à choisir? 
 * Unité flash2 ou flash3?
+* Comment peut-on se permettre de relier les différentes parties qui nous permettront d'obtenir l'ammoniac désiré par nos ancêtres et successeurs?
