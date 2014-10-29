@@ -41,7 +41,7 @@
 \tableofcontents
 
 \section{Calcul du flux des réactifs}
-
+$\Theta$
 \paragraph{Hypothèse}
 Lors du calcul de ces flux, nous avons utilisé l'hypothèse que tous les réactifs sont 
 consommés par le réacteur.
@@ -121,8 +121,7 @@ On peut être plus précis en utilisant les capacités calorifiques suivantes \c
 
 En refaisant le calcul ci-dessus en tenant compte de la variation des capacités calorifiques en fonction
 de la température, nous obtenons un débit un peu inférieur de \unit{135.662}{\liter\per\second}. On remarque
-que l'approximation faite ci-dessus n'est pas si mauvaise que ça. Nous vous épargons ici
-les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
+que l'erreur faite en utilisant l'approximation de la section précédente est de 3\%.
 
 \section{Sources des réactifs}
 	\subsection{Sources de diazote}
@@ -199,7 +198,8 @@ les détails de calculs (que nous avons réalisé avec \textsc{Matlab}).
 	et est peu coûteuse. En pratique, cette méthode est très peu utilisée \cite{wiki-h2}.
 
 \section{Bilan de matiere}
-On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday}\footnote{Avec \unit{\gram\per\day} = grammes par jour.}$. 
+Pour la compréhension de cette section, nous vous renvoyons vers le flow-sheet \ref{appendix:flow-sheet}.
+On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday} \footnote{Avec \unit{\gram\per\day} = grammes par jour.}$. 
 
 Nous partons de la réaction : 
 \begin{chemmath}
@@ -210,11 +210,11 @@ $$m_{NH_3} = \unit{m_{NH_3}}{\gram\per\dday}$$
 
 Et donc, 
  
-$$n_{NH_3} = \unit{\frac{m_{NH_3}}{17}}{\mole}$$
+$$n_{NH_3} = \unit{\frac{m_{NH_3}}{17}}{\mole\per\dday}$$
 
 Ce qui donne 
 
-$$n_{N_2} = \frac{n_{NH_3}}{2} = \unit{\frac{m_{NH_3}}{34}}{\mole}$$ 
+$$n_{N_2} = \frac{n_{NH_3}}{2} = \unit{\frac{m_{NH_3}}{34}}{\mole\per\dday}$$ 
 
 et 
 
@@ -226,11 +226,11 @@ que l'air est composé de 78\% de \chemform{N_2(g)}, 21\% de \chemform{O_2(g)}
 et 1\% d'\chemform{Ar(g)}, on peut déduire que $n_{air}$ entrant dans le 
 réacteur du réformage primaire vaut : 
 
-$$n_{air}= n_{N_2} \cdot \frac{100}{78} = \unit{\frac{25m_{NH_3}}{663}}{\mole}$$ 
+$$n_{air}= n_{N_2} \cdot \frac{100}{78} = \unit{\frac{25m_{NH_3}}{663}}{\mole\per\dday}$$ 
 
 Et :
-$$n_{O_2}= n_{air} \cdot \frac{21}{100} = \unit{\frac{7m_{NH_3}}{884}}{\mole}$$
-$$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{1m_{NH_3}}{2652}}{\mole}$$
+$$n_{O_2}= n_{air} \cdot \frac{21}{100} = \unit{\frac{7m_{NH_3}}{884}}{\mole\per\dday}$$
+$$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{1m_{NH_3}}{2652}}{\mole\per\dday}$$
 
 On sait par la réaction du réformage primaire suivante:
 \begin{chemmath}
@@ -240,9 +240,9 @@ On sait par la réaction du réformage primaire suivante:
 et par l'hypothèse que le
 \chemform{CH_4(g)} et le \chemform{O_2(g)} sont présents en quantité stoechiométrique : 
 
-$$n_{CH_4} = 2 \cdot n_{O_2} = \unit{\frac{7m_{NH_3}}{442}}{\mole}$$
-$$n_{CO} = n_{CH_4} =  \unit{\frac{7m_{NH_3}}{442}} {\mole}$$
-$$n_{H_2} = 2 \cdot n_{CH_4} =  \unit{\frac{7m_{NH_3}}{221}}{\mole}$$
+$$n_{CH_4} = 2 \cdot n_{O_2} = \unit{\frac{7m_{NH_3}}{442}}{\mole\per\dday}$$
+$$n_{CO} = n_{CH_4} =  \unit{\frac{7m_{NH_3}}{442}} {\mole\per\dday}$$
+$$n_{H_2} = 2 \cdot n_{CH_4} =  \unit{\frac{7m_{NH_3}}{221}}{\mole\per\dday}$$
 
 On s'intéresse ensuite à la réaction du Water-Gas-Shift : 
 
@@ -476,31 +476,14 @@ $$
 
 On peut donc voir que cette réaction est largement exothermique, c'est elle qui fournira l'énergie nécessaire aux réactions du réformage primaire.
 
-% J'ai retiré cette partie, personne ne la lire jamais.
-%$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{1300}^{298.15} C_{p_{CH_{4}}} dT +2\int_{1300}^{298.15} C_{p_{O_{2}}} dT + \int_{298.15}^{1300} C_{p_{CO_{2}}} dT + 2\int_{1300}^{298.15} C_{p_{H_{2}O}} dT$
-%$ \\= -802.34 kJ/mol 
-%+\int_{1300}^{298.15} (14.23 + 75.3\cdot10^{-3}T + (-18\cdot10^{-6})T^2) dT 
-%+2\int_{1300}^{298.15} (25.73 + 12.97\cdot10^{-3}T + (-3.77\cdot10^{-6})T^2) dT
-%+\int_{298.15}^{1300} (32.22 + 22.18\cdot10^{-3}T + (-3.35\cdot10^{-6})T^2) dT 
-%+2\int_{298.15}^{1300} (30.13 + 10.46\cdot10^{-3}T + (0\cdot10^{-6})T^2) dT$			
-%$ \\= -802.34 kJ/mol 
-%- [14.23T + \frac{75.3\cdot10^{-3}}{2}T^2 + (\frac{-18\cdot10^{-6}}{3})T^3]_{298.15}^{1300} 
-%-2 [25.73T + \frac{12.97\cdot10^{-3}}{2}T^2 + (\frac{-3.77\cdot10^{-6}}{3})T^3]_{298.15}^{1300} 
-%+ [32.22T + \frac{22.18\cdot10^{-3}}{2}T^2 + \frac{(-3.35\cdot10^{-6})}{3}T^3]_{298.15}^{1300}  
-%+2 [30.13T + \frac{(10.46)\cdot10^{-3}}{2}T^2 + \frac{(0\cdot10^{-6})}{3}T^3]_{298.15}^{1300} $
-%$ \\= -802340
-%-(68945.5-7430.5)-2(41647.8-8214.57)+(58174.8-10562.6)+2(48007.7-9448.17)$		
-%$ \\= -802340 - 61515 - 66866.46 + 47612.2 + 77119.06 $
-%$ \\=  $
-
 \paragraph{Reformage primaire}
 Dans notre travail, la température du réformage primaire est un paramètre. Nous obtiendrons donc une enthalpie 
 dépendant de la température. 
 Le réformage primaire est composé de deux équations.
 
-\subparagraphe{Première équation}
+\subparagraphe{Première réaction}
 \begin{chemmath} 
- CH_4(g) + H_{2}O(g) \longrightarrow CO(g) + 3H_2
+ CH_4(g) + H_{2}O(g) <=> CO(g) + 3H_2
 \end{chemmath} 
 
 Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
@@ -523,16 +506,16 @@ $$
 	\end{array}
 $$	
 
-\subparagraphe{Deuxième équation}
+\subparagraphe{Deuxième réaction}
 \begin{chemmath} 
- CO(g) + H_{2}O(g) \longrightarrow CO_2(g) + H_2
+	CO(g) + H_{2}O(g) <=> CO_2(g) + H_2
 \end{chemmath} 
 
 Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
 
 $$
 \begin{array}{rl}
-C_{p_{CO_2}}(T)=32.22 +(22.18 \cdot 10^{-3})T + (3.35 \cdot 10^{-6})T^2\\
+C_{p_{CO_2}}(T) = \unit{32.22 +(22.18 \cdot 10^{-3})T + (3.35 \cdot 10^{-6})T^2}{\joule\per\mole\kelvin} \\
 \end{array}
 $$
 
@@ -541,26 +524,10 @@ $$
 		  \Delta H_2(T)	&=   \Delta H(\unit{298.15}{\kelvin}) 
 											 + \int_{298.15}^{T} C_{p_{CO_2(g)}} dT + \int_{298.15}^{T} C_{p_{H_2(g)}} dT 
 											 +  \int_{T}^{298.15} C_{p_{CO(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT \\
-										&=  -42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3
+										&=  \unit{-42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3}{\kilo\joule\per\mole}
 	\end{array}
 $$	
 
-%\begin{chemmath}
-%		CH_4 + 2H_2O \Longleftrightarrow 4H_2 + CO_2
-%	\end{chemmath}
-%
-%$$
-%	\begin{array}{rl}
-%	\Delta H_{reaction}		&= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs}\\
-%												&= 4 \cdot 0 + -393.51 - (-74.81 + 2\cdot(-241.82))\\
-%												&= -393.51 - (-558.45) \\
-%												&= \unit{164.94}{\kilo\joule\per\mole}
-%	\end{array}
-% $$
-%Pauline : SIMON tu dois mettre ici ton calcul du DeltaH en fonction de T !!!! à remplacer par toute cette merde , qui sert à rien, 
-
-%On peut remarquer que cette réaction est endothermique et a besoin de l'énergie de la réaction de combustion pour pouvoir se réaliser.
-% Simon: on n'observe plus vraiment ici car pas de valeur.
 \paragraph{Reformage secondaire}
 
 \begin{chemmath}
@@ -603,23 +570,6 @@ $$
 $$	
 
 Il s'agit donc d'une réaction exothermique.
-
-% De nouveau, je retire les calculs un peu long.
-%$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{1173.15}^{298.15} C_{p_{CH_{4}}} dT +\frac{1}{2}\int_{1173.15}^{298.15} C_{p_{O_{2}}} dT + \int_{298.15}^{1173.15} C_{p_{CO}} dT + 2\int_{1173.15}^{298.15} C_{p_{H_{2}}} dT$
-%$ \\= -35.72 kJ/mol 
-%+\int_{1173.15}^{298.15} (14.23 + 75.3*10^{-3}T + (-18*10^{-6})T^2) dT 
-%+\frac{1}{2}\int_{1173.15}^{298.15} (25.73 + 12.97*10^{-3}T + (-3.77*10^{-6})T^2) dT
-%+\int_{298.15}^{1173.15} (27.62 + 5.02*10^{-3}T + (0*10^{-6})T^2) dT 
-%+2\int_{298.15}^{1173.15} (29.3 + (-0.84)*10^{-3}T + (2.09*10^{-6})T^2) dT$			
-%$ \\= -35.72 kJ/mol 
-%- [14.23T + \frac{75.3*10^{-3}}{2}T^2 + (\frac{-18*10^{-6}}{3})T^3]_{298.15}^{1173.15} 
-%-\frac{1}{2} [25.73T + \frac{12.97*10^{-3}}{2}T^2 + (\frac{-3.77*10^{-6}}{3})T^3]_{298.15}^{1173.15} 
-%+ [27.62T + \frac{5.02*10^{-3}}{2}T^2 + \frac{(0*10^{-6})}{3}T^3]_{298.15}^{1173.15}  
-%+2 [29.3T + \frac{(-0.84)*10^{-3}}{2}T^2 + \frac{(2.09*10^{-6})}{3}T^3]_{298.15}^{1173.15} $
-%$ \\= -35720
-%-(58823.4-7430.5) -\frac{1}{2}(37081-8214.57)+(35856.9-8458.03)+2(34920.1-7986.16)$		
-%$ \\= -35720 - 51392.9 - 14433.215 + 27398.87 + 53867.88 $
-%$ \\= -20.28 kJ $
 
 \paragraph{Water-Gas-Shift}
 
@@ -664,30 +614,11 @@ $$
 	
 Il s'agit donc d'une réaction exothermique.
 
-% Viré aussi
-%$ \\= \Delta H(\unit{298.15}{\kelvin}) + \int_{573.15}^{298.15} C_{p_{CO}} dT +\int_{573.15}^{298.15} C_{p_{H_{2}O}} dT + \int_{298.15}^{573.15} C_{p_{CO_{2}}} dT + \int_{298.15}^{573.15} C_{p_{H_{2}}} dT$
-%$ \\= -41.16 kJ/mol 
-%+\int_{573.15}^{298.15} (27.62 + 5.04*10^{-3}T + (0*10^{-6})T^2) dT 
-%+\int_{573.15}^{298.15} (30.13 + 10.46*10^{-3}T + (0*10^{-6})T^2) dT
-%+\int_{298.15}^{573.15} (32.22 + 22.18*10^{-3}T + (-3.35*10^{-6})T^2) dT 
-%+\int_{298.15}^{573.15} (29.3 + (-0.84)*10^{-3}T + (2.09*10^{-6})T^2) dT$			
-%$ \\= -41.16 kJ/mol 
-%- [27.62T + \frac{5.04*10^{-3}}{2}T^2 + (\frac{0*10^{-6}}{3})T^3]_{298.15}^{573.15} 
-%- [30.13T + \frac{10.46*10^{-3}}{2}T^2 + (\frac{0*10^{-6}}{3})T^3]_{298.15}^{573.15} 
-%+ [32.22T + \frac{22.18*10^{-3}}{2}T^2 + \frac{(-3.35*10^{-6})}{3}T^3]_{298.15}^{573.15}  
-%+ [29.3T + \frac{(-0.84)*10^{-3}}{2}T^2 + \frac{(2.09*10^{-6})}{3}T^3]_{298.15}^{573.15} $
-%$ \\= -41160
-%-(16658.2-8458.91)-(18987.1-9448.17)+(21899.7-10562.6)+(16786.5-8716.92)$		
-%$ \\= -41160 - 8199.29 - 9538.93 + 11337.1 + 8069.58 $
-%$ \\= -55.63 kJ $
-
 \paragraph{S\'eparation de $CO_{2}$ et de $H_{2}O$}		
 
 Pour cette \'etape, nous ferons l'hypoth\`{e}se que les \'etapes requises pour enlever le $CO_{2}$ et le $H_{2}O$ des composants pr\'esents dans le circuit ne n\'ecessitent pas d'\'energie, ou du moins \'energ\'etiquement ind\'ependante des autres besoins en \'energie du reste du syst\`{e}me.
 
 \paragraph{Synth\`{e}se du $NH_{3}$}		
-
-
 
 \paragraph{Conclusion}
 \'Etant donn\'e le fait que nous ayions besoin de X kiloJoules pour le reformage primaire, et que l'\'energie que la combustion donne au d\'ebut du syst\`{e}me se fait \`{a} un rendement de 75 pourcent, nous pouvons facilement d\'eterminer le d\'ebit de $CH_4$ \`{a} injecter dans le four au d\'epart. Cependant, la quantit\'e d'\'energie n\'ecessaire lors du reformage primaire varie en fonction de la temp\'erature. Par cons\'equent, la combustion sera aussi fonction de la temp\'erature, et ce en prenant en compte le rendement de 75 pourcent.
@@ -708,6 +639,9 @@ de quantifier l'impact environnemental. Toutes ces améliorations seront d'aille
 par la suite. Le code de notre fonction est présenté ci-dessous.
 
 \lstinputlisting{OutilDeGestion.m}
+
+\section{Etude paramétrique}
+% TODO avec l'outil de gestion.
 
 \section{Calcul du nombre de tuyaux}
 Maintenant, nous allons calculer le nombre de tubes dont nous aurons besoin pour
@@ -763,6 +697,7 @@ La première ébauche de notre flow-sheet se trouve à la figure \ref{flow-sheet
 \end{figure}
 
 \subsection{Deuxième version du flow-sheet}
+\label{appendix:flow-sheet}
 La deuxième version de notre flow-sheet se trouve à la figure \ref{flow-sheet-v2}.
 
 \begin{figure}[htb!]
