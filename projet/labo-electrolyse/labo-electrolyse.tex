@@ -1,1 +1,82 @@
-% TODO
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=2.5cm,bottom=2.5cm,right=2.5cm,left=2.5cm]{geometry}
+\usepackage[squaren, Gray]{SIunits}
+\usepackage{url}
+
+\begin{document}
+
+\section{Calcul du volume de $H_{2}SO_{4}$}
+
+\paragraph{Explication du modèle}
+
+Ce modèle a pour but de donner le volume nécessaire d'acide sulfurique à une certaine concentration de base pour obtenir une solution diluée d'un certain pH.
+
+Commençons par les données du problème : nous avons la concentration initiale en acide $C_{i}$ qui vaut ici \unit{5}{M}, la constante d'acidité de la première réaction $K_{a1}$, la constante d'acidité de la seconde réaction $K_{a2}$ et une série de pH à partir desquels nous chercherons les volumes nécessaires.
+
+Afin de d'obtenir le volume de solution initial nécessaire pour la confection des différentes solutions diluées, nous avons besoin du nombre de moles initial d'acide sulfurique. Étant donné que deux réactions ont lieu et s'équilibrent l'une par rapport à l'autre, les nombres de moles des différentes substances seront liées entre eux. Voici les deux équations équilibrées dont les constantes d'acidité sont connues:
+
+$$ H_{2}SO_{4} + H_{2}O \rightleftharpoons HSO_{4}^{-} + H_{3}O^{+} $$
+et
+$$ HSO_{4}^{-} + H_{2}O \rightleftharpoons SO_{4}^{2-} + H_{3}O^{+} $$
+
+Ces deux équations ont pour $K_{a}$ respectivement $K_{a1} = 1000$ et $K_{a2} = 1.26\cdot 10^{-2}$. Ainsi, nous pouvons établir un tableau d'avancement. Avec cet avancement, on peut exprimer les deux constantes d'acidités avec les nombres de moles de l'état d'avancement(puisque cela se déroule à $V = cst = \unit{1}{\liter}$). Ce qui nous fait deux équations pour trois inconnues. Il nous manque encore une équation pour avoir un système qui ne possède qu'une et une seule solution. Cette dernière vient des différents pH donné dans l'énoncé. En effet, dans une solution d'acide fort, le pH s'exprime :
+
+$$pH = -log_{10}([H_{3}O^{+}])$$
+
+En isolant $[H_{3}O^{+}]$, on obtient
+
+$$[H_{3}O^{+}] = 10^(-pH)$$
+
+Nous avons donc $3$ équations qui dépendent de $3$ inconnues, ce qui nous permet d'obtenir le volume recherché en résolvant le système et en prenant les solutions plausibles(soit celle qui est positive).
+
+Enfin, rappelons que pour que ce modèle soit viable, nous supposons que les concentrations en ions hydroxyde et en hydronium sont négligeables par rapport aux concentration obtenus des acides/bases (ce qui est le cas car nous restons dans des zones de pH extrêmes).
+
+\paragraph{Utilisation du modèle}
+
+Nous donnerons ici un exemple de l'application du modèle avec $pH=0$. La concentration à l'équilibre d'hydronium est de $10^-pH$ soit \unit{1}{M}. Ainsi, nous avons :
+
+$$ \delta = 0.988 ,\epsilon = 0.0123, x = 0.989, y = 0.198 $$
+
+Les différents symboles sont $\delta$ le nombre de moles de HSO_{4}^{-} transformées, $\epsilon$ le nombre de moles de H_{2}SO_{4} transformées, $x$ le nombre de moles initiales de H_{2}SO_{4} et $y$ le volume de initial de H_{2}SO_{4}.
+
+\paragraph{Résumé valeurs obtenues}
+
+\begin{tabular}{c|c|c|c|c|c}
+pH & 0 & 1 & 2 & 3 & 5
+\unit{V_{H_{2}SO_{4}}}{mL} & 197.74 & 17.99 & 1.28 & 0.104 & 10^{-3}
+\end{tabular}
+
+\section{Calcul du volume de $NaOH$}
+
+\paragraph{Explication du modèle}
+
+Ici, le principe est le même que pour l'acide. Cependant, le modèle est plus simple car il n'y a pas de système à résoudre car il n'y a qu'une seule équation et l'expression du pH pour une base est forte est
+
+$$pH = 14 + log_{10}([OH^{-}])$$
+
+Le résultat est plus simple à calculer et est assez évident.
+
+\paragraph{Utilisation du modèle}
+
+En fait, le nombre de moles d'hydroxyde divisé par la concentration initial donne directement le volume initial.
+
+\paragraph{Résumé valeurs obtenues}
+
+\begin{tabular}{c|c|c|c}
+pH & 13 & 12 & 11
+\unit{V_{NaOH}}{mL} & 20 & 2 & 0.2
+\end{tabular}
+
+\section{Représentation graphique de [$H_{3}O^{+}$]{équi}/[$$]{initial} en fonction du $pH$}
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[scale=1.0]{graph_pH.jpeg}
+\caption{Graphe représentant [$H_{3}O^{+}$]{équi}/[$$]{initial} en fonction du $pH$}}
+\end{figure}
+
+\end{document}
