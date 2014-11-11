@@ -351,7 +351,7 @@ Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités 
 
 $$
 \begin{array}{rl}
-C_{p_{CO_2}}(T)=32.22 +(22.18 \cdot 10^{-3})T + (3.35 \cdot 10^{-6})T^2\\
+C_{p_{CO_2}}(T)=32.22 +(22.18 \cdot 10^{-3})T - (3.35 \cdot 10^{-6})T^2\\
 \end{array}
 $$
 
@@ -394,6 +394,7 @@ De plus, dans la gamme de températures qui nous intéressent, on considère tou
 Nous ferons l'hypothèse que ces gazs se comportent comme des gazs parfaits.
 Voici donc les tableaux d'avancement en conséquence, à la figure \ref{avancement}.
   
+	% TODO 	: à refaire en LaTeX !
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[scale=1.0]{avancements.png}
@@ -406,7 +407,7 @@ On remarque bien que les quantités à l'équilibre correspondent dans les deux 
 Avant de s'attaquer à l'écriture des quotients réactionnels à l'équilibre, notons que le nombre total de moles de gaz
 se trouve en prenant une seule fois le nombre de moles de chaque composant.
     
-On a donc : $n_{gaz,tot} = n_{01} + n_{02} + 2x$ 
+On a donc : $n_{gaz,tot} = n_{01} + n_{02} + 2x - y$ 
   
 Nous pouvons écrire nos deux équilibres : 
  
@@ -414,7 +415,7 @@ $$
 	\left\{
 		\begin{array}{rl}
 			K_1 =& \frac{(x-y)(3x+y)^3p_{tot}^2}{(n_{02}-x)(n_{02}-x-y)n_{gaz,tot}^2p_0^2} \\
-			K_2 =& \frac{y(3x+y)}{(x-y)(n_{02-x-y})}
+			K_2 =& \frac{y(3x+y)}{(x-y)(n_{02}-x-y)}
 		\end{array}
 	\right
 $$
@@ -424,6 +425,7 @@ et $p_0$ est la pression standard, c'est à dire 1 bar.
 $K_1$ et $K_2$ ont été calculés plus tôt en fonction de la température. 
 De plus, grâce au bilan de matière fait précédement, nous obtenons les deux équations suivantes :
 
+% Je pense que ces équations sont mauvaises
 $$
 	\left\{
 		\begin{array}{rl}
@@ -645,7 +647,42 @@ Pour cette étape, nous ferons l'hypothèse que les étapes requises pour enleve
 des composants présents dans le circuit ne nécessitent pas d'énergie, ou du moins énergétiquement indépendante 
 des autres besoins en énergie du reste du système.
 
-\paragraph{Synth\`{e}se du $NH_{3}$} % Ce paragraphe est vide, pourquoi?
+\paragraph{Synth\`{e}se du $NH_{3}$} 
+\begin{chemmath}
+		\frac{1}{2}N_{2} + \frac{3}{2}H_2 \Longrightarrow NH_3 
+\end{chemmath}	
+
+$$
+	\begin{array}{rl}
+	\Delta H_{reaction}		&= \Sigma \Delta H_{f,produits} - \Sigma \Delta H_{f,reactifs} \\
+												&= \unit{-46}{\kilo\joule\per\mole}
+	\end{array}
+$$
+
+La réaction se passe à $\unit{750}{\kelvin}$.
+						
+Voici les $C_{p}$ variables en fonction de la température des différents composants\cite{hc-table} :
+
+$$
+	\left\{
+		\begin{array}{rl}
+			C_{p_{N_{2}}}(T) 	&= 27.62 + 4.19\cdot10^{-3}T + (0\cdot10^{-6})T^2\\
+			C_{p_{H_{2}}}(T)	&= 29.3 - 0.84\cdot10^{-3}T + (2.09\cdot10^{-6})T^2\\
+			C_{p_{NH_{3}}(T) 	&= 31.81 + 15.48\cdot10^{-3}T + (5.86\cdot10^{-6})T^2 \\
+		\end{array}
+	\right
+$$
+					
+Calculons maintenant le $\Delta H$ à $\unit{750}{\kelvin}$ :			
+$$
+	\begin{array}{rl}
+		 	 \Delta H(\unit{750}{\kelvin})	&=  \Delta H(\unit{298.15}{\kelvin}) 
+																							+ \int_{750}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{750} C_{p_{produits}} dT \\
+																				&=  \unit{-27.98}{\kilo\joule}
+	\end{array}
+$$	
+	
+Il s'agit donc d'une réaction exothermique.
 
 % Ici il y a des trucs à corriger, à voir avec les commentaires de la tutrice.
 \paragraph{Conclusion}
@@ -673,7 +710,7 @@ lui demander de calculer la quantité de \chemform{CO2} rejetée dans l'atmosph�
 de quantifier l'impact environnemental. Toutes ces améliorations seront d'ailleurs ajoutées 
 par la suite. Le code de notre fonction est présenté ci-dessous.
 
-\lstinputlisting{OutilDeGestion.m}
+\lstinputlisting{OutilDeGestionV2.m}
 
 % ------------------------------------------
 % ETUDE PARAMETRIQUE
@@ -685,6 +722,7 @@ par la suite. Le code de notre fonction est présenté ci-dessous.
 % CALCUL DU NOMBRE DE TUYAUX
 % ------------------------------------------
 \section{Calcul du nombre de tuyaux}
+% A refaire et à intéger dans l'outil de gestion
 Maintenant, nous allons calculer le nombre de tubes dont nous aurons besoin pour
 notre réacteur multi-tubulaire. Nous avons ces données de base : $\dot{m_{réactifs}} = \unit{517.05}{\ton\per\dday}$, 
 $T = \unit{1080}{K}$, $d_{tube} = \unit{10^{-1}}{\meter}$ et $c = \unit{2}{\meter\per\second}$ où $\dot{m_{réactifs}}$ 
