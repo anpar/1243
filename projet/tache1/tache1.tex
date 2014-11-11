@@ -40,8 +40,16 @@
 \maketitle
 \tableofcontents
 
+% ------------------------------------------
+% INTRODUCTION
+% ------------------------------------------
+\section{Introduction}
+% TODO
+
+% ------------------------------------------
+% CALCUL DU FLUX DES REACTIFS
+% ------------------------------------------
 \section{Calcul du flux des réactifs}
-$\Theta$
 \paragraph{Hypothèse}
 Lors du calcul de ces flux, nous avons utilisé l'hypothèse que tous les réactifs sont 
 consommés par le réacteur.
@@ -63,6 +71,9 @@ et le flux de \chemform{H_2}
 
 	$$m_{H_2} = \unit{176.4}{\ton\per\dday}.$$
 
+% ------------------------------------------
+% CALCUL DU DEBIT D'EAU NECESSAIRE POUR...
+% ------------------------------------------
 \section{Calcul du débit d'eau nécessaire pour refroidir le réactif}
 \paragraph{Hypothèses}
 \begin{itemize}
@@ -123,6 +134,9 @@ En refaisant le calcul ci-dessus en tenant compte de la variation des capacités
 de la température, nous obtenons un débit un peu inférieur de \unit{135.662}{\liter\per\second}. On remarque
 que l'erreur faite en utilisant l'approximation de la section précédente est de 3\%.
 
+% ------------------------------------------
+% SOURCES DES REACTIFS
+% ------------------------------------------
 \section{Sources des réactifs}
 	\subsection{Sources de diazote}
 	\subsubsection{Procédé cryogénique}
@@ -197,9 +211,12 @@ que l'erreur faite en utilisant l'approximation de la section précédente est d
 	La réaction nécessite une grande quantité d'électricité. L'eau, quant à elle, est présente en quantité illimitée 
 	et est peu coûteuse. En pratique, cette méthode est très peu utilisée \cite{wiki-h2}.
 
+% ------------------------------------------
+% BILAN DE MATIERE
+% ------------------------------------------
 \section{Bilan de matiere}
 Pour la compréhension de cette section, nous vous renvoyons vers le flow-sheet \ref{appendix:flow-sheet}.
-On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday} \footnote{Avec \unit{\gram\per\day} = grammes par jour.}$. 
+On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday} \footnote{Avec \unit{\gram\per\dday} = grammes par jour.}$. 
 
 Nous partons de la réaction : 
 \begin{chemmath}
@@ -232,7 +249,7 @@ Et :
 $$n_{O_2}= n_{air} \cdot \frac{21}{100} = \unit{\frac{7m_{NH_3}}{884}}{\mole\per\dday}$$
 $$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{1m_{NH_3}}{2652}}{\mole\per\dday}$$
 
-On sait par la réaction du réformage primaire suivante:
+On sait par la réaction du réformage secondaire suivante:
 \begin{chemmath}
 	2CH_4 + O_2 \Longrightarrow 2CO + 4 H_2
 \end{chemmath}  
@@ -250,6 +267,7 @@ On s'intéresse ensuite à la réaction du Water-Gas-Shift :
 	CO + H_2O \Longrightarrow CO_2 + H_2
 \end{chemmath} 
 
+% Cette partie n'est pas claire selon la tutrice, à réecrire 
 On sait que $n_{CO}-\text{WGS}$  = $n_{CO}-\text{réformage primaire}$ 
 $+ n_{CO}\text{réformage secondaire}$ 
 
@@ -268,13 +286,15 @@ On peut aussi conclure que :
 $$n_{H_2-\text{réformage primaire}}= n_{H_2-\text{synthèse \chemform{NH_3}}}
 - n_{H_2-\text{réformarge secondaire}} - n_{H_2-\text{WGS}}$$
 
+% ------------------------------------------
+% EQUILIBRE DU REFORMAGE PRIMAIRE
+% ------------------------------------------
 \section{Equilibre du reformage primaire}
-
 \subsection{Calcul de la constante d'équilibre}
 
 Pour calculer la constante d'équilibre nous allons utiliser $K= \exp{\frac{-\Delta G}{RT}}$ avec $\Delta G = \Delta H - T \Delta S $
 
-\subsubsection{Première équation}
+\subsubsection{Première réaction}
 \begin{chemmath} 
  CH_4(g) + H_{2}O(g) \longrightarrow CO(g) + 3H_2
 \end{chemmath} 
@@ -313,15 +333,16 @@ $$
 
  Nous pouvons calculer $\Delta G_1$:
  
- $$
- \Delta G_1(T) = 188369.9 - (71.16\ln T)T + 238.21T + 0.04163 T^2 -(4.045\cdot 10^{-6})T^3
- $$ 
+ \begin{equation}
+	\Delta G_1(T) = 188369.9 - (71.16\ln T)T + 238.21T + 0.04163 T^2 -(4.045\cdot 10^{-6})T^3
+	\label{delta-g1}
+ \end{equation} 
 
 Nous obtenons donc
 $$K_1 = \exp{\frac{-\Delta G_1}{RT}}$$
-avec la valeur de $\Delta G_1$ calculée plus tôt.
+où $\Delta G_1$ est donnée par l'équation \ref{delta-g1}.
 
-\subsubsection{Deuxième équation}
+\subsubsection{Deuxième réaction}
 \begin{chemmath} 
  CO(g) + H_{2}O(g) \longrightarrow CO_2(g) + H_2
 \end{chemmath} 
@@ -356,14 +377,15 @@ $$
 
 Nous pouvons calculer $\Delta G_2$:
  
- $$
- \Delta G_2=-42533.33 - (3.77 \ln(T))T +69.67 T -(2.93 \cdot 10^{-3})T^2
- + (2.1\cdot 10^{-7})T^3 
- $$
+ \begin{equation}
+	\Delta G_2=-42533.33 - (3.77 \ln(T))T +69.67 T -(2.93 \cdot 10^{-3})T^2
+	+ (2.1\cdot 10^{-7})T^3 
+	\label{delta-g2}
+ \end{equation}
  
 Nous obtenons donc
 $$K_2 = \exp{\frac{-\Delta G_2}{RT}}$$
-avec la valeur de $\Delta G_2$ calculée plus tôt.
+où $\Delta G_2$ est donné par l'équation \ref{delta-g2}.
 
 \subsection{Etat d'avancement}
 Analysons maintenant plus en détails les deux réactions qui ont lieu dans le réformage primaire.
@@ -379,19 +401,19 @@ Voici donc les tableaux d'avancement en conséquence, à la figure \ref{avanceme
 		\label{avancement}
 	\end{figure}
   
-Ici, $x$ et $y$ sont respectivement les avancements des première et deuxième réactions. Nous travaillons en moles.
+Ici, $x$ et $y$ sont respectivement les avancements des première et deuxième réactions. Nous travaillons en moles par jour.
 On remarque bien que les quantités à l'équilibre correspondent dans les deux tableaux.
 Avant de s'attaquer à l'écriture des quotients réactionnels à l'équilibre, notons que le nombre total de moles de gaz
 se trouve en prenant une seule fois le nombre de moles de chaque composant.
     
-On a donc : $n_{g,tot} = n_{01} + n_{02} + 2x$ 
+On a donc : $n_{gaz,tot} = n_{01} + n_{02} + 2x$ 
   
 Nous pouvons écrire nos deux équilibres : 
  
 $$
 	\left\{
 		\begin{array}{rl}
-			K_1 =& \frac{(x-y)(3x+y)^3p_tot^2}{(n_{02}-x)(n_{02}-x-y)n_{g,tot}p_0^2} \\
+			K_1 =& \frac{(x-y)(3x+y)^3p_{tot}^2}{(n_{02}-x)(n_{02}-x-y)n_{gaz,tot}^2p_0^2} \\
 			K_2 =& \frac{y(3x+y)}{(x-y)(n_{02-x-y})}
 		\end{array}
 	\right
@@ -412,8 +434,11 @@ $$
 $$
  
 Ainsi, nous avons un système de quatre équations à quatre inconnues qui nous permettra d'exprimer
-toutes les entrées/sorties en fonction de la température et de la masse de \chemform{NH_3}. 
+toutes les entrées/sorties en fonction de la température et du débit de \chemform{NH_3}. 
    
+% ------------------------------------------
+% BILAN D'ENERGIE
+% ------------------------------------------	
 \section{Bilan d'energie}
 Afin d'évaluer la quantité totale d'énergie dont nous avons besoin pour mener à 
 bien la synthèse d'ammoniac, nous allons regarder les quantités requises à chaque 
@@ -470,7 +495,7 @@ Calculons maintenant le $\Delta H$ pour une température $T_2$ de $\unit{1300}{\
 $$
 	\begin{array}{rl}
 		 	\Delta H(\unit{1300}{\kelvin}) 	&=  \Delta H(\unit{298.15}{\kelvin}) + \int_{1300}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{1300} C_{p_{produits}} dT \\
-																			&=  \unit{-805.99}{\kilo\joule}
+																			&=  \unit{-805.99}{\kilo\joule\per\mole}
 	\end{array}
 $$	
 
@@ -481,7 +506,7 @@ Dans notre travail, la température du réformage primaire est un paramètre. No
 dépendant de la température. 
 Le réformage primaire est composé de deux équations.
 
-\subparagraphe{Première réaction}
+La première réaction est donnée par 
 \begin{chemmath} 
  CH_4(g) + H_{2}O(g) <=> CO(g) + 3H_2
 \end{chemmath} 
@@ -502,11 +527,11 @@ $$
 	\begin{array}{rl}
 		 	\Delta H_1(T) = \Delta H(\unit{298.15}{\kelvin})	&=  + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
 																														+  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT\\
-																												&=  188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3
+																												&=  \unit{188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3}{\kilo\joule\per\mole} % Unité correcte?
 	\end{array}
 $$	
 
-\subparagraphe{Deuxième réaction}
+La deuxième réaction est donnée par 
 \begin{chemmath} 
 	CO(g) + H_{2}O(g) <=> CO_2(g) + H_2
 \end{chemmath} 
@@ -589,7 +614,8 @@ $$
 Le Water Gas Shift s'opere generalement entre 200 et \unit{400}{\degree}. Nous considérerons
 alors une température de réaction de $\unit{300}{\degree}$, soit $\unit{573.15}{\kelvin}$.
 						
-Voici les $C_{p}$ variables en fonction de la température des différents composants\cite{hc-table} :
+Voici les $C_{p}$ variables en fonction de la température des différents composants\cite{hc-table}
+(exprimées en \unit{\joule\per\mole\kelvin}) :
 
 $$
 	\left\{
@@ -608,28 +634,37 @@ $$
 	\begin{array}{rl}
 		 	 \Delta H(\unit{573.15}{\kelvin})	&=  \Delta H(\unit{298.15}{\kelvin}) 
 																							+ \int_{573.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{573.15} C_{p_{produits}} dT \\
-																				&=  \unit{-55.63}{\kilo\joule}
+																				&=  \unit{-55.63}{\kilo\joule} % Faut-il rajouter un \per\mole ici?
 	\end{array}
 $$	
 	
 Il s'agit donc d'une réaction exothermique.
 
-\paragraph{S\'eparation de $CO_{2}$ et de $H_{2}O$}		
+\paragraph{Séparation de $CO_{2}$ et de $H_{2}O$}		
+Pour cette étape, nous ferons l'hypothèse que les étapes requises pour enlever le $CO_{2}$ et le $H_{2}O$ 
+des composants présents dans le circuit ne nécessitent pas d'énergie, ou du moins énergétiquement indépendante 
+des autres besoins en énergie du reste du système.
 
-Pour cette \'etape, nous ferons l'hypoth\`{e}se que les \'etapes requises pour enlever le $CO_{2}$ et le $H_{2}O$ des composants pr\'esents dans le circuit ne n\'ecessitent pas d'\'energie, ou du moins \'energ\'etiquement ind\'ependante des autres besoins en \'energie du reste du syst\`{e}me.
+\paragraph{Synth\`{e}se du $NH_{3}$} % Ce paragraphe est vide, pourquoi?
 
-\paragraph{Synth\`{e}se du $NH_{3}$}		
-
+% Ici il y a des trucs à corriger, à voir avec les commentaires de la tutrice.
 \paragraph{Conclusion}
-\'Etant donn\'e le fait que nous ayions besoin de X kiloJoules pour le reformage primaire, et que l'\'energie que la combustion donne au d\'ebut du syst\`{e}me se fait \`{a} un rendement de 75 pourcent, nous pouvons facilement d\'eterminer le d\'ebit de $CH_4$ \`{a} injecter dans le four au d\'epart. Cependant, la quantit\'e d'\'energie n\'ecessaire lors du reformage primaire varie en fonction de la temp\'erature. Par cons\'equent, la combustion sera aussi fonction de la temp\'erature, et ce en prenant en compte le rendement de 75 pourcent.
-NB : "prendre en compte le rendement de 75 pourcent" signifie faire fonctionner le four \`{a} 133.3 pourcent afin d'avoir la quantit\'e d'\'energie n\'ecessaire malgr\'e le rendement inf\'erieur \`{a} 100 pourcent.
+\'Etant donné le fait que nous ayions besoin de \unit{X}{\kilo\joule} pour le reformage primaire, et que l'énergie
+que la combustion donne au début du système se fait à un rendement de 75 pourcent, nous pouvons facilement déterminer
+le débit de \chemform{CH_4} à injecter dans le four au départ. Cependant, la quantité d'énergie nécessaire lors du
+reformage primaire varie en fonction de la température. Par conséquent, la combustion sera aussi fonction de la température,
+et ce en prenant en compte le rendement de 75 pourcent\footnote{"prendre en compte le rendement de 75 pourcent" signifie faire
+fonctionner le four à 133.3 pourcent afin d'avoir la quantité d'énergie nécessaire malgré le rendement inférieur 
+à 100 pourcent.}.
 
-
+% ------------------------------------------
+% OUTIL DE GESTION
+% ------------------------------------------
 \section{Outil de gestion}
 Notre outil de gestion se base sur les équations écrites lors du
 bilan de matière et lors du calcul de l'état d'avancement des réactions
 dans le reformage primaire. Il résout donc un système à 4 équations
-et à 4 inconnues et ne sélectionne que les solutions positives. Notre programme
+et à 4 inconnues et ne sélectionne que les solutions positives et réelles. Notre programme
 peut être amélioré et nous en sommes conscients. On pourrait le rendre plus robuste 
 en traitant par exemple les cas ou les arguments de notre fonction ne sont pas 
 valides. On peut aussi le rendre plus conviviale en créant un interface graphique
@@ -640,9 +675,15 @@ par la suite. Le code de notre fonction est présenté ci-dessous.
 
 \lstinputlisting{OutilDeGestion.m}
 
+% ------------------------------------------
+% ETUDE PARAMETRIQUE
+% ------------------------------------------
 \section{Etude paramétrique}
 % TODO avec l'outil de gestion.
 
+% ------------------------------------------
+% CALCUL DU NOMBRE DE TUYAUX
+% ------------------------------------------
 \section{Calcul du nombre de tuyaux}
 Maintenant, nous allons calculer le nombre de tubes dont nous aurons besoin pour
 notre réacteur multi-tubulaire. Nous avons ces données de base : $\dot{m_{réactifs}} = \unit{517.05}{\ton\per\dday}$, 
