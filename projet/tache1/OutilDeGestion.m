@@ -24,7 +24,7 @@ p0 = 1e5;
 
 % On resout le systeme formes des 4 equations.
 syms x y H2O CH4 positive;
-eqn1 = K1 == ((x-y)*((3*x + y)^3)*ptot^2)/((H2O-x)*(H2O-x-y)*(H2O+CH4+(2*x))*p0^2);
+eqn1 = K1 == ((x-y)*((3*x + y)^3)*ptot^2)/((H2O-x)*(H2O-x-y)*(H2O+CH4+(2*x))^2*p0^2);
 eqn2 = K2 == (y*(3*x + y))/((x-y)*(H2O-x-y));
 eqn3 = CH4 - x == 7/442 * mNH3;
 eqn4 = 3*x + y == (9/221 * mNH3) -x+y;
