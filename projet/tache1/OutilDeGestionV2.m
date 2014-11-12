@@ -1,30 +1,30 @@
 function [Output] = OutilDeGestionV2(a, T)
 % 1243 - Outil de Gestion V2
 % Input :
-% - Le débit de NH3 en tonnes/jour.
-% - La température du réformage primaire en Kelvin.
+% - Le debit de NH3 en tonnes/jour.
+% - La temperature du reformage primaire en Kelvin.
 % Output :
-% Tous les débits entrants et sortants en moles/s 
+% Tous les debits entrants et sortants en moles/s 
 % TODO :
-% - Pour plus de précisions : utilisez les masses molaires exactes ;
-% - Afficher les résultats en moles/s ET tonnes/jour ;
+% - Pour plus de precisions : utilisez les masses molaires exactes ;
+% - Afficher les resultats en moles/s ET tonnes/jour ;
 
-% On limite la précision à 4 décimales.
+% On limite la precision à 4 decimales.
 format short;
 
-% Données thermodynamiques
+% Donnees thermodynamiques
 K1 = ComputeK1(T); 
 K2 = ComputeK2(T);
 ptot = 26e5;
 p0 = 1e5;
 
-% Equation d'équilibre du reformage primaire
+% Equation d'equilibre du reformage primaire
 syms x y n01 n02 positive;
 eqn1 = K1 == ((x-y)*((3*x + y)^3)*ptot^2)/((n01-x)*(n02-x-y)*(n01+n02+(2*x))^2*p0^2);
 eqn2 = K2 == (y*(3*x + y))/((x-y)*(n02-x-y));
 eqn3 = n01 - x == (0.42*a*10^6)/(26.52*86400);
 eqn4 = 3*x + y == 2*(0.42*a*10^6)/(26.52*86400) -x+y;
-% Pourquoi 9/221 ? Dans le bilan de matière on dirait plutôt
+% Pourquoi 9/221 ? Dans le bilan de matiere on dirait plutôt
 % que c'est 7/221
 eqns = [eqn1 eqn2 eqn3 eqn4];
 [x, y, n01, n02] = solve(eqns); 
@@ -60,14 +60,14 @@ H2_in2 = 0;
 Ar_in2 = (0.01*a*10^6)/(26.52*86400);
 H2O_in3 = 0;
 
-% Séparation
+% Separation
 CO2_in_out = 0;
 N2_in3 = 0.5 *(a*10^6)/(17*86400);
 H2_in3 = 1.5 * (a*10^6)/(17*86400);
 Ar_in3 = (0.01*a*10^6)/(26.52*86400);
 H2O_in_out = 0;
 
-% Synthèse d'ammoniac
+% Synthese d'ammoniac
 N2_in4 = 0.5 *(a*10^6)/(17*86400);
 H2_in4 = 1.5 * (a*10^6)/(17*86400);
 Ar_in4 = (0.01*a*10^6)/(26.52*86400);

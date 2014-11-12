@@ -1,11 +1,11 @@
 function [K1] = ComputeK1(T)
-% Cette fonction calcule la constante d'équilibre K1
-% de la première réaction du reformage primaire en fonction de la température :
+% Cette fonction calcule la constante d'equilibre K1
+% de la premiere reaction du reformage primaire en fonction de la temperature :
 % CH4(g) + H2O(g) <-> CO(g) + 3H2(g)
 
 R = 8.3144621; 
 syms t;
-% Capacité calorifique à pression constante en fonction de la température,
+% Capacite calorifique à pression constante en fonction de la temperature,
 % en joules/mole*Kelvin
 CpCO = @(t) 27.62 + (5.02e-3)*t;
 CpH2 = @(t) 29.30 + (0.84e-3)*t + (2.09e-6)*t.^2;
@@ -13,7 +13,7 @@ CpCH4 =@(t) 14.23 + (75.3e-3)*t - (18e-6)*t.^2;
 CpH2O = @(t) 30.13 + (10.46e-3)*t;
 DeltaCp = @(t) (3*CpH2(t) + CpCO(t)) - (CpCH4(t) + CpH2O(t));
 
-% Enthalpies de formation et de réaction standard (298.15K), en joules par moles.
+% Enthalpies de formation et de reaction standard (298.15K), en joules par moles.
 HfstdCO = -110.53e3;
 HfstdH2 = 0;
 HfstdCH4 = -74.81e3;
@@ -22,7 +22,7 @@ Hrstd = (3*HfstdH2 + HfstdCO) - (HfstdCH4 + HfstdH2O);
 
 DeltaH1 = Hrstd + integral(DeltaCp, 298.15, T);
 
-% Entropie de formation et de réaction standard (298.15K), en
+% Entropie de formation et de reaction standard (298.15K), en
 % joules/mole*Kelvin (298.15K)
 SstdCO = 197.67;
 SstdH2 = 130.68;

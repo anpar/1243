@@ -1,0 +1,50 @@
+\documentclass{article}
+
+% Langue
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}      
+\usepackage[frenchb]{babel}
+
+% Mise en forme générale
+\usepackage[top=2.5cm,bottom=2.5cm,right=2.5cm,left=2.5cm]{geometry}
+
+% Package divers
+\usepackage{chemist} 
+\usepackage[squaren, Gray]{SIunits}
+\usepackage{sistyle}
+\usepackage[autolanguage]{numprint}
+\usepackage{url}
+
+\usepackage{hyperref}
+\usepackage[numbered, framed]{mcode}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+% Nouvelles commandes
+\newcommand{\std}{\ensuremath{^{\circ}}}
+\newcommand\ph{\ensuremath{\mathrm{pH}}}
+\newcommand{\annexe}{\part{Annexes}\appendix}
+\newcommand{\biblio}[1]{\bibliographystyle{plain}\bibliography{#1}\nocite{*}}
+
+\newcommand{\doctitle}[1]{
+	\title{#1}
+	\author{\textbf{Groupe 124.3}\\
+	\textsc{Frenyo} Péter (6266-12-00)\\
+	\textsc{Gillain} Nathan (7879-12-00)\\
+	\textsc{Lamine} Guillaume (7109-13-00)\\
+	\textsc{Piraux} Pauline (2520-13-00)\\
+	\textsc{Paris} Antoine (3158-13-00)\\
+	\textsc{Quiriny} Simon (4235-13-00)\\
+	\textsc{Schrurs} Sébastien (7978-13-00)}
+	\date{\today}
+
+	\begin{document}
+
+	\maketitle
+	\tableofcontents
+}

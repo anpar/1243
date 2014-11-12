@@ -1,44 +1,5 @@
-\documentclass{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}      
-\usepackage[francais]{babel}
-\usepackage{chemist}
-\usepackage{chemfig} 
-\usepackage{lewis}
-\usepackage[top=2.5cm,bottom=2.5cm,right=2.5cm,left=2.5cm]{geometry}
-\usepackage[squaren, Gray]{SIunits}
-\usepackage{url}
-\usepackage{hyperref}
-\usepackage[numbered, framed]{mcode}
-\hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
-
-\newcommand\chemfigc[1]{
-\vspace{0.5cm}
-\begin{center}\chemfig{#1}\end{center}
-\vspace{0.5cm}}
-
-\title{Projet 3 - Rapport de tâche 1}
-\author{\textbf{Groupe 124.3}
-\\
-\textsc{Frenyo} P\'eter (6266-12-00)\\
-\textsc{Gillain} Nathan (7879-12-00)\\
-\textsc{Lamine} Guillaume (7109-13-00)\\
-\textsc{Piraux} Pauline (2520-13-00)\\
-\textsc{Paris} Antoine (3158-13-00)\\
-\textsc{Quiriny} Simon (4235-13-00)\\
-\textsc{Schrurs} Sébastien (7978-13-00)}
-\date{\today} 
-\begin{document}
-
-\maketitle
-\tableofcontents
+\input{../lib.tex}
+\doctitle{Projet 3 - Tache 1}
 
 % ------------------------------------------
 % INTRODUCTION
@@ -387,6 +348,10 @@ Nous obtenons donc
 $$K_2 = \exp{\frac{-\Delta G_2}{RT}}$$
 où $\Delta G_2$ est donné par l'équation \ref{delta-g2}.
 
+\paragraph{Remarque} Pour plus de précisions et afin d'automatiser le calcul
+de ces constantes d'équilibres, nous avons créé deux fonctions Matlab que vous
+pouvez retrouver dans l'annexe \ref{code-matlab-outil}.
+
 \subsection{Etat d'avancement}
 Analysons maintenant plus en détails les deux réactions qui ont lieu dans le réformage primaire.
 Ces deux réactions se passent à l'équilibre dans le même réacteur. 
@@ -647,7 +612,7 @@ Pour cette étape, nous ferons l'hypothèse que les étapes requises pour enleve
 des composants présents dans le circuit ne nécessitent pas d'énergie, ou du moins énergétiquement indépendante 
 des autres besoins en énergie du reste du système.
 
-\paragraph{Synth\`{e}se du $NH_{3}$} 
+\paragraph{Synthèse du $NH_{3}$} 
 \begin{chemmath}
 		\frac{1}{2}N_{2} + \frac{3}{2}H_2 \Longrightarrow NH_3 
 \end{chemmath}	
@@ -710,7 +675,7 @@ lui demander de calculer la quantité de \chemform{CO2} rejetée dans l'atmosph�
 de quantifier l'impact environnemental. Toutes ces améliorations seront d'ailleurs ajoutées 
 par la suite. Le code de notre fonction est présenté ci-dessous.
 
-\lstinputlisting{OutilDeGestionV2.m}
+Le code Matlab de l'outil de gestion peut être trouvé à l'annexe \ref{code-matlab-outil}.
 
 % ------------------------------------------
 % ETUDE PARAMETRIQUE
@@ -724,10 +689,10 @@ par la suite. Le code de notre fonction est présenté ci-dessous.
 \section{Calcul du nombre de tuyaux}
 % A refaire et à intéger dans l'outil de gestion
 Maintenant, nous allons calculer le nombre de tubes dont nous aurons besoin pour
-notre réacteur multi-tubulaire. Nous avons ces données de base : $\dot{m_{réactifs}} = \unit{517.05}{\ton\per\dday}$, 
-$T = \unit{1080}{K}$, $d_{tube} = \unit{10^{-1}}{\meter}$ et $c = \unit{2}{\meter\per\second}$ où $\dot{m_{réactifs}}$ 
+notre réacteur multi-tubulaire. Nous avons ces données de base : $\dot{m_{\text{réactifs}}} = \unit{517.05}{\ton\per\dday}$, 
+$T = \unit{1080}{\kelvin}$, $d_{tube} = \unit{10^{-1}}{\meter}$ et $c = \unit{2}{\meter\per\second}$ où $\dot{m_{\text{réactifs}}}$ 
 est le débit massique par jour de réactifs (déterminé avec l'outil de gestion pour une température citée ci-après et
-un débit massique de $NH_{3}$ de $\unit{1500}{\ton\per\dday}$, $T$ une température plausible choisie pour le dimensionnement
+un débit massique de $NH_{3}$ de \unit{1500}{\ton\per\dday}, $T$ une température plausible choisie pour le dimensionnement
 du réacteur multi-tubulaire, $d_{tube}$ est le diamètre d'un tube et $c$ est la vitesse superficielle à l'entrée du réacteur.
 Transformons d'abord le débit massique en débit volumique :
 
@@ -759,13 +724,10 @@ $$\nu = \frac{R^{*}\cdot T}{31\cdot 10^{5}} = \frac{\frac{8.314}{17\cdot 10^{-3}
 
 Ce qui nous donne un nombre de tube approximatif de $65$ ($64.77$).
 
-\bibliography{source-tache1}
-\bibliographystyle{plain}
-\nocite{*}
+\biblio{source-tache1}
 
-\appendix
-\section{Annexes}
-\subsection{Premier jet du flow-sheet simplifié}
+\annexe
+\section{Premier jet du flow-sheet simplifié}
 La première ébauche de notre flow-sheet se trouve à la figure \ref{flow-sheet}.
 
 \begin{figure}[htb!]
@@ -775,15 +737,20 @@ La première ébauche de notre flow-sheet se trouve à la figure \ref{flow-sheet
 	\label{flow-sheet}
 \end{figure}
 
-\subsection{Deuxième version du flow-sheet}
+\section{Deuxième version du flow-sheet}
 \label{appendix:flow-sheet}
 La deuxième version de notre flow-sheet se trouve à la figure \ref{flow-sheet-v2}.
 
 \begin{figure}[htb!]
-\centering
-\includegraphics[scale=0.80]{flow-sheet-v2.jpg}
-\caption{Deuxième ébauche de notre flow-sheet.}
-\label{flow-sheet-v2}
+	\centering
+	\includegraphics[scale=0.80]{flow-sheet-v2.jpg}
+	\caption{Deuxième ébauche de notre flow-sheet.}
+	\label{flow-sheet-v2}
 \end{figure}
 
+\section{Code Matlab de l'outil de gestion}
+\label{code-matlab-outil}
+\lstinputlisting{OutilDeGestionV2.m}
+\lstinputlisting{ComputeK1.m}
+\lstinputlisting{ComputeK2.m}
 \end{document}
