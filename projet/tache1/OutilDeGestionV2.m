@@ -22,8 +22,10 @@ p0 = 1e5;
 syms x y n01 n02 positive;
 eqn1 = K1 == ((x-y)*((3*x + y)^3)*ptot^2)/((n01-x)*(n02-x-y)*(n01+n02+(2*x))^2*p0^2);
 eqn2 = K2 == (y*(3*x + y))/((x-y)*(n02-x-y));
-eqn3 = n01 - x == 7/442 * a;
-eqn4 = 3*x + y == (9/221 * a)-x+y;
+eqn3 = n01 - x == (0.42*a*10^6)/(26.52*86400);
+eqn4 = 3*x + y == 2*(0.42*a*10^6)/(26.52*86400) -x+y;
+% Pourquoi 9/221 ? Dans le bilan de matière on dirait plutôt
+% que c'est 7/221
 eqns = [eqn1 eqn2 eqn3 eqn4];
 [x, y, n01, n02] = solve(eqns); 
 x
@@ -78,11 +80,11 @@ Elements = {'REFORMER PRIMAIRE'; 'CH4 (in)1'; 'H2O (in)1'; 'FOUR'; 'CH4 (in)2'; 
     ; 'H2 (in)2'; 'Ar (in)2'; 'H2O (in)3'; 'SEPARATION'; 'CO2 (in) = CO2 (out)'; 'N2 (in)3';
     'H2 (in)3'; 'Ar (in)3'; 'H2O (in) = H2O (out)'; 'AMMONIA SYNTHESIS'; 'N2 (in)4'; 
     'H2 (in)4'; 'Ar (in) = Ar (out)'; 'NH3 (out)'};
-MolesBySecond = {'-'; CH4_in1; H2O_in1; '-'; CH4_in2; O2_in1; 
-    '-'; CH4_in2; H2O_in2; CO_in1; CO2_in1; H2_in1;
-    O2_in2; N2_in1; Ar_in1; '-'; CO_in2; CO2_in2; N2_in2
-    ; H2_in2; Ar_in2; H2O_in3; '-'; CO2_in_out; N2_in3;
-    H2_in3; Ar_in3; H2O_in_out; '-'; N2_in4; 
+MolesBySecond = {'----------'; CH4_in1; H2O_in1; '----------'; CH4_in2; O2_in1; 
+    '----------'; CH4_in3; H2O_in2; CO_in1; CO2_in1; H2_in1;
+    O2_in2; N2_in1; Ar_in1; '----------'; CO_in2; CO2_in2; N2_in2
+    ; H2_in2; Ar_in2; H2O_in3; '----------'; CO2_in_out; N2_in3;
+    H2_in3; Ar_in3; H2O_in_out; '----------'; N2_in4; 
     H2_in4; Ar_in4; NH3_out};
 
 Output = table(MolesBySecond, 'RowNames', Elements);
