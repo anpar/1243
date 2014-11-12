@@ -37,8 +37,117 @@ malheureusement pas en lien avec notre projet.
 % TODO
 
 \section{Laboratoire d'électrolyse}
-% TODO
+\subsection{Découverte d'un autre procédé de fabrication du dihydrogène : l'électrolyse}
+Le but du laboratoire était de découvrir un nouveau procédé de
+fabrication du dihydrogène autre que le vaporéformage, de le
+caractériser et de le comparer avec le procédé utilisé dans la
+méthode de production Haber-Bosch en terme de consommation, de
+pollution et de coût de production.
+
+\subsection{Explication de la réaction}
+L'électrolyse de l'eau consiste à briser les liaisons entre
+l'oxygène et l'hydrogène de l'eau à l'aide d'un courant électrique.
+Ensuite, les deux composés prennent part à une réaction d'oxydo-réduction.
+Ce qui donne, à température ambiante, de l'hydrogène sous forme de
+dihydrogène gazeux(tout comme l'oxygène qui devient du dioxygène gazeux),
+un des produits souhaités. Le réaction suivante est la réaction bilan du
+procédé en question.
+
+$$2H_{2}O_{l} \rightleftharpoons 2 H_{2}_{g} + O_{2}_{g}$$
+
+En décomposant la réaction selon ce qui passe à l'anode et à la cathode, 
+on obtient:
+
+$$2H^{+}_{aq} + 2 e^{-} \rightleftharpoons H_{2}_{g}$$
+
+à la cathode et
+
+$$2H_{2}O_{l} \rightleftharpoons O_{2}_{g} + 4 e^{-} + 4 H^{+}$$
+
+à l'anode. On observe que le pH peut jouer un rôle favorable ou 
+défavorable à l'obtention du dihydrogène. Idem pour le courant.
+
+\subsection{Discussion paramétrique et observations du laboratoire}
+Lors de la première expérience, tout les groupes avaient les même paramètres,
+à savoir un courant de \unit{1}{A}, une température ambiante(approx. $20°C$),
+un pH de $1$(obtenu avec une solution d'acide sulfurique $5M$) et le milieu de
+la réaction était continuellement agité afin de pourvoir supposé que la 
+concentration en acide était identique partout dans le bécher. Nous déduisons 
+pour la première expérience que la production de dihydrogène gazeux est linéaire 
+par rapport au temps.
+
+Lors des expériences suivantes, nous avons modifié les paramètres un à 
+un afin de déterminer l'impact de ceux-ci sur la réaction et donc la 
+production du dihydrogène. Dans la deuxième expérience, la température
+a été augmentée. Dans la troisième expérience, le courant était diminué
+et dans les deux dernières expériences, le pH a été modifié.
+
+Toutes ces expériences nous donnent également une relation linéaire 
+entre le volume de $H_{2}$ produit et le temps. De la deuxième expérience,
+on retient qu'une augmentation de température diminue le temps nécessaire 
+à l'obtention d'un même volume de dihydrogène. De la troisième expérience, 
+nous retenons également que le courant influence de manière proportionnelle
+la production de $H_{2}$ : à temps égaux, si le courant est divisé par deux,
+alors le volume produit de dihydrogène est divisé par deux également. Enfin 
+des deux dernières expériences, nous apprenons que un pH acide favorise la
+production de dihydrogène tandis qu'un pH plus basique inhibe cette 
+production(l'imprécision des mesures prises ne permet pas de distinguer 
+correctement quel pH(basique ou acide) favorise la production de dihydrogène).
+
+Ce qui ressort de ces expériences :
+
+\begin{itemize}
+	\item La production de dihydrogène en fonction du temps est linéaire
+	\item Nous pouvons jouer sur certains paramètres afin d'obtenir un débit
+	massique suffisant que pour alimenter notre chaîne de production.
+\end{itemize}
+
+\subsection{Conclusions}
+Maintenant, cherchons les conditions idéales pour obtenir du dihydrogène.
+Il faut que le courant soit le plus grand possible et que la température
+soit la plus haute(voir section au-dessus). Dans ces conditions-là, nous
+obtenons un plus grand débit massique de dihydrogène.
+
+Pour produire le $H_{2}$ nécessaire à notre chaîne de production 
+(soit \unit{266.32}{\ton\per\dday} à $1000K$), nous avons besoin d'une 
+certaines puissance qu'il va falloir déterminer. Tout d'abord transformons 
+le débit massique en débit volumique :
+
+$$\unit{266.32}{\ton\per\dday} = \unit{3.082}{Kg\per\second} \approx \unit{3.1}{Kg\per\second}$$
+
+Dans le document cité dans la biblographie, une étude sur la production
+de dihydrogène par électrolyse provenant de panneaux photovoltaïque nous
+donne une formule qui lie le courant à la masse d'eau utilisée pour
+l'électrolyse et le rendement faradique(qui est de $90\%$ dans la plupart des cas).
+Le rendement faradique est Le courant nécessaire pour produire cette quantité vaut donc:
+
+$$I = \frac{96487000\cdot {\dot{m_{H_{2}}}}}{\eta_{f}} = \frac{96487000\cdot 3.1}{0.9} =  \unit{3.32\cdot 10^{8}}{A}$$
+
+avec $\eta_{f}$ le rendement faradique et $\dot{m_{H_{2}}}$, le débit massique
+de $H_{2}$ à produire. La puissance est le produit entre le courant et la 
+tension. Le puissance nécessaire est donc:
+
+$$P = V\cdot I = 1.5\cdot 3.32*10^{8} \approx \unti{5\cdot 10^{8}}{W}$$
+
+ce qui est très important(méthode assez énergivore).
+
+Pour finir, nous comparerons les deux méthodes de production de 
+dihydrogène vues, à savoir le vaporéformage et l'électrolyse.
+
+En terme de pollution, il est clair que l'électrolyse ne produit 
+pas ou peu de pollution de par sa consommation en électricité 
+(si on suppose que l'électricité peut être obtenue grâce à des énergies renouvelables)
+tandis que le vaporéformage est très polluant : il libère quasiment une mole de $CO_{2}$
+pour deux mole de $NH_{3}$ produites. Pour le rendement et le coût de production, 
+le vaporéformage est malheureusement plus pratique. En effet, l'achat et le stockage
+de gaz naturel et d'eau est sans doute moins cher (et plus facile d'accès) que 
+de consommer beaucoup de puissance électrique pour obtenir du dihydrogène à partir
+de l'eau. C'est pourquoi il est le procédé choisis industriellement pour la production
+de dihydrogène.
 
 \section{Atelier créatif (conduite de brainstorming)}
 % TODO
+
+\biblio{sources-tache7}
+
 \end{document}
