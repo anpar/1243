@@ -20,12 +20,16 @@ p0 = 1e5;
 
 % Equation d'équilibre du reformage primaire
 syms x y n01 n02 positive;
-eqn1 = K1 == ((x-y)*((3*x + y)^3)*ptot^2)/((n01-x)*(n02-x-y)*(n01+n02+(2*x)-y)^2*p0^2);
+eqn1 = K1 == ((x-y)*((3*x + y)^3)*ptot^2)/((n01-x)*(n02-x-y)*(n01+n02+(2*x))^2*p0^2);
 eqn2 = K2 == (y*(3*x + y))/((x-y)*(n02-x-y));
 eqn3 = n01 - x == 7/442 * a;
 eqn4 = 3*x + y == (9/221 * a)-x+y;
 eqns = [eqn1 eqn2 eqn3 eqn4];
 [x, y, n01, n02] = solve(eqns); 
+x
+y
+n01
+n02
 % Nombre de tubes
 
 % Reformer primaire
