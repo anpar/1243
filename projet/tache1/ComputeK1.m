@@ -9,7 +9,7 @@ syms t;
 % en joules/mole*Kelvin
 CpCO = @(t) 27.62 + (5.02e-3)*t;
 CpH2 = @(t) 29.30 + (0.84e-3)*t + (2.09e-6)*t.^2;
-CpCH4 =@(t) 14.23 + (75.3e-3)*t - (18e-6)*t.^2;
+CpCH4 = @(t) 14.23 + (75.3e-3)*t - (18e-6)*t.^2;
 CpH2O = @(t) 30.13 + (10.46e-3)*t;
 DeltaCp = @(t) (3*CpH2(t) + CpCO(t)) - (CpCH4(t) + CpH2O(t));
 
