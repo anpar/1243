@@ -253,104 +253,118 @@ $$n_{H_2-\text{réformage primaire}}= n_{H_2-\text{synthèse \chemform{NH_3}}}
 % ------------------------------------------
 \section{Equilibre du reformage primaire}
 \subsection{Calcul de la constante d'équilibre}
-
-Pour calculer la constante d'équilibre nous allons utiliser $K= \exp{\frac{-\Delta G}{RT}}$ avec $\Delta G = \Delta H - T \Delta S $
+Pour calculer la constante d'équilibre nous allons utiliser $K= \exp{\frac{-\Delta G}{RT}}$ avec $\Delta G = \Delta H - T\Delta S$.
 
 \subsubsection{Première réaction}
+Calculons la constante d'équilibre $K_1$ de la réaction suivante :
+
 \begin{chemmath} 
- CH_4(g) + H_{2}O(g) \longrightarrow CO(g) + 3H_2
+ CH_4(g) + H_2O(g) \Leftrightarrow CO(g) + 3H_2(g).
 \end{chemmath} 
 
-Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
+Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table},
 $$
 \left\{
 	\begin{array}{rl}
-		C_{p_{CO}}(T) 			&= \unit{27.62 +(5.02 \cdot 10^{-3})T}{\joule\per\mole\kelvin} \\
-		C_{p_{H_{2}}}(T) 		&= \unit{29.3-(0.84 \cdot 10^{-3})T + (2.09\cdot 10^{-6})T^2}{\joule\per\mole\kelvin} \\
-		C_{p_{CH_{4}}}(T) 	&= \unit{14.23+(75.3 \cdot 10^{-3})T - (18\cdot 10^{-6})T^2}{\joule\per\mole\kelvin} \\
-		C_{p_{H_{2}O}}(T) 	&= \unit{30.13+(10.46 \cdot 10^{-3})T}{\joule\per\mole\kelvin} 
+		C_{p_{CO}}(T) 		&= \unit{27.62 +(5.02 \cdot 10^{-3})T}{\joule\per\mole\kelvin} \\
+		C_{p_{H_2}}(T) 		&= \unit{29.3-(0.84 \cdot 10^{-3})T + (2.09\cdot 10^{-6})T^2}{\joule\per\mole\kelvin} \\
+		C_{p_{CH_4}}(T) 	&= \unit{14.23+(75.3 \cdot 10^{-3})T - (18\cdot 10^{-6})T^2}{\joule\per\mole\kelvin} \\
+		C_{p_{H_2O}}(T) 	&= \unit{30.13+(10.46 \cdot 10^{-3})T}{\joule\per\mole\kelvin} 
 	\end{array}
 \right.
 $$
 
+on peut écrire
+
+$$\Delta C_p(T) = 3C_{p_{H_2}}(T) + C_{p_{CO}}(T) - C_{p_{CH_{4}}}(T) - C_{p_{H_2O}}(T).$$
+
+On peut donc directement calculer $\Delta H_1(T)$ :
+
 $$
 	\begin{array}{rl}
-		 	 \Delta H_1(T)	&=   \Delta H(\unit{298.15}{\kelvin}) 
-												 + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
-												 +  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT\\
-											&= 188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3 
+		 	 \Delta H_1(T)	= \Delta H(\unit{298.15}{\kelvin}) + \int_{298.15}^T \Delta C_p(T) dT 
+											= \unit{188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3}{\joule\per\mole} 
 	\end{array}
 $$	
 
-Connaisant l'entropie en conditions standards \cite{atkins}
+Connaissant l'entropie en conditions standards \cite{atkins}, on peut 
+également directement calculer $\Delta S_1$
  
 $$
 	\begin{array}{rl}
-		 	 \Delta S_1(T)	&=  \Delta S(\unit{298.15}{\kelvin}) 
-													 + \int_{298.15}^{T} C_{p_{CO(g)}} \frac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \frac{dT}{T} 
-													 +  \int_{T}^{298.15} C_{p_{CH_4(g)}} \frac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\frac{dT}{T} \\
-											&= -167.05 + 71.16 \ln T -0.08326 T + (1.2135\cdot 10^{-5}) T^2
+		 	 \Delta S_1(T)	&=  \Delta S(\unit{298.15}{\kelvin}) + \int_{298.15}^{T} \frac{\Delta C_p}{T}dT \\
+											&= \unit{-167.05 + 71.16 \ln T -0.08326 T + (1.2135\cdot 10^{-5}) T^2}{\joule\per\mole\per\kelvin}
 	\end{array}
 $$	
 
- Nous pouvons calculer $\Delta G_1$:
+On peut alors calculer $\Delta G_1$
  
  \begin{equation}
-	\Delta G_1(T) = 188369.9 - (71.16\ln T)T + 238.21T + 0.04163 T^2 -(4.045\cdot 10^{-6})T^3
+	\Delta G_1(T) = \unit{188369.9 - (71.16\ln T)T + 238.21T + 0.04163 T^2 -(4.045\cdot 10^{-6})T^3}{\joule\per\mole}
 	\label{delta-g1}
  \end{equation} 
 
-Nous obtenons donc
+et donc enfin obtenir $K_1$
+
 $$K_1 = \exp{\frac{-\Delta G_1}{RT}}$$
+
 où $\Delta G_1$ est donnée par l'équation \ref{delta-g1}.
 
 \subsubsection{Deuxième réaction}
+Calculons maintenant la constante d'équilibre $K_2$ de la deuxième réaction :
+
 \begin{chemmath} 
- CO(g) + H_{2}O(g) \longrightarrow CO_2(g) + H_2
+	CO(g) + H_2O(g) \Leftrightarrow CO_2(g) + H_2(g)
 \end{chemmath} 
 
-Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
-
-$$
-\begin{array}{rl}
-C_{p_{CO_2}}(T)=32.22 +(22.18 \cdot 10^{-3})T - (3.35 \cdot 10^{-6})T^2\\
-\end{array}
-$$
+Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table},
 
 $$
 	\begin{array}{rl}
-		 \Delta H_2(T)	&=  \Delta H(\unit{298.15}{\kelvin}) 
-												 + \int_{298.15}^{T} C_{p_{CO_2(g)}} dT + \int_{298.15}^{T} C_{p_{H_2(g)}} dT 
-												 +  \int_{T}^{298.15} C_{p_{CO(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT \\
-										&=  -42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3
+		C_{p_{CO_2}}(T)=32.22 +(22.18 \cdot 10^{-3})T - (3.35 \cdot 10^{-6})T^2\\
 	\end{array}
-$$	
+$$
 
-Connaisant l'entropie en conditions standards \cite{atkins}
+on peut écrire
+
+$$\Delta C_p(T) = C_{p_{H_2}}(T) + C_{p_{CO_2}}(T) - C_{p_{CO}}(T) - C_{p_{H_2O}}(T).$$
+
+On peut donc directement calculer $\Delta H_2(T)$ 
 
 $$
 	\begin{array}{rl}
-		 	\Delta S_2(T)	&=  \Delta S(\unit{298.15}{\kelvin}) 
-											 + \int_{298.15}^{T} C_{p_{CO_2(g)}} \frac{dT}{T} + 3\int_{298.15}^{T} C_{p_{H_2(g)}} \frac{dT}{T} 
-											 +  \int_{T}^{298.15} C_{p_{CO(g)}} \frac{dT}{T} + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}\frac{dT}{T}\\
-										&=   -65.9 + 3.77 \ln(T) +(5.86\cdot 10^{-3})T -(6.3 \cdot 10^{-7})T^2
+		 \Delta H_2(T)	&=  \Delta H(\unit{298.15}{\kelvin}) + \int_{298.15}^{T} \Delta C_p(T) dT \\
+										&=  \unit{-42533.33+3.77T+(2.93\cdot 10^-3)T^2-(4.2\cdot 10^-7)T^3}{\joule\per\mole}.
 	\end{array}
 $$	
 
-Nous pouvons calculer $\Delta G_2$ :
+Connaissant l'entropie en conditions standards \cite{atkins}, on peut
+également directement calculer $\Delta S_2(T)$
+
+$$
+	\begin{array}{rl}
+		 	\Delta S_2(T)	&= \Delta S(\unit{298.15}{\kelvin}) 
+											 + \int_{298.15}^{T} \frac{\Delta C_p(T)}{T}dT \\
+										&= \unit{-65.9 + 3.77 \ln(T) +(5.86\cdot 10^{-3})T -(6.3 \cdot 10^{-7})T^2}{\joule\per\mole\kelvin}
+	\end{array}
+$$	
+
+Nous pouvons donc calculer $\Delta G_2$
  
  \begin{equation}
-	\Delta G_2=-42533.33 - (3.77 \ln(T))T +69.67 T -(2.93 \cdot 10^{-3})T^2
-	+ (2.1\cdot 10^{-7})T^3 
+	\Delta G_2= \unit{-42533.33 - (3.77 \ln(T))T +69.67 T -(2.93 \cdot 10^{-3})T^2 + (2.1\cdot 10^{-7})T^3}{\joule\per\mole} 
 	\label{delta-g2}
  \end{equation}
  
-Nous obtenons donc
-$$K_2 = \exp{\frac{-\Delta G_2}{RT}}$$
+pour enfin obtenir $K_2$
+
+	$$K_2 = \exp{\frac{-\Delta G_2}{RT}}$$
+
 où $\Delta G_2$ est donné par l'équation \ref{delta-g2}.
 
 \paragraph{Remarque} Pour plus de précisions et afin d'automatiser le calcul
-de ces constantes d'équilibres, nous avons créé deux fonctions Matlab que vous
+de ces constantes d'équilibres, nous avons créé deux fonctions Matlab, \lstinline{ComputeK1(T)}
+et \lstinline{ComputeK2(T)} qui suivent exactement cette démarche et que vous
 pouvez retrouver dans l'annexe \ref{code-matlab-outil}.
 
 \subsection{Etat d'avancement}
@@ -687,30 +701,6 @@ fonctionner le four à 133.3 pourcent afin d'avoir la quantité d'énergie néce
 à 100 pourcent.}.
 
 % ------------------------------------------
-% OUTIL DE GESTION
-% ------------------------------------------
-\section{Outil de gestion}
-Notre outil de gestion se base sur les équations écrites lors du
-bilan de matière et lors du calcul de l'état d'avancement des réactions
-dans le reformage primaire. Il résout donc un système à 4 équations
-et à 4 inconnues et ne sélectionne que les solutions positives et réelles. Notre programme
-peut être amélioré et nous en sommes conscients. On pourrait le rendre plus robuste 
-en traitant par exemple les cas ou les arguments de notre fonction ne sont pas 
-valides. On peut aussi le rendre plus conviviale en créant un interface graphique
-permettant d'utiliser notre fonction sans passer par la commande. On pourrait également
-lui demander de calculer la quantité de \chemform{CO_2} rejetée dans l'atmosphère afin
-de quantifier l'impact environnemental. Toutes ces améliorations seront d'ailleurs ajoutées 
-par la suite. Le code de notre fonction est présenté ci-dessous.
-
-Le code Matlab de l'outil de gestion peut être trouvé à l'annexe \ref{code-matlab-outil}.
-
-% ------------------------------------------
-% ETUDE PARAMETRIQUE
-% ------------------------------------------
-\section{Etude paramétrique}
-% TODO avec l'outil de gestion.
-
-% ------------------------------------------
 % CALCUL DU NOMBRE DE TUYAUX
 % ------------------------------------------
 \section{Calcul du nombre de tuyaux}
@@ -750,6 +740,31 @@ c'est-à-dire que $x_{CH_4} = x_{H_2O}$. Dès lors, le volume massique $\nu$ dev
 $$\nu = \frac{R^*\cdot T}{31\cdot 10^5} = \frac{\frac{8.314}{17\cdot 10^{-3}}\cdot 1080}{31\cdot 10^5} = 0.17$$
 
 Ce qui nous donne un nombre de tube approximatif de $65$ ($64.77$).
+
+% ------------------------------------------
+% OUTIL DE GESTION
+% ------------------------------------------
+\section{Outil de gestion}
+Notre outil de gestion se base sur les équations écrites lors du
+bilan de matière et lors du calcul de l'état d'avancement des réactions
+dans le reformage primaire. Il résout donc un système à 4 équations
+et à 4 inconnues et ne sélectionne que les solutions positives et réelles.
+Il présente les résultats sous forme d'un tableau reprenant les flux de chaque
+composants à chaque étape du procédé. Les résultats sont présentés en \unit{\mole\per\second}.
+Nous avons également intègrer le calcul du nombre de tubes nécessaires au 
+passage du mélange \chemform{CH_4(g)} et \chemform{H_2O(g)}.
+
+Le code Matlab de l'outil de gestion peut être trouvé à l'annexe \ref{code-matlab-outil}.
+Remarquez que l'outil de gestion utilise deux autres fonctions \lstinline{ComputeK1}
+et \lstinline{ComputeK2} qui permettent respectivement de calculer la constante
+d'équilibre de la première et de la deuxième réaction du reformage primaire pour
+une température $T$.
+
+% ------------------------------------------
+% ETUDE PARAMETRIQUE
+% ------------------------------------------
+\section{Etude paramétrique}
+% TODO avec l'outil de gestion.
 
 \biblio{source-tache1}
 
