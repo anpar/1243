@@ -357,17 +357,43 @@ pouvez retrouver dans l'annexe \ref{code-matlab-outil}.
 Analysons maintenant plus en détails les deux réactions qui ont lieu dans le réformage primaire.
 Ces deux réactions se passent à l'équilibre dans le même réacteur. 
 De plus, dans la gamme de températures qui nous intéressent, on considère tous les composantes à l'état gazeux.
-Nous ferons l'hypothèse que ces gazs se comportent comme des gazs parfaits.
-Voici donc les tableaux d'avancement en conséquence, à la figure \ref{avancement}.
+Nous ferons l'hypothèse que ces gaz se comportent comme des gaz parfaits.
+Voici donc les tableaux d'avancement en conséquence, dans les table \ref{avancement1} et \ref{avancement2}.
   
-	% TODO 	: à refaire en LaTeX !
-	\begin{figure}[htb!]
+	\begin{table}[!ht]
 		\centering
-		\includegraphics[scale=1.0]{avancements.png}
-		\caption{Les tableaux d'avancement des deux réactions.}
-		\label{avancement}
-	\end{figure}
-  
+		\begin{tabular}{c|cccccccc}
+									& \ce{CH_4(g)} 				&+& \ce{H_2O(g)} 			 	&	$\Leftrightarrow$ 		& \ce{CO(g)} 			&+& \ce{3H_2(g)} \\
+			\hline
+			$n_i$ 			& $n_{01}$ 						& & $n_{02}$						& 											& 0								&	& 0 \\
+			$n_{eq}(x)$	&	$n_{01}-x$ 					& & $n_{02}-x-y$				& 											& $x-y$ 					&	& $3x+y$ \\
+			\hline 
+			$a_{eq}$		& $\frac{n_{01}-x}{n_{gaz,tot}}\frac{p}{p\std}$ &
+																				& $\frac{n_{02}-x-y}{n_{gaz,tot}}\frac{p}{p\std}$ &
+																															& $\frac{x-y}{n_{gaz,tot}}\frac{p}{p\std}$ &
+																																									& $\frac{3x+y}{n_{gaz,tot}}\frac{p}{p\std}$
+		\end{tabular}
+		\caption{Tableau d'avancement de la première réaction.}
+		\label{avancement1}
+	\end{table}
+	
+	\begin{table}[!ht]
+		\centering
+		\begin{tabular}{c|cccccccc}
+									& \ce{CO(g)} 				&+& \ce{H_2O(g)} 			 		&	$\Leftrightarrow$ 		& \ce{CO_2(g)} 			&+& \ce{H_2(g)} \\
+			\hline
+			$n_i$ 			& $x$ 							& & $n_{02}-x$						& 											& 0								&	& $3x$ \\
+			$n_{eq}(x)$	&	$x-y$ 						& & $n_{02}-x-y$					& 											& $y$ 						&	& $3x+y$ \\
+			\hline 
+			$a_{eq}$		& $\frac{x-y}{n_{gaz,tot}}\frac{p}{p\std}$ &
+																				& $\frac{n_{02}-x-y}{n_{gaz,tot}}\frac{p}{p\std}$ &
+																															& $\frac{y}{n_{gaz,tot}}\frac{p}{p\std}$ &
+																																									& $\frac{3x+y}{n_{gaz,tot}}\frac{p}{p\std}$
+		\end{tabular}
+		\caption{Tableau d'avancement de la première réaction.}
+		\label{avancement2}
+	\end{table}
+	
 Ici, $x$ et $y$ sont respectivement les avancements des première et deuxième réactions. Nous travaillons en moles par jour.
 On remarque bien que les quantités à l'équilibre correspondent dans les deux tableaux.
 Avant de s'attaquer à l'écriture des quotients réactionnels à l'équilibre, notons que le nombre total de moles de gaz
