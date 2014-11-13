@@ -117,7 +117,7 @@ que l'erreur faite en utilisant l'approximation de la section précédente est d
 	\subsubsection{Méthode de Ramsay}
 	
 	\begin{chemmath}
-			NaNO_2(aq) + NH_4Cl(aq) \longrightarrow NaCl(aq) + 2 H_2O(l) + N_2(g)
+			NaNO_2(aq) + NH_4Cl(aq) \longrightarrow NaCl(aq) + 2H_2O(l) + N_2(g)
 	\end{chemmath}
 	
 	On chauffe le mélange de \chemform{NaNO_2} et \chemform{NH_4Cl} pour obtenir le \chemform{N_2} sous forme gazeuse.
@@ -337,7 +337,7 @@ $$
 	\end{array}
 $$	
 
-Nous pouvons calculer $\Delta G_2$:
+Nous pouvons calculer $\Delta G_2$ :
  
  \begin{equation}
 	\Delta G_2=-42533.33 - (3.77 \ln(T))T +69.67 T -(2.93 \cdot 10^{-3})T^2
@@ -364,7 +364,7 @@ Voici donc les tableaux d'avancement en conséquence, à la figure \ref{avanceme
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[scale=1.0]{avancements.png}
-		\caption{Les tableaux d'avancement des deux réactions;}
+		\caption{Les tableaux d'avancement des deux réactions.}
 		\label{avancement}
 	\end{figure}
   
@@ -391,7 +391,7 @@ et $p_0$ est la pression standard, c'est à dire 1 bar.
 $K_1$ et $K_2$ ont été calculés plus tôt en fonction de la température. 
 De plus, grâce au bilan de matière fait précédement, nous obtenons les deux équations suivantes :
 
-% Je pense que ces équations sont mauvaises
+% Equations à corriger
 $$
 	\left\{
 		\begin{array}{rl}
@@ -476,7 +476,7 @@ Le réformage primaire est composé de deux équations.
 
 La première réaction est donnée par 
 \begin{chemmath} 
- CH_4(g) + H_{2}O(g) <=> CO(g) + 3H_2
+ CH_4(g) + H_{2}O(g) \Leftrightarrow CO(g) + 3H_2
 \end{chemmath} 
 
 Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
@@ -501,7 +501,7 @@ $$
 
 La deuxième réaction est donnée par 
 \begin{chemmath} 
-	CO(g) + H_{2}O(g) <=> CO_2(g) + H_2
+	CO(g) + H_{2}O(g) \Leftrightarrow CO_2(g) + H_2
 \end{chemmath} 
 
 Connaissant l'enthalpie en conditions standards \cite{atkins} et les capacités calorifiques dépendant de la température \cite{hc-table}:
@@ -627,14 +627,14 @@ $$
 
 La réaction se passe à $\unit{750}{\kelvin}$.
 						
-Voici les $C_{p}$ variables en fonction de la température des différents composants\cite{hc-table} :
+Voici les $C_p$ variables en fonction de la température des différents composants\cite{hc-table} :
 
 $$
 	\left\{
 		\begin{array}{rl}
-			C_{p_{N_{2}}}(T) 	&= 27.62 + 4.19\cdot10^{-3}T + (0\cdot10^{-6})T^2\\
-			C_{p_{H_{2}}}(T)	&= 29.3 - 0.84\cdot10^{-3}T + (2.09\cdot10^{-6})T^2\\
-			C_{p_{NH_{3}}(T) 	&= 31.81 + 15.48\cdot10^{-3}T + (5.86\cdot10^{-6})T^2 \\
+			C_{p_{N_2}}(T) 	&= 27.62 + 4.19\cdot10^{-3}T + (0\cdot10^{-6})T^2\\
+			C_{p_{H_2}}(T)	&= 29.3 - 0.84\cdot10^{-3}T + (2.09\cdot10^{-6})T^2\\
+			C_{p_{NH_3}}(T) 	&= 31.81 + 15.48\cdot10^{-3}T + (5.86\cdot10^{-6})T^2 \\
 		\end{array}
 	\right
 $$
@@ -672,7 +672,7 @@ peut être amélioré et nous en sommes conscients. On pourrait le rendre plus r
 en traitant par exemple les cas ou les arguments de notre fonction ne sont pas 
 valides. On peut aussi le rendre plus conviviale en créant un interface graphique
 permettant d'utiliser notre fonction sans passer par la commande. On pourrait également
-lui demander de calculer la quantité de \chemform{CO2} rejetée dans l'atmosphère afin
+lui demander de calculer la quantité de \chemform{CO_2} rejetée dans l'atmosphère afin
 de quantifier l'impact environnemental. Toutes ces améliorations seront d'ailleurs ajoutées 
 par la suite. Le code de notre fonction est présenté ci-dessous.
 
@@ -744,7 +744,7 @@ La deuxième version de notre flow-sheet se trouve à la figure \ref{flow-sheet-
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[scale=0.80]{flow-sheet-v2.jpg}
+	\includegraphics[scale=0.65]{flow-sheet-v2.jpg}
 	\caption{Deuxième ébauche de notre flow-sheet.}
 	\label{flow-sheet-v2}
 \end{figure}
