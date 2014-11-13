@@ -27,12 +27,13 @@ eqn4 = 4*x + 3*(0.42*a*10^6)/(26.52*86400) == (3*a*10^6)/(34*86400);
 eqns = [eqn1 eqn2 eqn3 eqn4];
 [x, y, n01, n02] = solve(eqns, x, y, n01, n02); 
 
-% Nombre de tubes
-Tubes = 0;
-
 % Reformer primaire
 CH4_in1 = double(n01);
 H2O_in1 = double(n02);
+
+% Nombre de tubes
+R = 8.3144621;
+Tubes = ceil(((CH4_in1 + H2O_in1)*R*T)/(2*31e5*7.854e-3));
 
 % Four
 CH4_in2 = 0;
