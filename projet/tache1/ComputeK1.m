@@ -5,7 +5,7 @@ function [K1] = ComputeK1(T)
 
 R = 8.3144621; 
 syms t;
-% Capacite calorifique à pression constante en fonction de la temperature,
+% Capacite calorifique a pression constante en fonction de la temperature,
 % en joules/mole*Kelvin
 CpCO = @(t) 27.62 + (5.02e-3)*t;
 CpH2 = @(t) 29.30 + (0.84e-3)*t + (2.09e-6)*t.^2;

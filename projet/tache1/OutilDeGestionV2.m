@@ -9,7 +9,7 @@ function [Output] = OutilDeGestionV2(a, T)
 % - Pour plus de precisions : utilisez les masses molaires exactes ;
 % - Afficher les resultats en moles/s ET tonnes/jour ;
 
-% On limite la precision à 4 decimales.
+% On limite la precision a 4 decimales.
 format short;
 
 % Donnees thermodynamiques
