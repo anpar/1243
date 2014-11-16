@@ -1,13 +1,19 @@
 function [Output] = OutilDeGestionV2(a, T)
-% 1243 - Outil de Gestion V2
-% Input :
-% - Le debit de NH3 en tonnes/jour.
-% - La temperature du reformage primaire en Kelvin.
-% Output :
-% Tous les debits entrants et sortants en moles/s 
-% TODO :
-% - Pour plus de precisions : utilisez les masses molaires exactes ;
-% - Afficher les resultats en moles/s ET tonnes/jour ;
+% OutilDeGestionV2 - Calcul les débits de matières à chaque étape du
+% processus de fabrication de l'ammoniac.
+%
+% Cette fonction MATLAB retourne, sous forme de tableau, tous les débits de
+% matière (en moles/s) à chaque étape nécessaire pour la fabrication de a tonnes/jour
+% d'ammoniac à une température de T kelvin. Cette fonction utilise deux
+% fonctions auxiliaire, ComputeK1 et ComputeK2.
+%
+%   OutilDeGestionV2(a, T)
+%
+% A faire pour améliorer l'outil :
+% - Utiliser les masses molaires exactes ;
+% - Fournir les résultats en tonnes/jour ou en moles/s selon un argument ;
+% - Améliorer le rendu du tableau retourné ;
+% - Créer une interface graphique.
 
 % On limite la precision a 4 decimales.
 format short;
