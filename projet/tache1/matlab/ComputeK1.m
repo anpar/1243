@@ -1,7 +1,18 @@
 function [K1] = ComputeK1(T)
-% Cette fonction calcule la constante d'equilibre K1
-% de la premiere reaction du reformage primaire en fonction de la temperature :
+% ComputeK1 - Calcul la constante d'équilibre de la première réaction du
+% reformage primaire.
+%
+% Cette fonction MATLAB calcule la constante d'equilibre K1
+% de la premiere reaction du reformage primaire en fonction de la
+% température T exprimée en Kelvin :
 % CH4(g) + H2O(g) <-> CO(g) + 3H2(g)
+% Les données thermodynamiques utilisées proviennent du Atkins et de
+% <http://www.edu.upmc.fr/chimie/lc101-202-301/communs/public/capcalo.htm> .
+%
+% ComputeK1(T)
+%
+% Dernière version : 16-11-2014
+% Auteur : le groupe 1243
 
 R = 8.3144621; 
 syms t;

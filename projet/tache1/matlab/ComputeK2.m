@@ -1,7 +1,18 @@
 function [K2] = ComputeK2(T)
-% Cette fonction calcule la constante d'equilibre K2
-% de la deuxieme reaction du reformage primaire en fonction de la temperature :
+% ComputeK2 - Calcul la constante d'équilibre de la deuxième réaction du
+% reformage primaire.
+%
+% Cette fonction MATLAB calcule la constante d'equilibre K2
+% de la premiere reaction du reformage primaire en fonction de la
+% température T exprimée en Kelvin :
 % CO(g) + H2O(g) <-> CO2(g) + H2(g)
+% Les données thermodynamiques utilisées proviennent du Atkins et de
+% <http://www.edu.upmc.fr/chimie/lc101-202-301/communs/public/capcalo.htm> .
+%
+% ComputeK2(T)
+%
+% Dernière version : 16-11-2014
+% Auteur : le groupe 1243
 
 R = 8.3144621; 
 syms t;

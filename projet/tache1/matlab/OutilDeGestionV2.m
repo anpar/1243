@@ -9,11 +9,8 @@ function [Output] = OutilDeGestionV2(a, T)
 %
 %   OutilDeGestionV2(a, T)
 %
-% A faire pour améliorer l'outil :
-% - Utiliser les masses molaires exactes ;
-% - Fournir les résultats en tonnes/jour ou en moles/s selon un argument ;
-% - Améliorer le rendu du tableau retourné ;
-% - Créer une interface graphique.
+% Dernière version : 16-11-2014
+% Auteur : le groupe 1243
 
 % On limite la precision a 4 decimales.
 format short;
