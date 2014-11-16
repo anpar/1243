@@ -3,9 +3,11 @@ function [Output] = OutilDeGestionV2(a, T)
 % processus de fabrication de l'ammoniac.
 %
 % Cette fonction MATLAB retourne, sous forme de tableau, tous les débits de
-% matière (en moles/s) à chaque étape nécessaire pour la fabrication de a tonnes/jour
-% d'ammoniac à une température de T kelvin. Cette fonction utilise deux
-% fonctions auxiliaire, ComputeK1 et ComputeK2.
+% matière (en moles/s), à chaque étape, nécessaire à la fabrication de a tonnes/jour
+% d'ammoniac à une température de T kelvin. Elle retourne également le
+% nombre de tubes nécessaires aux passage du mélange H2O et CH4 à l'entrée
+% du reformage prilmaire. Cette fonction utilise deux fonctions auxiliaire, 
+% ComputeK1 et ComputeK2. 
 %
 %   OutilDeGestionV2(a, T)
 %
