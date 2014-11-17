@@ -703,6 +703,7 @@ fonctionner le four à 133.3 pourcent afin d'avoir la quantité d'énergie néce
 % ------------------------------------------
 % CALCUL DU NOMBRE DE TUYAUX
 % ------------------------------------------
+
 \section{Calcul du nombre de tuyaux}
 
 Maintenant, nous allons modéliser le nombre de tubes dont nous aurons besoin pour notre réacteur multi-tubulaire. Nous expliquerons la modélisation en prenant un exemple plus tard. 
@@ -717,20 +718,19 @@ $$ A = \frac{\dot{V}}{c} = \frac{2.68*10^{-6}\cdot T \cdot \dot{n}}{2} = \unit{1
 
 Or, on sait que la surface d'un tube vaut $\pi\cdot (\frac{d}{2})^{2} = \unit{7.85\cdot 10^{-3}}{\meter\squared}$. Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur la section d'un tube. Ce qui nous donne finalement : 
 
-$$ nb tubes = \frac{1.34*10^{-6}\cdot T \cdot \dot{n}}{7.854\cdot 10^{-3}} = 1.707*10{-4} \cdot T\cdot \dot{n}$$
+$$ \text{nb tubes} = \frac{1.34*10^{-6}\cdot T \cdot \dot{n}}{7.854\cdot 10^{-3}} = 1.707*10{-4} \cdot T\cdot \dot{n}$$
 
 Pour terminer cette partie, nous allons calculer le nombre de tuyaux pour ces données de base :
 
-$$ \dot{n_{réactifs}} = \unit{872.22}{\mole\per\second} , T = \unit{1080}{K} , d_{tube} = \unit{10^{-1}}{\meter} et c = \unit{2}{\meter\per\second}$$
+$$ \dot{n_{réactifs}} = \unit{872.22}{\mole\per\second} , T = \unit{1080}{\kelvin} , d_{tube} = \unit{10^{-1}}{\meter} et c = \unit{2}{\meter\per\second}$$
 
-où $\dot{n_{réactifs}}$ est le débit molaire par jour de réactifs(déterminé avec l'outil de gestion pour une température citée ci-après et un débit massique de $NH_{3}$ de $\unit{1500}{\ton\per\dday}$, $T$ une température plausible choisie pour le dimensionnement du réacteur multi-tubulaire, $d_{tube}$ est le diamètre d'un tube et $c$ est la vitesse superficielle à l'entrée du réacteur.
+où $\dot{n_{réactifs}}$ est le débit molaire par seconde de réactifs(composé de $CH_{4}$ et d'eau et déterminé avec l'outil de gestion pour une température citée ci-après et un débit massique de $NH_{3}$ de $\unit{1500}{\ton\per\dday}$, $T$ une température plausible choisie pour le dimensionnement du réacteur multi-tubulaire, $d_{tube}$ est le diamètre d'un tube et $c$ est la vitesse superficielle à l'entrée du réacteur.
 
 Le formule du nombre de tuyaux devient:
 
-$$ nb tuyaux = 1.707*10{-4} \cdot T\cdot \dot{n} = 160.83 $$
+$$ \text{nb tuyaux} = 1.707*10{-4} \cdot T\cdot \dot{n} = 160.83 $$
 
 Ce qui nous donne un nombre de tube approximatif de $161$ tuyaux.
-
 
 % ------------------------------------------
 % OUTIL DE GESTION
