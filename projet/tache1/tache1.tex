@@ -703,43 +703,49 @@ fonctionner le four à 133.3 pourcent afin d'avoir la quantité d'énergie néce
 % ------------------------------------------
 % CALCUL DU NOMBRE DE TUYAUX
 % ------------------------------------------
-\section{Calcul du nombre de tuyaux}
-% A refaire et à intéger dans l'outil de gestion
-Maintenant, nous allons calculer le nombre de tubes dont nous aurons besoin pour
-notre réacteur multi-tubulaire. Nous avons ces données de base : $\dot{m_{\text{réactifs}}} = \unit{517.05}{\ton\per\dday}$, 
-$T = \unit{1080}{\kelvin}$, $d_{tube} = \unit{10^{-1}}{\meter}$ et $c = \unit{2}{\meter\per\second}$ où $\dot{m_{\text{réactifs}}}$ 
-est le débit massique par jour de réactifs (déterminé avec l'outil de gestion pour une température citée ci-après et
-un débit massique de $NH_{3}$ de \unit{1500}{\ton\per\dday}, $T$ une température plausible choisie pour le dimensionnement
-du réacteur multi-tubulaire, $d_{tube}$ est le diamètre d'un tube et $c$ est la vitesse superficielle à l'entrée du réacteur.
-Transformons d'abord le débit massique en débit volumique :
 
-$$\unit{517.05}{\ton\per\dday} = \unit{5.984\cdot 10^{-3}}{\ton\per\second} = \unit{5.984\cdot \nu}{\meter^{3}\per\second} = \dot{V}$$
+\section{Calcul du nombre de tubes}
+Nous allons maintenant calculer le nombre de tubes dont nous aurons besoin
+pour notre réacteur multi-tubulaire. Ces tubes, d'un rayon $r = \unit{5}{\centi\meter}$,
+doivent permettrent le passage des réactifs à l'entrée du reformage primaire avec une
+vitesse superficielle $c = \unit{2}{\meter\per\second}$. 
+Nous expliquerons la modélisation dans un premier temps, et prendrons un exemple ensuite.
 
-avec $\nu$ le volume massique du mélange que l'on introduit dans le réacteur. Nous pouvons déterminer $\nu$ grâce à 
-l'expression de la loi des gaz parfaits sous forme thremodynamique $\nu = \frac{R^*\cdot T}{31\cdot 10^{5}}$ où $R^{*}$ vaut 
+Nous pouvons déterminer le débit volumique, noté $\dot{V}$, grâce à l'expression de la loi des gaz
+parfaits $p\dot{V} = \dot{n}RT$ où $\dot{n}$ est le débit molaire, $R$ est la constante des gaz parfaits,
+$T$ est la température imposée dans le reformage primaire et $p$ est la
+pression dans le réformage primaire, c'est à dire 31 bars :
 
-$$\frac{R}{\frac{16\cdot x_{CH_4}+18\cdot x_{H_2O}}{2}}$$
+$$\dot{V} = \frac{\dot{n}RT}{p} = \frac{\dot{n}\cdot 8.314\cdot T}{31\cdot10^5}
+ = (2.68\cdot10^{-6})\cdot \dot{n}T$$
 
-avec $x_{CH_4}$ et $x_{H_2O}$ les fractions molaire du méthane
-et de l'eau entrant dans le système. Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m}_{\text{entrée}} = \dot{m}_{\text{sortie}}$,
-nous obtenons que $\dot{V} = c \cdot  A$ avec $\dot{V}$ le débit volumique et $A$ la somme des sections de tous les tubes. 
+Ensuite, à l'aide des notions de système ouvert et de l'hypothèse 
+$\dot{m_{\text{entrée}}} = \dot{m_{\text{sortie}}}$, nous obtenons que $\dot{V} 
+= c \cdot  A $ avec $ \dot{V}$ où $A$ est la somme des sections de tous les tubes.
 En remplaçant par les valeurs que nous possédons, nous obtenons :
 
-$$A = \frac{\dot{V}}{c} = \frac{5.984\dot \nu}{2} = \unit{2.992\cdot \nu}{\meter\squared}$$
+$$A = \frac{\dot{V}}{c} = \frac{(2.68\cdot10^{-6})\cdot \dot{n}T}{2} 
+= \unit{(1.34\cdot10^{-6})\cdot \dot{n}T}{\meter\squared}$$
 
-Or, on sait que la surface d'un tube vaut $\pi\cdot (\frac{d}{2})^{2} = \unit{7.85\cdot 10^{-3}}{\meter\squared}$. 
-Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur la section d'un tube. 
-Ce qui nous donne finalement : 
+Or, on sait que la surface d'un tube vaut $\pi r^2
+= \unit{7.85\cdot10^{-3}}{\meter\squared}$. Le nombre de tubes est,
+dès lors, le rapport de la section totale $A$ trouvée plus haut sur
+la section d'un tube. Ce qui nous donne finalement : 
 
-$$\text{Nombre de tubes} = \frac{2.992\cdot \nu}{7.854\cdot 10^{-3}} = 380.98\cdot \nu$$
+$$\text{Nombre de tubes} = \frac{(1.34\cdot10^{-6})\cdot \dot{n}T}{7.854\cdot10^{-3}}
+= (1.707\cdot10{-4})\cdot\dot{n}T$$
 
-Pour terminer cette partie, nous allons calculer un nombre de tuyaux sous certaines hypothèses et conditions.
-Nous supposons que les fractions molaires de $CH_{4}$ et de $NH_{3}$ sont identiques (hypothèses valables à \unit{1080}{\kelvin}),
-c'est-à-dire que $x_{CH_4} = x_{H_2O}$. Dès lors, le volume massique $\nu$ devient:
+Pour terminer cette partie, nous allons calculer le nombre de tubes
+nécessaires pour la production de \unit{1500}{\ton\per\dday} de \chemform{NH_3}
+à une température $T = \unit{1080}{\kelvin}$. L'outil de gestion
+nous donne alors $\dot{n}_{\text{réactifs}} = \dot{n}_{CH_4} + \dot{n}_{H_2O} 
+= \unit{872.22}{\mole\per\second}$.
 
-$$\nu = \frac{R^*\cdot T}{31\cdot 10^5} = \frac{\frac{8.314}{17\cdot 10^{-3}}\cdot 1080}{31\cdot 10^5} = 0.17$$
+On trouve alors immédiatement :
 
-Ce qui nous donne un nombre de tube approximatif de $65$ ($64.77$).
+$$\text{Nombre de tubes} = 160.83$$
+
+que l'on arrondit bien sur à l'unité supérieure pour obtenir $161$.
 
 % ------------------------------------------
 % OUTIL DE GESTION
