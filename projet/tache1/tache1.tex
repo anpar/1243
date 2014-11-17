@@ -704,33 +704,48 @@ fonctionner le four à 133.3 pourcent afin d'avoir la quantité d'énergie néce
 % CALCUL DU NOMBRE DE TUYAUX
 % ------------------------------------------
 
-\section{Calcul du nombre de tuyaux}
+\section{Calcul du nombre de tubes}
+Nous allons maintenant calculer le nombre de tubes dont nous aurons besoin
+pour notre réacteur multi-tubulaire. Ces tubes, d'un rayon $r = \unit{5}{\centi\meter}$,
+doivent permettrent le passage des réactifs à l'entrée du reformage primaire avec une
+vitesse superficielle $c = \unit{2}{\meter\per\second}$. 
+Nous expliquerons la modélisation dans un premier temps, et prendrons un exemple ensuite.
 
-Maintenant, nous allons modéliser le nombre de tubes dont nous aurons besoin pour notre réacteur multi-tubulaire. Nous expliquerons la modélisation en prenant un exemple plus tard. 
+Nous pouvons déterminer le débit volumique, noté $\dot{V}$, grâce à l'expression de la loi des gaz
+parfaits $p\dot{V} = \dot{n}RT$ où $\dot{n}$ est le débit molaire, $R$ est la constante des gaz parfaits,
+$T$ est la température imposée dans le reformage primaire et $p$ est la
+pression dans le réformage primaire, c'est à dire 31 bars :
 
-Nous pouvons déterminer $\dot{V}$ grâce à l'expression de la loi des gaz parfaits $ \dot{V} = \frac{\dot{n}\cdot R\cdot T}{p} $ où $\dot{n}$ est le débit molaire calculé plus haut, $R$ est la constante des gaz parfaits, $T$ est la température imposée dans le réformage primaire et $p$ est la pression dans le réformage primaire. Ce qui donne :
+$$\dot{V} = \frac{\dot{n}RT}{p} = \frac{\dot{n}\cdot 8.314\cdot T}{31\cdot10^5}
+ = (2.68\cdot10^{-6})\cdot \dot{n}T$$
 
-$$ \dot{V} = \frac{\dot{n}\cdot R\cdot T}{p}  = \frac{\dot{n}\cdot 8.314\cdot T}{31*10^5} = 2.68*10^{-6} \cdot \dot{n}\cdot T$$
+Ensuite, à l'aide des notions de système ouvert et de l'hypothèse 
+$\dot{m_{\text{entrée}}} = \dot{m_{\text{sortie}}}$, nous obtenons que $\dot{V} 
+= c \cdot  A $ avec $ \dot{V}$ où $A$ est la somme des sections de tous les tubes.
+En remplaçant par les valeurs que nous possédons, nous obtenons :
 
-Ensuite, à l'aide des notions de système ouvert et de l'hypothèse $\dot{m_{entrée}} = \dot{m_{sortie}}$, nous obtenons que $ \dot{V} = c \cdot  A $ avec $ \dot{V} $ le débit volumique, $A$ la somme des sections de tous les tubes et $c$ la vitesse du mélange à l'entrée du réacteur. En remplaçant par les valeurs que nous possédons, nous obtenons :
+$$A = \frac{\dot{V}}{c} = \frac{(2.68\cdot10^{-6})\cdot \dot{n}T}{2} 
+= \unit{(1.34\cdot10^{-6})\cdot \dot{n}T}{\meter\squared}$$
 
-$$ A = \frac{\dot{V}}{c} = \frac{2.68*10^{-6}\cdot T \cdot \dot{n}}{2} = \unit{1.34*10^{-6}\cdot T \cdot \dot{n}}{\meter\squared} $$
+Or, on sait que la surface d'un tube vaut $\pi r^2
+= \unit{7.85\cdot10^{-3}}{\meter\squared}$. Le nombre de tubes est,
+dès lors, le rapport de la section totale $A$ trouvée plus haut sur
+la section d'un tube. Ce qui nous donne finalement : 
 
-Or, on sait que la surface d'un tube vaut $\pi\cdot (\frac{d}{2})^{2} = \unit{7.85\cdot 10^{-3}}{\meter\squared}$. Le nombre de tubes est, dès lors, le rapport de la section totale trouvée plus haut sur la section d'un tube. Ce qui nous donne finalement : 
+$$\text{Nombre de tubes} = \frac{(1.34\cdot10^{-6})\cdot \dot{n}T}{7.854\cdot10^{-3}}
+= (1.707\cdot10{-4})\cdot\dot{n}T$$
 
-$$ \text{nb tubes} = \frac{1.34*10^{-6}\cdot T \cdot \dot{n}}{7.854\cdot 10^{-3}} = 1.707*10{-4} \cdot T\cdot \dot{n}$$
+Pour terminer cette partie, nous allons calculer le nombre de tubes
+nécessaires pour la production de \unit{1500}{\ton\per\dday} de \chemform{NH_3}
+à une température $T = \unit{1080}{\kelvin}$. L'outil de gestion
+nous donne alors $\dot{n}_{\text{réactifs}} = \dot{n}_{CH_4} + \dot{n}_{H_2O} 
+= \unit{872.22}{\mole\per\second}$.
 
-Pour terminer cette partie, nous allons calculer le nombre de tuyaux pour ces données de base :
+On trouve alors immédiatement :
 
-$$ \dot{n_{réactifs}} = \unit{872.22}{\mole\per\second} , T = \unit{1080}{\kelvin} , d_{tube} = \unit{10^{-1}}{\meter} et c = \unit{2}{\meter\per\second}$$
+$$\text{Nombre de tubes} = 160.83$$
 
-où $\dot{n_{réactifs}}$ est le débit molaire par seconde de réactifs(composé de $CH_{4}$ et d'eau et déterminé avec l'outil de gestion pour une température citée ci-après et un débit massique de $NH_{3}$ de $\unit{1500}{\ton\per\dday}$, $T$ une température plausible choisie pour le dimensionnement du réacteur multi-tubulaire, $d_{tube}$ est le diamètre d'un tube et $c$ est la vitesse superficielle à l'entrée du réacteur.
-
-Le formule du nombre de tuyaux devient:
-
-$$ \text{nb tuyaux} = 1.707*10{-4} \cdot T\cdot \dot{n} = 160.83 $$
-
-Ce qui nous donne un nombre de tube approximatif de $161$ tuyaux.
+que l'on arrondit bien sur à l'unité supérieure pour obtenir $161$.
 
 % ------------------------------------------
 % OUTIL DE GESTION
