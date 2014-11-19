@@ -180,48 +180,47 @@ que l'erreur faite en utilisant l'approximation de la section précédente est d
 Pour la compréhension de cette section, nous vous renvoyons vers le flow-sheet \ref{appendix:flow-sheet}.
 On pose le flux de \chemform{NH_3(g)} à la sortie égal à $\unit{m_{NH_3}}{\gram\per\dday} \footnote{Avec \unit{\gram\per\dday} = grammes par jour.}$. 
 
-Nous partons de la réaction : 
+Nous utilisons une méthode bottom-up. Nous partons donc de la réaction : 
 \begin{chemmath}
 		\frac{1}{2}N_2(g) + \frac{3}{2}H_2(g) \longrightarrow NH_3(g) 
 \end{chemmath}
- 	
-$$m_{NH_3} = \unit{m_{NH_3}}{\gram\per\dday}$$ 
 
-Et donc, 
+Et donc,
  
 $$n_{NH_3} = \unit{\frac{m_{NH_3}}{17}}{\mole\per\dday}$$
 
-Ce qui donne 
+Ce qui donne les valeurs suivantes pour le nombre de moles final de $N_2$ et de $H_2$ nécessaire ("final" étant donné que, pour rappel, nous partons de la fin) : 
 
-$$n_{N_2} = \frac{n_{NH_3}}{2} = \unit{\frac{m_{NH_3}}{34}}{\mole\per\dday}$$ 
+$$n_{N_2f} = \frac{n_{NH_3}}{2} = \unit{\frac{m_{NH_3}}{34}}{\mole\per\dday}$$ 
 
 et 
 
-$$n_{H_2} = \frac{3}{2} \cdot n_{NH_3}$$
+$$n_{H_2f} = \frac{3}{2} \cdot n_{NH_3}$$
 
 On sait que le \chemform{N_2(g)} provient uniquement de l'air entrant 
-dans le réacteur du  réformage primaire. Et comme on poser comme hypothèse
+dans le réacteur du  réformage primaire. Et comme on a posé comme hypothèse
 que l'air est composé de 78\% de \chemform{N_2(g)}, 21\% de \chemform{O_2(g)}
 et 1\% d'\chemform{Ar(g)}, on peut déduire que $n_{air}$ entrant dans le 
 réacteur du réformage primaire vaut : 
 
-$$n_{air}= n_{N_2} \cdot \frac{100}{78} = \unit{\frac{25m_{NH_3}}{663}}{\mole\per\dday}$$ 
+$$n_{air}= n_{N_2} \cdot \frac{100}{78} = \unit{\frac{m_{NH_3}}{26.52}}{\mole\per\dday}$$ 
 
 Et :
-$$n_{O_2}= n_{air} \cdot \frac{21}{100} = \unit{\frac{7m_{NH_3}}{884}}{\mole\per\dday}$$
-$$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{1m_{NH_3}}{2652}}{\mole\per\dday}$$
+$$n_{O_2}= n_{air} \cdot \frac{21}{100} = \unit{\frac{0.21m_{NH_3}}{26.52}}{\mole\per\dday}$$
+$$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{0.01m_{NH_3}}{26.52}}{\mole\per\dday}$$
 
-On sait par la réaction du réformage secondaire suivante:
+La réaction dans le réformage secondaire, durant laquelle l'air est inséré, est la suivante :
 \begin{chemmath}
 	2CH_4 + O_2 \Longrightarrow 2CO + 4 H_2
 \end{chemmath}  
 
-et par l'hypothèse que le
-\chemform{CH_4(g)} et le \chemform{O_2(g)} sont présents en quantité stoechiométrique : 
+Nous savons par hypothèse que le
+\chemform{CH_4(g)} et le \chemform{O_2(g)} sont présents en quantité stoechiométrique. Nous avons donc la quantité suivante de \chemform{CH_4} à l'entrée du réformage secondaire (rs) : 
 
-$$n_{CH_4} = 2 \cdot n_{O_2} = \unit{\frac{7m_{NH_3}}{442}}{\mole\per\dday}$$
-$$n_{CO} = n_{CH_4} =  \unit{\frac{7m_{NH_3}}{442}} {\mole\per\dday}$$
-$$n_{H_2} = 2 \cdot n_{CH_4} =  \unit{\frac{7m_{NH_3}}{221}}{\mole\per\dday}$$
+$$n_{CH_4rs} = 2 \cdot n_{O_2} = \unit{\frac{0.42m_{NH_3}}{26.52}}{\mole\per\dday}$$
+Ainsi que les quantités suivantes de \chemform{CO} et de \chemform{H_2} créés 
+$$n_{COrs} = n_{CH_4rs} =  \unit{\frac{0.42m_{NH_3}}{26.52}} {\mole\per\dday}$$
+$$n_{H_2rs} = 2 \cdot n_{CH_4rs} =  \unit{\frac{0.84m_{NH_3}}{26.52}}{\mole\per\dday}$$
 
 On s'intéresse ensuite à la réaction du Water-Gas-Shift : 
 
@@ -230,23 +229,23 @@ On s'intéresse ensuite à la réaction du Water-Gas-Shift :
 \end{chemmath} 
 
 % Cette partie n'est pas claire selon la tutrice, à réecrire 
-On sait que $n_{CO}-\text{WGS}$  = $n_{CO}-\text{réformage primaire}$ 
-$+ n_{CO}\text{réformage secondaire}$ 
+On sait que $n_{COwgs}$  $= n_{COrp}$ 
+$+ n_{COrs}$ avec $n_{COwgs}$ le nombre de moles de CO a l'entrée de la réaction Water-Gas-Shift, $n_{COrp}$ celui a la sortie du réformage primaire et $n_{COrs}$ celui à la sortie du réformage secondaire.
 
-Et donc on a : 
+Dans la réaction Water-Gas-Shift, nous avons $n_{COwgs}$ moles de CO et un excès de $H_2O$ en réactifs, et $n_{COwgs}$ moles de $CO_2$ et de $H_2$ formés.
 
-$$n_{CO_2} = n_{CO} = n_{H_2O}$$
+$$n_{CO_2} = n_{CO} = n_{H_2}$$
 
-S'il reste du \chemform{H_2O} à la fin de cette réaction, $n_{H_2O}$ 
-sera égal à $n_{H_2O}$ du réformage primaire moins le $n_{CO}$ du WGS.
+S'il reste du \chemform{H_2O} à la fin de cette réaction, le nombre de moles d'eau à la sortie de la réaction Water-Gas-Shift sera égal aux nombre de moles d'eau à la sortie du réformage primaire moins $n_{COwgs}$ (le nombre de moles utilisés dans la réaction Water-Gas-Shift).
+$$n_{H_2O-dégagé} = n_{{H_2Orp}}
+- n_{COwgs}$$.
 
-On peut aussi déduire que $n_{CO_2-tot} = n_{{CO_2}-\text{réformage primaire}}
-+ n_{{CO_2}-\text{WGS}}$.
+On peut aussi déduire que le nombre de moles de $CO_2$ dégagés à la fin de la réaction Water-Gas-Shift ($n_{CO_2-tot}$) vaut la somme du nombre de moles de $CO_2$ produits par le réformage primaire et par la réaction Water-Gas-Shift : $$n_{CO_2-dégagé} = n_{{CO_2rp}}
++ n_{{CO_2wgs}}$$.
 
-On peut aussi conclure que : 
+Etant donné que l'on a le nombre de moles de $H_2$ nécessaire à la production de $\unit{m_{NH_3}}{\gram\per\dday}$, qui est de $n_{H_2f}$, et que l'on sait le nombre de moles de $H_2$ produit à travers les diverses réactions, nous savons les égaliser de la manière suivante (les indices "rp", "rs" et "wgs" signifiant "à la \textit{sortie}" du réformage primaire, secondaire et de la réaction Water-Gas-Shift) : 
 
-$$n_{H_2-\text{réformage primaire}}= n_{H_2-\text{synthèse \chemform{NH_3}}}
-- n_{H_2-\text{réformarge secondaire}} - n_{H_2-\text{WGS}}$$
+$$n_{H_2f} = n_{H_2rp} + n_{H_2rs} + n_{H_2wgs}$$
 
 % ------------------------------------------
 % EQUILIBRE DU REFORMAGE PRIMAIRE
