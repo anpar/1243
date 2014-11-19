@@ -1,10 +1,10 @@
-function [K2] = ComputeK2(T)
+function [Output] = ComputeK2(T)
 % ComputeK2 - Calcul la constante d'équilibre de la deuxième réaction du
-% reformage primaire.
+% reformage primaire ainsi que le DeltaH2 de cette réaction.
 %
 % Cette fonction MATLAB calcule la constante d'equilibre K2
 % de la premiere reaction du reformage primaire en fonction de la
-% température T exprimée en Kelvin :
+% température T exprimée en Kelvin ainsi que le DeltaH2 de cette réaction.
 % CO(g) + H2O(g) <-> CO2(g) + H2(g)
 % Les données thermodynamiques utilisées proviennent du Atkins et de
 % <http://www.edu.upmc.fr/chimie/lc101-202-301/communs/public/capcalo.htm> .
@@ -45,4 +45,6 @@ DeltaCpByt = @(t) (CpH2(t) + CpCO2(t))./t - (CpCO(t) + CpH2O(t))./t;
 DeltaS2 = Srstd + integral(DeltaCpByt, 298.15, T);
 DeltaG2 = DeltaH2 - T*DeltaS2;
 K2 = exp(-DeltaG2/(R*T));
+
+Output = [DeltaH2, K2];
 end

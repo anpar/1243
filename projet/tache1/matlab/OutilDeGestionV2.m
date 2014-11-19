@@ -23,8 +23,12 @@ function [Output] = OutilDeGestionV2(a, T, print)
 format short;
 
 % Donnees thermodynamiques
-K1 = ComputeK1(T); 
-K2 = ComputeK2(T);
+Output1 = ComputeK1(T);
+Output2 = ComputeK2(T);
+DeltaH1 = Output1(1);
+DeltaH2 = Output2(1);
+K1 = Output1(2); 
+K2 = Output2(2);
 ptot = 28e5;
 p0 = 1e5;
 
@@ -45,10 +49,6 @@ H2O_in1 = double(n02);
 R = 8.3144621;
 Tubes = ceil(((CH4_in1 + H2O_in1)*R*T)/(2*31e5*7.854e-3));
 
-% Four
-CH4_in2 = 0;
-O2_in1 = 0;
-
 % Reformer secondaire
 CH4_in3 = (0.42*a*10^6)/(26.52*86400);
 H2O_in2 = double(n02-x-y);
@@ -58,6 +58,18 @@ H2_in1 = double(3*x + y);
 O2_in2 = (0.21*a*10^6)/(26.52*86400);
 N2_in1 = 0.5*(a*10^6)/(17*86400);
 Ar_in1 = (0.01*a*10^6)/(26.52*86400);
+
+% Bilan d'energie pour le four : ne fonctionne pas encore. Je ne sais pas
+% par quels coéfficients je dois multiplier les DeltaH, il faut peut-être
+% aussi vérifier le DeltaH du four. Voir aussi s'il n'y a pas une question
+% de rendement.
+syms nfour;
+eqn5 = (CH4_in1-CH4_in3)*DeltaH1 + CO2_in1*DeltaH2 == nfour*805990;
+nfour = solve(eqn5, nfour);
+
+% Four
+CH4_in2 = double(nfour);
+O2_in1 = 2*double(nfour);
 
 % Water-Gas-Shift
 CO_in2 = (0.42*a*10^6)/(26.52*86400) + CO_in1;
