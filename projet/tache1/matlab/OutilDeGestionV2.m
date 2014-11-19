@@ -1,4 +1,4 @@
-function [Output] = OutilDeGestionV2(a, T)
+function [Output] = OutilDeGestionV2(a, T, print)
 % OutilDeGestionV2 - Calcul les débits de matières à chaque étape du
 % processus de fabrication de l'ammoniac.
 %
@@ -7,11 +7,16 @@ function [Output] = OutilDeGestionV2(a, T)
 % d'ammoniac à une température de T kelvin. Elle retourne également le
 % nombre de tubes nécessaires aux passage du mélange H2O et CH4 à l'entrée
 % du reformage prilmaire. Cette fonction utilise deux fonctions auxiliaire, 
-% ComputeK1 et ComputeK2. 
+% ComputeK1 et ComputeK2. Le troisième argument print permet de choisir ce
+% que retourne la fonction. Si print = true, la réponse retournée sera
+% affichée sous forme de tablau. Si print = false, la réponse retournée
+% sera un simple vecteur sans mise en forme. Ce dernier argument permet de
+% manipuler plus facilement les données, pour l'étude paramétrique par
+% exemple.
 %
-%   OutilDeGestionV2(a, T)
+%   OutilDeGestionV2(a, T, print)
 %
-% Dernière version : 16-11-2014
+% Dernière version : 19-11-2014
 % Auteur : le groupe 1243
 
 % On limite la precision a 4 decimales.
@@ -73,22 +78,30 @@ H2O_in_out = H2O_in2 - CO_in2;
 N2_in4 = 0.5 *(a*10^6)/(17*86400);
 H2_in4 = 1.5 * (a*10^6)/(17*86400);
 Ar_in4 = (0.01*a*10^6)/(26.52*86400);
-NH3_out =  (a*10^6)/(17*86400);
+NH3_out = (a*10^6)/(17*86400);
 
 % Un peu de mise en forme...
-Elements = {'-- TUBES'; '-- REFORMER PRIMAIRE'; 'CH4 (in)1'; 'H2O (in)1'; '-- FOUR'; 'CH4 (in)2'; 'O2 (in)1'; 
-    '-- REFORMER SECONDAIRE'; 'CH4 (in)3'; 'H2O (in)2'; 'CO (in)1'; 'CO2 (in)1'; 'H2 (in)1';
-    'O2 (in)2'; 'N2 (in)1'; 'Ar (in)1'; '-- WATER-GAS-SHIFT'; 'CO (in)2'; 'CO2 (in)2'; 'N2 (in)2'
-    ; 'H2 (in)2'; 'Ar (in)2'; 'H2O (in)3'; '-- SEPARATION'; 'CO2 (in) = CO2 (out)'; 'N2 (in)3';
-    'H2 (in)3'; 'Ar (in)3'; 'H2O (in) = H2O (out)'; '-- AMMONIA SYNTHESIS'; 'N2 (in)4'; 
-    'H2 (in)4'; 'Ar (in) = Ar (out)'; 'NH3 (out)'};
-MolesBySecond = {Tubes;'----------'; CH4_in1; H2O_in1; '----------'; CH4_in2; O2_in1; 
-    '----------'; CH4_in3; H2O_in2; CO_in1; CO2_in1; H2_in1;
-    O2_in2; N2_in1; Ar_in1; '----------'; CO_in2; CO2_in2; N2_in2
-    ; H2_in2; Ar_in2; H2O_in3; '----------'; CO2_in_out; N2_in3;
-    H2_in3; Ar_in3; H2O_in_out; '----------'; N2_in4; 
-    H2_in4; Ar_in4; NH3_out};
+if print 
+    Elements = {'-- TUBES'; '-- REFORMER PRIMAIRE'; 'CH4 (in)1'; 'H2O (in)1'; '-- FOUR'; 'CH4 (in)2'; 'O2 (in)1'; 
+        '-- REFORMER SECONDAIRE'; 'CH4 (in)3'; 'H2O (in)2'; 'CO (in)1'; 'CO2 (in)1'; 'H2 (in)1';
+        'O2 (in)2'; 'N2 (in)1'; 'Ar (in)1'; '-- WATER-GAS-SHIFT'; 'CO (in)2'; 'CO2 (in)2'; 'N2 (in)2'
+        ; 'H2 (in)2'; 'Ar (in)2'; 'H2O (in)3'; '-- SEPARATION'; 'CO2 (in) = CO2 (out)'; 'N2 (in)3';
+        'H2 (in)3'; 'Ar (in)3'; 'H2O (in) = H2O (out)'; '-- AMMONIA SYNTHESIS'; 'N2 (in)4'; 
+        'H2 (in)4'; 'Ar (in) = Ar (out)'; 'NH3 (out)'};
+    MolesBySecond = {Tubes;'----------'; CH4_in1; H2O_in1; '----------'; CH4_in2; O2_in1; 
+        '----------'; CH4_in3; H2O_in2; CO_in1; CO2_in1; H2_in1;
+        O2_in2; N2_in1; Ar_in1; '----------'; CO_in2; CO2_in2; N2_in2
+        ; H2_in2; Ar_in2; H2O_in3; '----------'; CO2_in_out; N2_in3;
+        H2_in3; Ar_in3; H2O_in_out; '----------'; N2_in4; 
+        H2_in4; Ar_in4; NH3_out};
 
-Output = table(MolesBySecond, 'RowNames', Elements);
+    Output = table(MolesBySecond, 'RowNames', Elements);
+else
+    Output = [Tubes; CH4_in1; H2O_in1; CH4_in2; O2_in1; 
+        CH4_in3; H2O_in2; CO_in1; CO2_in1; H2_in1;
+        O2_in2; N2_in1; Ar_in1; CO_in2; CO2_in2; N2_in2
+        ; H2_in2; Ar_in2; H2O_in3; CO2_in_out; N2_in3;
+        H2_in3; Ar_in3; H2O_in_out; N2_in4; 
+        H2_in4; Ar_in4; NH3_out];
 end
-
+end
