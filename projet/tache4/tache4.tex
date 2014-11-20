@@ -2,43 +2,45 @@
 \doctitle{Tache 4 : Etude HAZOP du noeud autour du réacteur de synthèse d'ammoniac}
 
 \section{Dangers présentés par les substances mises en oeuvre durant la synthèse de l'ammoniac}
-
-\section{Dangers présentés par les substances mises en oeuvre durant la synthèse de l'ammoniac}
 \subsection{L'azote}
 Premièremet, le diazote utilisé est gardé sous pression. Tout gaz comprimé présente un danger. 
 En effet, des rejets de gaz comprimé mal contrôlés dans les réacteurs chimiques peuvent entraîner 
-la rupture des cuves, créer des fuites dans l'équipement ou les canalisations ou faire emballer la réaction. 
-%CECI EST UNE CITATION EXACTE DU SITE SUIVANT : http://www.cchst.com/oshanswers/chemicals/compressed/compress.html#_1_3
-%Partie "Quels sont les dangers des matières sous pression", 3e paragraphe, va ptet le lire pour voir si on le met comme citation exacte. 
-%Je me sers encore de ce site par la suite mais plus en citation exacte. 
+la rupture des cuves, créer des fuites dans l'équipement ou les canalisations ou faire emballer la réaction \cite{canada}.
 Si le contenant du gaz n'est de plus pas solidement fixé, cela peut entraîner un effet dit "fusée" 
 et causer des dommages et blessures.
 
 Le diazote est également un gaz toxique et peut entraîner des morts par asphyxie dans les espaces confinés. 
 %il est nécessaire de vérifier la présence d'une proportion suffisante d'oxygène dans de tels espaces confinés 
 %avant d'y pénétrer, ou de s'équiper d'un appareil respiratoire autonome. (Wikipedia) < Voit si tu veux rajouter ça en plus, ou c'est plutôt une solution.
-\subsection{L'hydrogène}
-Les dihydrogène étant également comprimé, il présente les même dangers de gaz sous pression que mentionnés pour le diazote.
 
-De plus, le dihydrogène est un gaz extrêmement inflammable, réactif et explosif. Un choc, une étincelle ou autre peut facilement 
+\subsection{L'hydrogène}
+Les dihydrogène étant également comprimé, il présente les même dangers de gaz sous 
+pression que mentionnés pour le diazote.
+
+De plus, le dihydrogène est un gaz extrêmement inflammable, réactif et explosif. 
+Un choc, une étincelle ou autre peut facilement 
 entraîner une combustion rapide pouvant menant à une explosion.
 
-L'hydrogène peut également corroder certains métaux et être source de fragilités ou fissures sur le matériel, et présente un danger de suffocation par inhalation.
-\subsection{L'argon}
-L'argon étant également maintenu sous pression, les même dangers que mentionnés pour l'azote sont présents.
+L'hydrogène peut également corroder certains métaux et être source de fragilités
+ou fissures sur le matériel, et présente un danger de suffocation par inhalation.
 
-L'argon en forte concentration peut réduire la teneur en oxygène du milieu, provoquant des pertes 
-de consciences ou, dans le pire des cas, des morts par asphyxies. %Source : même site que pour le diazote, partie "Danger des gaz inertes".
+\subsection{L'argon}
+L'argon étant également maintenu sous pression, les même dangers que mentionnés
+pour l'azote sont présents.
+
+L'argon en forte concentration peut réduire la teneur en oxygène du milieu,
+provoquant des pertes de consciences ou, dans le pire des cas, des morts par 
+asphyxies \cite{canada}.
 
 \subsection{L'ammoniac}
-L'ammoniac est, encore une fois, maintenu sous pression, donc les dangers des gaz sous pressions sont de nouveau présents ici.
+L'ammoniac est, encore une fois, maintenu sous pression, donc les dangers
+des gaz sous pressions sont de nouveau présents ici.
 
-L'ammoniac est également corrosif : son contact peut brûler et détruire les tissus, et peut également attaquer et corroder 
-les métaux. Il est classé comme matière "très toxique ayant des effets immédiats graves". Il est irritant et toxique pour 
-les êtres vivants et l'environnement. %Source : même site + wikipedia "ammoniac". Osef des wikipedia c'est juste de l'autre 
-%site que je me suis méga-inspiré pour quasi chaque partie ici.
-\section{Trajectoire du flux}
-% TODO Ajouter le scan des feuilles.
+L'ammoniac est également corrosif : son contact peut brûler et détruire 
+les tissus, et peut également attaquer et corroder 
+les métaux. Il est classé comme matière "très toxique ayant des effets 
+immédiats graves". Il est irritant et toxique pour 
+les êtres vivants et l'environnement \cite{canada}.
 
 \section{Pourquoi n'y a-t-il pas de soupape de sécurité ou de disque de rupture sur
 le réacteur de synthèses d'ammoniac?}
@@ -53,8 +55,50 @@ Puisque le nombre de moles de gaz diminue, la pression aura tendance à diminuer
 C'est pour cela qu'on ne craint pas la surpression et qu'aucun dispositif n'a été mis en place pour cela.
 
 \section{Pourquoi y a-t-il des disques de rupture sur l'échangeur 124-MC ?}
-% TODO Ajouter l'explication de Nathan
+En comparant les spécifications techniques des échangeurs de 
+chaleur 124-MC\footnote{Pour localiser les différents composants cités dans cette section,
+veuillez vous référer aux figure \ref{pfd}, \ref{pid1} et \ref{pid2}.} 
+et 121-MC, on remarque que les pressions maximales
+autorisées pour les coques extérieures ne sont pas identiques. 
+En effet, la coque extérieure du second échangeur de chaleur(124-MC)
+ne supporte pas une pression supérieure à approximativement \unit{17}{\kilo\pascal}
+alors que l'autre échangeur peut supporter une pression jusqu'à 10 fois supérieure.
+Or, même si les tubes supportent une pression identique à celle de la
+coque de l'échangeur 124-MC, dans les deux cas, un mélange trop préssurisé
+peut engendrer une rupture des tubes et de la coque de cette échangeur. 
+C'est pourquoi, nous avons besoin d'un disque de rupture pour contrôler la presion.
 
+\newpage
+\section{Trajectoire du flux}
+La trajectoire des flux a été surlignée sur les trois figures
+qui suivent. La figure \ref{pdf1} correspond au Process Flow Diagram
+tandis que les deux autres figures, \ref{pid1} et \ref{pid2} 
+correspondent aux Piping And Instrumentation Diagram.
+Les trajectoires jaunes correspondent aux flux entrants sans ammoniac
+tandis que les trajectoires bleues correspondent aux flux sortants
+avec présence d'ammoniac.
+
+\begin{figure}[htb!]
+	\centering
+	\rotatebox{90}{\includegraphics[scale=0.8]{media/pfd1.png}}
+	\label{pdf1}
+\end{figure}
+\newpage
+
+\begin{figure}[htb!]
+	\centering
+	\rotatebox{90}{\includegraphics[scale=0.8]{media/pid1.png}}
+	\label{pid1}
+\end{figure}
+\newpage
+
+\begin{figure}[htb!]
+	\centering
+	\rotatebox{90}{\includegraphics[scale=0.8]{media/pid2.png}}
+	\label{pid2}
+\end{figure}
+
+\newpage
 \section{Analyse HAZOP}
 
 	\begin{table}[ht!]
@@ -97,5 +141,8 @@ C'est pour cela qu'on ne craint pas la surpression et qu'aucun dispositif n'a é
 		}
 		\caption{Synthèse de l'analyse HAZOP.}
 	\end{table}
+
+\newpage
+\biblio{sources-tache4}
 
 \end{document}
