@@ -1,17 +1,17 @@
 function [Output] = ComputeK1(T)
-% ComputeK1 - Calcul la constante d'équilibre de la première réaction du
-% reformage primaire ainsi que le DeltaH1 de cette réaction.
+% ComputeK1 - Calcul la constante d'Ã©quilibre de la premiÃ¨re rÃ©action du
+% reformage primaire ainsi que le DeltaH1 de cette rÃ©action.
 %
 % Cette fonction MATLAB calcule la constante d'equilibre K1
 % de la premiere reaction du reformage primaire en fonction de la
-% température T exprimée en Kelvin ainsi que le DeltaH1 de cette réaction.
+% tempÃ©rature T exprimÃ©e en Kelvin ainsi que le DeltaH1 de cette rÃ©action.
 % CH4(g) + H2O(g) <-> CO(g) + 3H2(g)
-% Les données thermodynamiques utilisées proviennent du Atkins et de
+% Les donnÃ©es thermodynamiques utilisÃ©es proviennent du Atkins et de
 % <http://www.edu.upmc.fr/chimie/lc101-202-301/communs/public/capcalo.htm> .
 %
 % ComputeK1(T)
 %
-% Dernière version : 16-11-2014
+% DerniÃ¨re version : 16-11-2014
 % Auteur : le groupe 1243
 
 R = 8.3144621; 
@@ -19,7 +19,7 @@ syms t;
 % Capacite calorifique a pression constante en fonction de la temperature,
 % en joules/mole*Kelvin
 CpCO = @(t) 27.62 + (5.02e-3)*t;
-CpH2 = @(t) 29.30 + (0.84e-3)*t + (2.09e-6)*t.^2;
+CpH2 = @(t) 29.30 - (0.84e-3)*t + (2.09e-6)*t.^2;
 CpCH4 = @(t) 14.23 + (75.3e-3)*t - (18e-6)*t.^2;
 CpH2O = @(t) 30.13 + (10.46e-3)*t;
 DeltaCp = @(t) (3*CpH2(t) + CpCO(t)) - (CpCH4(t) + CpH2O(t));
