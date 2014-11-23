@@ -29,7 +29,9 @@ DeltaH1 = Output1(1);
 DeltaH2 = Output2(1);
 K1 = Output1(2); 
 K2 = Output2(2);
-ptot = 28e5;
+% Pression pour le calcul de l'equilibre selon le fichier Resultats_bilan
+% sur iCampus
+ptot = 26e5; 
 p0 = 1e5;
 
 % Equation d'equilibre du reformage primaire
@@ -64,7 +66,7 @@ Ar_in1 = (0.01*a*10^6)/(26.52*86400);
 % aussi vérifier le DeltaH du four. Voir aussi s'il n'y a pas une question
 % de rendement.
 syms nfour;
-eqn5 = (CH4_in1-CH4_in3)*DeltaH1 + CO2_in1*DeltaH2 == nfour*805990;
+eqn5 = (CH4_in1-CH4_in3)*DeltaH1 + (CH4_in1-CO2_in1)*DeltaH2 == nfour*805990*0.75;
 nfour = solve(eqn5, nfour);
 
 % Four

@@ -19,7 +19,7 @@ syms t;
 % Capacite calorifique a pression constante en fonction de la temperature,
 % en joules/mole*Kelvin
 CpCO = @(t) 27.62 + (5.02e-3)*t;
-CpH2 = @(t) 29.30 + (0.84e-3)*t + (2.09e-6)*t.^2;
+CpH2 = @(t) 29.30 - (0.84e-3)*t + (2.09e-6)*t.^2;
 CpCO2 =@(t) 32.22 + (22.18e-3)*t - (3.35e-6)*t.^2;
 CpH2O = @(t) 30.13 + (10.46e-3)*t;
 DeltaCp = @(t) (CpH2(t) + CpCO2(t)) - (CpCO(t) + CpH2O(t));
