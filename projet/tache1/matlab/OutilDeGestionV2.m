@@ -66,7 +66,7 @@ Ar_in1 = (0.01*a*10^6)/(26.52*86400);
 % aussi verifier le DeltaH du four. Voir aussi s'il n'y a pas une question
 % de rendement.
 syms nfour;
-eqn5 = (CH4_in1-CH4_in3)*DeltaH1 + (CH4_in1-CO2_in1)*DeltaH2 == nfour*805990*0.75;
+eqn5 = (CH4_in1-CH4_in3)*DeltaH1 + (CO2_in1)*DeltaH2 == nfour*805990*0.75;
 nfour = solve(eqn5, nfour);
 
 % Four
