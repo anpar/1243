@@ -1,22 +1,22 @@
 function [Output] = OutilDeGestionV2(a, T, print)
-% OutilDeGestionV2 - Calcul les débits de matières à chaque étape du
+% OutilDeGestionV2 - Calcul les debits de matieres a chaque etape du
 % processus de fabrication de l'ammoniac.
 %
-% Cette fonction MATLAB retourne, sous forme de tableau, tous les débits de
-% matière (en moles/s), à chaque étape, nécessaire à la fabrication de a tonnes/jour
-% d'ammoniac à une température de T kelvin. Elle retourne également le
-% nombre de tubes nécessaires aux passage du mélange H2O et CH4 à l'entrée
+% Cette fonction MATLAB retourne, sous forme de tableau, tous les debits de
+% matiere (en moles/s), a chaque etape, necessaire a la fabrication de a tonnes/jour
+% d'ammoniac a une temperature de T kelvin. Elle retourne egalement le
+% nombre de tubes necessaires aux passage du melange H2O et CH4 a l'entree
 % du reformage prilmaire. Cette fonction utilise deux fonctions auxiliaire, 
-% ComputeK1 et ComputeK2. Le troisième argument print permet de choisir ce
-% que retourne la fonction. Si print = true, la réponse retournée sera
-% affichée sous forme de tablau. Si print = false, la réponse retournée
+% ComputeK1 et ComputeK2. Le troisieme argument print permet de choisir ce
+% que retourne la fonction. Si print = true, la reponse retournee sera
+% affichee sous forme de tablau. Si print = false, la reponse retournee
 % sera un simple vecteur sans mise en forme. Ce dernier argument permet de
-% manipuler plus facilement les données, pour l'étude paramétrique par
+% manipuler plus facilement les donnees, pour l'etude parametrique par
 % exemple.
 %
 %   OutilDeGestionV2(a, T, print)
 %
-% Dernière version : 19-11-2014
+% Derniere version : 19-11-2014
 % Auteur : le groupe 1243
 
 % On limite la precision a 4 decimales.
@@ -62,8 +62,8 @@ N2_in1 = 0.5*(a*10^6)/(17*86400);
 Ar_in1 = (0.01*a*10^6)/(26.52*86400);
 
 % Bilan d'energie pour le four : ne fonctionne pas encore. Je ne sais pas
-% par quels coéfficients je dois multiplier les DeltaH, il faut peut-être
-% aussi vérifier le DeltaH du four. Voir aussi s'il n'y a pas une question
+% par quels coefficients je dois multiplier les DeltaH, il faut peut-être
+% aussi verifier le DeltaH du four. Voir aussi s'il n'y a pas une question
 % de rendement.
 syms nfour;
 eqn5 = (CH4_in1-CH4_in3)*DeltaH1 + (CH4_in1-CO2_in1)*DeltaH2 == nfour*805990*0.75;
