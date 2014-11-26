@@ -495,7 +495,7 @@ $$\Delta H(T_2) = \Delta H(T_{1})
 
 où $T_1$ est ici la température ambiante, soit \unit{298.15}{\kelvin}.
 
-\paragraph{\'Equation de combustion}
+\paragraph{\'Equation de combustion du four}
 La combustion du méthane se passe dans le four, et fournit la totalité de l'énergie 
 requise par l'ensemble du processus, avec un rendement de 75 pourcents.
 La réaction se produit selon l'équation chimique suivante :
@@ -537,10 +537,27 @@ $$
 	\end{array}
 $$	
 
-On peut donc voir que cette réaction est largement exothermique, c'est elle qui fournira l'énergie nécessaire aux réactions du réformage primaire.
+On peut donc voir que cette réaction est largement exothermique, c'est elle qui fournira l'énergie nécessaire aux réactions du réformage primaire. En notant $\Delta H_1$ et $\Delta H_2$ les énergies nécessaires aux deux réactions
+se produisant dans le reformage primaire, nous pouvons simplement calculer le nombre de mole de \ce{CH_4} à
+l'entrée du four avec l'équation suivante
+
+$$n_1\Delta H_1 + n_2\Delta H_2 = 0.75\cdot\Delta H_{\text{four}}\cdot n_{CH_4}$$
+
+où $n_1$ et $n_2$ sont les nombres de moles des réactifs réagissant dans les deux réactions
+du reformage primaire (respectivement). Autrement dit, on a 
+
+$$n_1 = n_{\ce{CH_4}_{\text{in}}} - n_{\ce{CH_4}_{\text{out}}}$$
+
+et 
+
+$$n_2 = n_{\ce{CO_2}_{\text{out}}}.$$
+
+On peut vérifier cela sur le flow-sheet en annexe \ref{flow-sheet}.
+C'est cette formule qui permet à l'outil de gestion de calculer les quantités
+de réactifs du four.
 
 \paragraph{Reformage primaire}
-Dans notre travail, la température du réformage primaire est un paramètre. Nous obtiendrons donc une enthalpie 
+Dans notre travail, la température $T$ du réformage primaire est un paramètre. Nous obtiendrons donc une enthalpie 
 dépendant de la température. 
 Le réformage primaire est composé de deux équations.
 
