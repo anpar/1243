@@ -9,6 +9,6 @@ A faire 03-12 :
 ---------------
 * Interface graphique de l'outil de gestion (#73) (@anpar et @PFair);
 * Bilan d'énergie : corrigée la conclusion selon les commentaires de la tutrice (@sschrurs) :
-* Etude de l'impact environnemental (@NGillain et @PaulinePiraux) ;
+* Etude de l'impact environnemental (+ répartitions des sous-tâches) (@NGillain et @PaulinePiraux) ;
 * Etude thermodynamique pour Aspen (@simonquiriny et @Lamineg) ;
 * Terminer la tache 5 (@anpar et @simonquiriny) ;
