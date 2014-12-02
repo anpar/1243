@@ -12,3 +12,4 @@ A faire 03-12 :
 * Etude de l'impact environnemental (+ répartitions des sous-tâches) (@NGillain et @PaulinePiraux) ;
 * Etude thermodynamique pour Aspen (@simonquiriny et @Lamineg) ;
 * Terminer la tache 5 (@anpar et @simonquiriny) ;
+* Commencer tache 8?
