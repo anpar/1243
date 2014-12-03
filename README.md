@@ -11,5 +11,5 @@ A faire 03-12 :
 * Bilan d'énergie : corriger la conclusion selon les commentaires de la tutrice (@sschrurs) :
 * Etude de l'impact environnemental (+ répartitions des sous-tâches) (@NGillain et @PaulinePiraux) ;
 * Etude thermodynamique pour Aspen (@simonquiriny et @Lamineg) ;
-* Terminer la tache 5 (@anpar et @simonquiriny) ;
+* ~~Terminer la tache 5 (@anpar et @simonquiriny)~~ ;
 * Commencer tache 8?
