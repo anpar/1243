@@ -177,8 +177,8 @@ pour calculer $A$ :
 
 $$A = \unit{712.0990948}{\milli\meter\squared}.$$
 
-La soupape standard correspondantes à cette aire est la soupape
-8T10\cite{mignon}.
+La soupape standard correspondantes à cette aire est une soupape
+de modèle J\cite{mignon}.
 
 \paragraph{Si la pression de design de l'équipement était de \unit{20}{\bbar g},
 quel serait l'effet d'augmenter la pression de tarage de \unit{5}{\bbar} et de 
@@ -202,24 +202,24 @@ En rentrant ces 3 paramètres dans notre fonction, on trouve
 $$A = \unit{578.06}{\milli\meter\squared}.$$
 
 La soupape standard correspondante à cette aire est également
-le modèle 8T10.
+un modèle J\cite{mignon}.
 
 \paragraph{Pour la première pression de tarage, quelle est l'influence
 d'isoler thermiquement le tank avec un isolant tel que le coefficient
-d'échange avec l'extérieur soir réduit à une valeur de
+d'échange avec l'extérieur soit réduit à une valeur de
 \unit{10}{\watt\per\meter\squared\kelvin}?}
-Le coefficient d'échange avec l'extérieur correspond à
+En cherchant dans une table qui fait la correspondance 
+entre le coéfficient d'échange avec l'extérieur et la valeur
+de $F$ utilisée dans le calcul de $Q$, on trouve, pour un
+coéfficient de 11.36 que $F$ vaut 0.15. On peut donc
+réutiliser notre fonction Matlab en ajoutant ce paramètre.
+On obtient 
 
-$$\frac{Q}{A_{\text{WS}T}} = \frac{C_1FA_{\text{WS}}^{0.82}}{A_{\text{WS}}T}.$$
+$$A = \unit{103.463}{\milli\meter\squared}$$
 
-En égalant ce coéfficient à 10, on trouve $F = 0.1826$.
-On rentrant ces valeurs dans notre fonction, on trouve 
-
-$$A = \unit{130}{\milli\meter\squared}$$
-
-soit plus de 5 fois moins que sans isolation thermique.
+soit presque 7 fois moins que sans isolation thermique.
 La soupape standard correspondante à cette aire est le modèle
-4P6.
+1E2.
 
 \biblio{sources-tache5}
 \appendix
