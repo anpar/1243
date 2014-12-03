@@ -1,4 +1,5 @@
 \input{../lib.tex}
+\usepackage[numbered, framed]{mcode}
 \doctitle{Tache 5 - Dimensionnement d'une soupape de
 sécurité pour un tank de stockage d'ammoniac}
 
@@ -179,13 +180,42 @@ $$A = \unit{712.0990948}{\milli\meter\squared}.$$
 \paragraph{Si la pression de design de l'équipement était de \unit{20}{\bbar g},
 quel serait l'effet d'augmenter la pression de tarage de \unit{5}{\bbar} et de 
 la porter à \unit{20}{\bbar g}?}
-% TODO
+Afin d'éviter de refaire tous les calculs (et les divers changement d'unités)
+pouvant aboutir à un grand nombre d'erreurs de calculs et de conversion, nous
+avons créer une fonction Matlab permettant de calculer la taille de l'orifice
+automatiquement (présente en annexe \ref{code-matlab}. Cette fonction prend 4 paramètres en argument : la pression
+de tarage en bars absolu, la température de décharge en Kelvin (mesurable sur
+la figure \ref{pvst}), l'enthalpie de vaporisation correspondant
+à la température de décharge en kilojoules (mesurable sur la figure \ref{vap}) et un dernier
+paramètre dont la valeur vaut 1 pour cette question\footnote{Ce paramètre $F$ dépend
+de l'isolement thermique du réservoir, ici on suppose qu'il n'est pas isolé.}.
+Dans ca cas ci, la pression de tarage vaut \unit{21}{\bbar}. La pression
+de décharge valant, dans le cas d'un incendie, 121\% de ma pression de tarage,
+on peut trouver la température de décharge et l'enthalpie de vaporisation
+correspondante. On trouve $T_{\text{décharge}} = \unit{58}{\degreecelsius}$
+et $\Delta H_{\text{vap}}(T_{\text{décharge}}) = \unit{1050}{\kilo\joule\per\kilo\gram}$.
+En rentrant ces 3 paramètres dans notre fonction, on trouve 
+
+$$A = \unit{578.06}{\milli\meter\squared}.$$
 
 \paragraph{Pour la première pression de tarage, quelle est l'influence
 d'isoler thermiquement le tank avec un isolant tel que le coefficient
 d'échange avec l'extérieur soir réduit à une valeur de
 \unit{10}{\watt\per\meter\squared\kelvin}?}
-% TODO
+Le coefficient d'échange avec l'extérieur correspond à
+
+$$\frac{Q}{A_{\text{WS}T}} = \frac{C_1FA_{\text{WS}}^{0.82}}{A_{\text{WS}}T}.$$
+
+En égalant ce coéfficient à 10, on trouve $F = 0.1826$.
+On rentrant ces valeurs dans notre fonction, on trouve 
+
+$$A = \unit{130}{\milli\meter\squared}$$
+
+soit plus de 5 fois moins que sans isolation thermique.
 
 \biblio{sources-tache5}
+\appendix
+\section{Code Matlab utilisé}
+\label{code-matlab}
+\lstinputlisting{matlab/SizePSV.m}
 \end{document}
