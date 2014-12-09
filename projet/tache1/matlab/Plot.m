@@ -8,8 +8,8 @@ for j=1:20
 end
 figure;
 plot(T,X); grid;
-title('NH3 sortant de la synthèse en fonction de la température [K].');
+title('O2 entrant dans le four en fonction de la température [K].');
 xlabel('Température [K]');
-ylabel('Débit molaires [mol/s]');
+ylabel('Débit molaire [mol/s]');
 end
 
