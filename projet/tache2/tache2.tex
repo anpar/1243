@@ -48,7 +48,7 @@ Dans celui-ci, $n_1$, $n_2$ et $n_3$ sont respectivement les débits molaires d'
 
 On retire de cela et du tableau~\ref{tab:ammoniaque}, une expression de la constante d'équilibre:
 
-$$K(T) = \frac{4x~p_0~n_{g,tot}}{(2n_1 - x)^{1/2} (2n_2 - 3x)^{3/2} p_{tot}}$$
+$$K(T) = \frac{4x\cdot p_0\cdot n_{g,tot}}{(2n_1 - x)^{1/2} (2n_2 - 3x)^{3/2} \cdot p_{tot}}$$
 
 Pour analyser quantitativement la réaction, utilisons le graphe de la figure~\ref{fig:purge}
 En développant le problème dans le cas d'un recyclage avec purge, on a :
@@ -74,9 +74,9 @@ Ensuite, nous avons les trois relations de la purge où nous posons un coefficie
 
 $$
 \begin{cases}
- k \ce{N2_{,syn}} = \ce{N2_{,rec}} \\ 
- k \ce{H2_{,syn}} = \ce{H2_{,rec}} & k \in [0 \text{(ouvert)}, 1 \text{(fermé)}[ \\
- k \ce{Ar_{syn}} = \ce{Ar_{rec}} \\
+ k\cdot \ce{N2_{,syn}} = \ce{N2_{,rec}} \\ 
+ k\cdot \ce{H2_{,syn}} = \ce{H2_{,rec}} & k \in [0 \text{(ouvert)}, 1 \text{(fermé)}[ \\
+ k\cdot \ce{Ar_{syn}} = \ce{Ar_{rec}} \\
 \end{cases}
 $$
 
@@ -85,7 +85,7 @@ Enfin, il nous reste à imposer que en régime l'argon rentrant doit être égal
 A partir de ces différentes équations, nous pouvons exprimer l'ammoniaque sortant en fonction des composants à l'entrée, du coefficient, de la pression totale et de la température. Les détails du calcul sont laissés à l'attention du lecteur. Nous arrivons finalement à l'équation~\eqref{eq:finale}, qui peut être résolue numériquement à l'aide de l'outil $MATLAB$.  
 
 \begin{align}
- K(T) & = \frac{4x~p_0~(\ce{N2_{,in} + H2_{,in} + Ar_{in}} - \ce{NH3_{,syn}}(k + 1)) (1 - k)}{(\ce{2N2_{,in} - NH3_{,syn}})^{1/2} (\ce{2H2_{,in} - 3NH3_{,syn}})^{3/2} p_{tot}}
+ K(T) & = \frac{4x\cdot p_0\cdot (\ce{N2_{,in} + H2_{,in} + Ar_{in}} - \ce{NH3_{,syn}}(k + 1)) (1 - k)}{(\ce{2N2_{,in} - NH3_{,syn}})^{1/2} (\ce{2H2_{,in} - 3NH3_{,syn}})^{3/2} \cdot p_{tot}}
  \label{eq:finale}
 \end{align}
 
