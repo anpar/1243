@@ -4,34 +4,53 @@
 la synthèse d'ammoniac proprement dite}
 
 \section{Introduction}
-Contrairement à ce que nous avons fait précedement nous allons nous intéressé plus en détails à la dernière étape: la synthèse d'ammoniac proprement dite.
-Dans un premier temps, nous étudierons les contraintes thermodynamiques de la réaction afin d'établir les conditions de cette réaction.
-Dans un deuxième temps, nous simulerons le procédé à l'aide du logiciel \textsc{Aspen+}.
+Contrairement à ce que nous avons fait précedement nous allons nous intéressé
+plus en détails à la dernière étape: la synthèse d'ammoniac proprement dite.
+Dans un premier temps, nous étudierons les contraintes thermodynamiques de 
+la réaction afin d'établir les conditions de cette réaction.
+Dans un deuxième temps, nous simulerons le procédé à l'aide du logiciel
+\textsc{Aspen+}.
 
 \section{Etude thermodynamique}
 
 \subsection{Etude qualitative des paramètres thermodynamiques }
 
 \subsubsection{Pression}
-Selon Le Chatelier: "Si une modification est imposée à un système chimique à l'état d'équilibre, il s'ensuit la réaction chimique qui s'oppose en partie à la modification imposée; le système évolue vers un nouvel état d'équilibre". \cite{LeChatelier}
+Selon Le Chatelier: "Si une modification est imposée à un système chimique à 
+l'état d'équilibre, il s'ensuit la réaction chimique qui s'oppose en partie
+à la modification imposée; le système évolue vers un nouvel état d'équilibre"
+\cite{LeChatelier}.
 
-A température et volume constants, la pression d'un gaz dépend directement du nombre de moles de gaz contenu dans une enceinte. On en déduit donc qu'une augmentation de la pression favorise une diminution du nombre de moles.
+A température et volume constants, la pression d'un gaz dépend directement
+du nombre de moles de gaz contenu dans une enceinte. On en déduit donc qu'une
+augmentation de la pression favorise une diminution du nombre de moles.
 
-Or notre procédé est régit par la réaction suivante:
+Or notre procédé est régit par la réaction suivante :
 \begin{chemmath} 
-\ N_2(g) + 3H_{2}O(g) \longrightarrow 2NH_3(g)
+	N_2(g) + 3H_{2}O(g) \longrightarrow 2NH_3(g)
 \end{chemmath} 
 
-On observe que le nombre de moles de gaz produites est inférieur au nombre initial. Si nous voulons augmenter la quantité d'ammoniac produit, il faut une haute pression. 
+On observe que le nombre de moles de gaz produites est inférieur au nombre 
+initial. Si nous voulons augmenter la quantité d'ammoniac produit, il faut 
+une haute pression. 
 
-Par ailleurs, une augmentation de la pression rapproche les molécules, ce qui par conséquent augmente la possibilté que les molécules se heurtent aux catalyseurs, favorisant ainsi la réaction.
+Par ailleurs, une augmentation de la pression rapproche les molécules, ce qui
+par conséquent augmente la possibilté que les molécules se heurtent aux 
+catalyseurs, favorisant ainsi la réaction.
 
-Cependant, les infrastructures à mettre en place pour supporter des pressions importantes reviennent cheres ainsi que le procédé pour maintenir une haute pression.
+Cependant, les infrastructures à mettre en place pour supporter des pressions
+importantes reviennent cheres ainsi que le procédé pour maintenir une haute pression.
 
-En pratique, on procéde à un compromis entre la quantité produite et le coût des opérations. La pression est de l'ordre de \unit{200}{\bbar} \cite{HaberB}.
+En pratique, on procéde à un compromis entre la quantité produite et le coût des opérations.
+La pression est de l'ordre de \unit{200}{\bbar}\cite{HaberB}.
 
 \subsubsection{Température}
-Notre réaction est exothermique, on observe que son $\Delta H$ est négatif. Selon Le Chatelier, un diminution de température favorisera la réaction exothermique pour tempter de s'opposer à la diminution d'énergie \cite{LeChatelier}. Si nous voulons augmenter la quantité d'ammoniac produit, il faut une basse température. Nous pouvons observer sur le graphique ci-dessous \ref{fig:constante d'équilibre}, que la constante d'équilibre est élevée à basse température et faible à haute température.
+Notre réaction est exothermique, on observe que son $\Delta H$ est négatif.
+Selon Le Chatelier, un diminution de température favorisera la réaction 
+exothermique pour tempter de s'opposer à la diminution d'énergie \cite{LeChatelier}. 
+Si nous voulons augmenter la quantité d'ammoniac produit, il faut une basse température.
+Nous pouvons observer sur le graphique ci-dessous \ref{fig:constante d'équilibre}, que 
+la constante d'équilibre est élevée à basse température et faible à haute température.
 
 \begin{figure}
 	\centering
@@ -42,7 +61,8 @@ Notre réaction est exothermique, on observe que son $\Delta H$ est négatif. Se
 
 Cependant, à basse température la réaction est ralentie. 
 
-En pratique, on préfère produire une grande quantité d'ammoniac en un temps très court. La température avoisine les \unit{400-500}{\degreecelsius} \cite{HaberB}.
+En pratique, on préfère produire une grande quantité d'ammoniac en un temps très court. 
+La température avoisine les \unit{400-500}{\degreecelsius} \cite{HaberB}.
 
 \subsection{Etude quantitative des paramètres thermodynamiques }
 
