@@ -3,6 +3,7 @@
 \doctitle{Conception plus détaillée de la dernière étape du procédé :
 la synthèse d'ammoniac proprement dite}
 
+\section{Etude thermodynamique}
 Nous avions d'abord fait l'hypothèse que la synthèse était complète.
 Nous pouvons maintenant l'analyser plus en détails en la considérant
 à l'équilibre thermodynamique. Nous ferons ici l'hypothèse du gaz
@@ -112,4 +113,36 @@ $$
 \end{cases}
 $$
 
+\section{Utilisation du logiciel \textsc{Aspen+}}
+Nous avons ensuite utilisée le logiciel \textsc{Aspen+}
+afin de simuler la synthèse de l'ammoniac. Pour cela
+nous avons construit le flow-sheet présenté à la figure
+\ref{fig:flow-sheet-aspen}. 
+
+\begin{figure}
+	\centering
+	\rotatebox{90}{\includegraphics[scale=0.7]{media/flow-sheet.jpg}}
+	\caption{Flow-sheet du procédé de synthèse de l'ammoniac
+	réalisé avec \textsc{Aspen+}.}
+	\label{fig:flow-sheet-aspen}
+\end{figure}
+
+% FIX : c'est bien cette méthode là?
+Pour la simulation, nous avons utilisé la méthode
+thermodynamique \textsc{SRK} qui est particulièrement
+approprié pour les réactions entre gaz avec une pression
+et une température élevée. Nous avons choisi d'utiliser
+une purge de 4\%. La simulation nous fournit les résultats
+présente à la figure \ref{fig:resultats-aspen}.
+
+\begin{figure}
+	\centering
+	\rotatebox{90}{\includegraphics[scale=0.48]{media/results.jpg}}
+	\caption{Résultats du procédé de synthèse de l'ammoniac
+	réalisé avec \textsc{Aspen+}.}
+	\label{fig:resultats-aspen}
+\end{figure}
+
+Ces résultats sont assez proches de ceux fournis par
+l'outil de gestion. % TODO : erreur à calculer en % pour donner une meilleure idée
 \end{document}
