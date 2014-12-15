@@ -833,21 +833,21 @@ dans le reformage primaire. Il résout donc un système à 4 équations
 et à 4 inconnues et ne sélectionne que les solutions positives et réelles.
 Il présente les résultats sous forme d'un tableau reprenant les flux de chaque
 composants à chaque étape du procédé. Les résultats sont présentés en \unit{\ton\per\day} et en \unit{\mole\per\second}.
-Nous avons également intégré le calcul du nombre de tubes nécessaires au 
+Nous avons également intégré le calcul du nombre de tubes nécessaires au
 passage du mélange \chemform{CH_4(g)} et \chemform{H_2O(g)}.
 
 Le code Matlab des opérations calculatoires de l'outil de gestion peut être trouvé à l'annexe \ref{code-matlab-outil}.
 Remarquez que celui-ci utilise deux autres fonctions \lstinline{ComputeK1}
 et \lstinline{ComputeK2} qui permettent respectivement de calculer la constante
-d'équilibre de la première et de la deuxième réaction du reformage primaire pour
-une température $T$.
-Un interface graphique est mis à votre disposition pour une utilisation plus aisée de notre outil de gestion. 
-Pour l'utiliser, il lancer le fichier \textbf{OutilDeGestionGraphicalUserInterface.m} 
-(attention de ne pas le confondre avec \textit{OutilDeGestionGraphicalUserInterface.fig}, 
-avec lequel les calculs \textbf{ne fonctionneront pas} si on l'ouvre directement. Taper simplement 
-"OutilDeGestionGraphicalUserInterface" dans l'EDU Matlab ouvrira automatiquement le bon fichier). 
-Il vous faudra ensuite entrer le débit de \chemform{NH_3} requis et la température du réacteur du réformage primaire.
-
+d'équilibre et la variation d'enthalpie de la première et de la deuxième
+réaction du reformage primaire pour une température $T$.
+Une interface graphique est mise à votre disposition pour une utilisation plus aisée de notre outil de gestion.
+Pour l'utiliser, il lancer le fichier \textbf{OutilDeGestionGraphicalUserInterface.m}
+(attention de ne pas le confondre avec \textit{OutilDeGestionGraphicalUserInterface.fig},
+avec lequel les calculs \textbf{ne fonctionneront pas} si on l'ouvre directement. Taper simplement
+``OutilDeGestionGraphicalUserInterface'' dans la console : \textsc{Matlab}
+ouvrira automatiquement le bon fichier). Il vous faudra ensuite entrer le débit de
+\chemform{NH_3} requis et la température du réacteur du réformage primaire.
 
 % ------------------------------------------
 % ETUDE PARAMETRIQUE
