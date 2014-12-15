@@ -12,9 +12,7 @@ Dans un deuxième temps, nous simulerons le procédé à l'aide du logiciel
 \textsc{Aspen+}.
 
 \section{Etude thermodynamique}
-
 \subsection{Etude qualitative des paramètres thermodynamiques }
-
 \subsubsection{Pression}
 Selon Le Chatelier: "Si une modification est imposée à un système chimique à 
 l'état d'équilibre, il s'ensuit la réaction chimique qui s'oppose en partie
@@ -54,7 +52,7 @@ la constante d'équilibre est élevée à basse température et faible à haute 
 
 \begin{figure}
 	\centering
-	\rotatebox{90}{\includegraphics[scale=0.48]{media/grapheK200-300.jpg}}
+	\includegraphics[scale=0.48]{media/grapheK200-300.jpg}
 	\caption{Résultat du calcul de la constante d'équilibre.}
 	\label{fig:constantK}
 \end{figure}
@@ -65,7 +63,6 @@ En pratique, on préfère produire une grande quantité d'ammoniac en un temps t
 La température avoisine les \unit{400-500}{\degreecelsius} \cite{HaberB}.
 
 \subsection{Etude quantitative des paramètres thermodynamiques }
-
 Nous avions d'abord fait l'hypothèse que la synthèse était complète.
 Nous pouvons maintenant l'analyser plus en détails en la considérant
 à l'équilibre thermodynamique. Nous ferons ici l'hypothèse du gaz
@@ -114,8 +111,14 @@ Cette constante d'équilibre peut également être calculée en procédant de la
 % Comment citer une section en latex ??
 
 Pour aider à visualiser l'analyse quantitative de la réaction, nous vous renvoyons au graphe de la figure~\ref{fig:purge}.
-% FIX : où est la figure?
-% Tu as enlevé la figure? 
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{media/reacteurNH3.jpg}
+	\caption{Modélisation du recyclage des réactifs dans le réacteur de synthèse}
+	\label{fig:purge}
+\end{figure}
+
 En développant le problème dans le cas d'un recyclage avec purge, on a :
 
 \begin{align}
