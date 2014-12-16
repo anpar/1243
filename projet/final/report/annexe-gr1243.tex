@@ -1,0 +1,69 @@
+\documentclass{report}
+\usepackage[numbered, framed]{mcode}
+% Langue
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}      
+\usepackage[francais]{babel}
+% Mise en forme générale
+\usepackage[top=2.5cm,bottom=2.5cm,right=2.5cm,left=2.5cm]{geometry}
+% Package divers
+\usepackage{chemist} 
+\usepackage[version=3]{mhchem}
+\usepackage{chemfig}
+\usepackage[squaren, Gray]{SIunits}
+\usepackage{sistyle}
+\usepackage[autolanguage]{numprint}
+\usepackage{url}
+\usepackage{rotating}
+\usepackage{xcolor,colortbl}
+\definecolor{Gray}{gray}{0.85}
+% HEADER
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\lhead[P3]{P3}
+\chead[2014]{2014}
+\rhead[gr1243]{gr1243}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+% Nouvelles commandes
+\newcommand{\std}{\ensuremath{^{\circ}}}
+\newcommand\ph{\ensuremath{\mathrm{pH}}}
+\newcommand{\annexe}{\section{Annexes}}
+\newcommand{\biblio}[1]{}
+\newcommand{\doctitle}[1]{}
+\title{Projet P3 - Rapport}
+\author{\textbf{Groupe 124.3}\\
+\textsc{Frenyo} Péter (6266-12-00)\\
+\textsc{Gillain} Nathan (7879-12-00)\\
+\textsc{Lamine} Guillaume (7109-13-00)\\
+\textsc{Piraux} Pauline (2520-13-00)\\
+\textsc{Paris} Antoine (3158-13-00)\\
+\textsc{Quiriny} Simon (4235-13-00)\\
+\textsc{Schrurs} Sébastien (7978-13-00)}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Tache 1}
+\input{../../tache1/tache1.tex}
+\chapter{Tache 2}
+\input{../../tache2/tache2.tex}
+\chapter{Tache 4}
+\input{../../tache4/tache4.tex}
+\chapter{Tache 5}
+\input{../../tache5/tache5.tex}
+\chapter{Tache 7}
+\input{../../tache7/tache7.tex}
+
+\bibliographystyle{plain}
+\bibliography{../../tache1/sources-tache1,../../tache2/sources-tache2,../../tache4/sources-tache4,../../tache5/sources-tache5,../../tache7/sources-tache7}
+\nocite{*}
+\end{document}
