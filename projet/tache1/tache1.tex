@@ -22,7 +22,7 @@ Nous fournissons ensuite un outil de gestion écrit en MATLAB
 synthétisant les calculs des quantités de matières nécessaires 
 à la production d'une masse fixe d'ammoniac à une certaine 
 température du réacteur du réformage primaire. Cet outil fournit 
-les valeurs en moles de tout les composés à chaque étape de production.
+les valeurs en moles par seconde de tous les composés à chaque étape de production.
 
 Nous réalisons ensuite une étude paramétrique permettant la combinaison
 optimale de température et de production quotidienne 
@@ -229,7 +229,7 @@ Nous utilisons une méthode bottom-up. Nous partons donc de la réaction :
 		\frac{1}{2}N_2(g) + \frac{3}{2}H_2(g) \longrightarrow NH_3(g) 
 \end{chemmath}
 
-Et donc,
+Et ainsi,
  
 $$n_{NH_3} = \unit{\frac{m_{NH_3}}{17}}{\mole\per\dday}$$
 
@@ -242,7 +242,7 @@ et
 $$n_{H_2,f} = \frac{3}{2} \cdot n_{NH_3}$$
 
 On sait que le \chemform{N_2(g)} provient uniquement de l'air entrant 
-dans le réacteur du  réformage secondaire. Et comme on a posé comme hypothèse
+dans le réacteur du  réformage secondaire. Et prenant l'hypothèse
 que l'air est composé de 78\% de \chemform{N_2(g)}, 21\% de \chemform{O_2(g)}
 et 1\% d'\chemform{Ar(g)}, on peut déduire que $n_{air}$ entrant dans le 
 réacteur du réformage primaire vaut : 
@@ -256,7 +256,7 @@ $$n_{Ar}= n_{air} \cdot \frac{1}{100} = \unit{\frac{0.01m_{NH_3}}{26.52}}{\mole\
 
 La réaction dans le réformage secondaire, durant laquelle l'air est inséré, est la suivante :
 \begin{chemmath}
-	2CH_4 + O_2 \Longrightarrow 2CO + 4 H_2
+	2CH_4(g) + O_2(g) \Longrightarrow 2CO(g) + 4 H_2(g)
 \end{chemmath}  
 
 Nous savons par hypothèse que le
@@ -273,7 +273,7 @@ $$n_{H_2,RS} = 2 \cdot n_{CH_4,RS} =  \unit{\frac{0.84m_{NH_3}}{26.52}}{\mole\pe
 On s'intéresse ensuite à la réaction du Water-Gas-Shift : 
 
 \begin{chemmath}
-	CO + H_2O \Longrightarrow CO_2 + H_2
+	CO(g) + H_2O(g) \Longrightarrow CO_2(g) + H_2(g)
 \end{chemmath} 
 
 On sait que $n_{CO,WGS} = n_{CO,RP} + n_{CO,RS}$ avec $n_{CO,WGS}$ 
@@ -510,7 +510,7 @@ toutes les entrées/sorties en fonction de la température et du débit de \chem
 Afin d'évaluer la quantité totale d'énergie dont nous avons besoin pour mener à 
 bien la synthèse d'ammoniac, nous allons regarder les quantités requises à chaque 
 étape du processus pour ensuite déterminer la totalité des besoins énergétiques du
-systéme.
+système.
 
 Comme chaque réaction se passe à des températures différentes de la température ambiante,
 nous calculerons le $\Delta H_{reaction}$ à température ambiante selon l'équation suivante 
@@ -570,7 +570,7 @@ On peut donc voir que cette réaction est largement exothermique, c'est elle qui
 se produisant dans le reformage primaire, nous pouvons simplement calculer le nombre de mole de \ce{CH_4} à
 l'entrée du four avec l'équation suivante
 
-$$n_1\Delta H_1 + n_2\Delta H_2 = 0.75\cdot\Delta H_{\text{four}}\cdot n_{CH_4}$$
+$$n_1\Delta H_1 + n_2\Delta H_2 = - 0.75\cdot\Delta H_{\text{four}}\cdot n_{CH_4}$$
 
 où $n_1$ et $n_2$ sont les nombres de moles des réactifs réagissant dans les deux réactions
 du reformage primaire (respectivement). Autrement dit, on a 
@@ -609,9 +609,9 @@ $$
 
 $$
 	\begin{array}{rl}
-		 	\Delta H_1(T) = \Delta H(\unit{298.15}{\kelvin})	&=  + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
+		 	\Delta H_1(T) = \Delta H(\unit{298.15}{\kelvin})  + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
 																														+  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT\\
-																												&=  \unit{188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3}{\kilo\joule\per\mole} % Unité correcte?
+																												&=  \unit{188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3}{\joule\per\mole} % Unité correcte?
 	\end{array}
 $$	
 
@@ -633,7 +633,7 @@ $$
 		  \Delta H_2(T)	&=   \Delta H(\unit{298.15}{\kelvin}) 
 											 + \int_{298.15}^{T} C_{p_{CO_2(g)}} dT + \int_{298.15}^{T} C_{p_{H_2(g)}} dT 
 											 +  \int_{T}^{298.15} C_{p_{CO(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT \\
-										&=  \unit{-42533.33+3.77T+(2.93\cdot 10^{-3})T^2-(4.2\cdot 10^-7)T^3}{\kilo\joule\per\mole}
+										&=  \unit{-42533.33+3.77T+(2.93\cdot 10^{-3})T^2-(4.2\cdot 10^-7)T^3}{\joule\per\mole}
 	\end{array}
 $$	
 
@@ -718,7 +718,7 @@ $$
 	\begin{array}{rl}
 		 	 \Delta H(\unit{573.15}{\kelvin})	&=  \Delta H(\unit{298.15}{\kelvin}) 
 				+ \int_{573.15}^{298.15} C_{p_{reactifs}} dT + \int_{298.15}^{573.15} C_{p_{produits}} dT \\
-				&=  \unit{-39.49}{\kilo\joule\per\mole}
+				&=  \unit{-55.63}{\kilo\joule\per\mole}
 	\end{array}
 $$	
 	
@@ -726,7 +726,7 @@ Il s'agit donc d'une réaction exothermique.
 
 \paragraph{Séparation de $CO_{2}$ et de $H_{2}O$}		
 Pour cette étape, nous ferons l'hypothèse que les étapes requises pour enlever le $CO_{2}$ et le $H_{2}O$ 
-des composants présents dans le circuit ne nécessitent pas d'énergie, ou du moins énergétiquement indépendante 
+des composants présents dans le circuit ne nécessitent pas d'énergie, ou du moins sont énergétiquement indépendantes 
 des autres besoins en énergie du reste du système.
 
 \paragraph{Synthèse du $NH_{3}$} 
