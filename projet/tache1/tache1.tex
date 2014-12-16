@@ -767,13 +767,18 @@ Il s'agit donc d'une réaction exothermique.
 
 % TODO Ici il y a des trucs à corriger, à voir avec les commentaires de la tutrice.
 \paragraph{Conclusion}
-\'Etant donné le fait que nous ayions besoin de \unit{X}{\kilo\joule} pour le reformage primaire, et que l'énergie
-que la combustion donne au début du système se fait à un rendement de 75 pourcent, nous pouvons facilement déterminer
-le débit de \chemform{CH_4} à injecter dans le four au départ. Cependant, la quantité d'énergie nécessaire lors du
-reformage primaire varie en fonction de la température. Par conséquent, la combustion sera aussi fonction de la température,
-et ce en prenant en compte le rendement de 75 pourcent\footnote{"prendre en compte le rendement de 75 pourcent" signifie faire
-fonctionner le four à 133.3 pourcent afin d'avoir la quantité d'énergie nécessaire malgré le rendement inférieur 
-à 100 pourcent.}.
+En fixant la température du reformage primaire à \unit{1000}{\kelvin}, nous pouvons déterminer les enthalpies des deux 
+réactions qui s’y passent :
+\Delta H1 = \unit{225.99}{\kilo\joule} par mole de \chemform{CH_{4}} qui réagit, par seconde.
+\Delta H2 = \unit{-36.25}{\kilo\joule} par mole de \chemform{CO} qui réagit, par seconde.
+
+La quantité de chaleur dont nous avons besoin lors du reformage primaire peut alors être déterminée selon l’équation suivante : 
+Q = \Delta H1*n_{\ce{CH4}} +\Delta H2*n_{\ce{CO}} = 225,99*n_{\ce{CH4}} - 36,250*n_{\ce{CO}}
+(où Q est en kJ/s)
+
+Le four ne transmettant que 75\% de sa chaleur au reformage primaire, il nous faut alors multiplier la chaleur 
+obtenue par un facteur 4/3 afin de connaître la quantité de chaleur réelle que devrait émettre la réaction de combustion 
+du CH4 dans le four.
 
 % ------------------------------------------
 % CALCUL DU NOMBRE DE TUYAUX
