@@ -1,49 +1,69 @@
 \input{../lib.tex}
-\doctitle{Etude de l'impact environnemental}
-\section{Etude de  la consommation énergétique}
-Dans cette section, nous allons étudier la 
-consommation d'énergie en fonction de la
-masse de \chemform{NH_3} et de la température $T$
-en Kelvin.
-\section{Etude du \chemform{CO_2} rejeté par le four}
-% TODO
-\section{Etude du rejet total de \chemform{CO_2}}
-% TODO
-\section{Etude des autres rejets}
-Dans cette section, nous allons
-évoquer les risques liés aux autres 
-élements que rejettent notre procédé
-de fabrication, à savoir l'argon et
-le diazote. Nous ne parlerons
-évidemment pas du cas de l'eau 
-rejetée car celle-ci n'a aucun impact
-sur l'environnement.
-\subsection{L'argon}
-En faible quantité, l'argon n'est
-pas dangereux pour la santé (puisqu'il
-entre dans la composition de l'air...).
-L'argon ne présente également aucun risque
-pour l'environnement\footnote{Ou en tout
-cas aucun de ces risques ne sont connus
-à l'heure actuel.}, ni pour les plantes, 
-ni pour les animaux, ni même pour le monde
-aquatique.
-% http://www.lenntech.fr/data-perio/ar.htm
-\subsection{Azote}
-Contrairement à l'argon, le rejet 
-d'azote est mauvais pour l'environnement.
-Les conséquences sont multiples :
-\begin{itemize}
-	\item Modifications des concentrations
-	des substances sensibles à l'azote
-	prénsentes dans l'air ;
-	\item Dangés pour la santé du bétail
-	environnant (et donc pour les consommateurs).
-\end{itemize}
-% http://www.lenntech.fr/data-perio/n.htm
+\doctitle{Étude de l'impact environnemental}
+Cette tâche a pour but de citer et dimensionner approximativement l'empreinte écologique du procédé. Nous commencerons par donner les consommations énergétiques de chaque parties de celui-ci puis nous continuerons avec les rejets de déchets (sous-entendu substances qui sont produites et inutiles dans la production) et enfin nous citerons quelques pistes afin d'améliorer le procédé.
 
-\section{Recommandations pour réduire
-l'impact environnemental}
-% TODO
+\section{Dimensionnement de la consommation énergétique}
+\label{dim}
+Afin de trouver la consommation énergétique du procédé, on cherche l'enthalpie d'une réaction à la température donné puis on la multiplie par le nombre de moles en quantité stoechiométrique. Nous avons pris des hypothèses pour simplifier le modèle et calculer une approximation plus facile à obtenir (mais toujours utile et fiable). Nous avons donc considéré que :
+\begin{itemize}
+	\item Les matières premières sont pures et sans poisons catalytiques(souffre ou autre)
+	\item Le système est en régime
+  \item Les capacités calorifiques sont des polynômes de température et varient donc en fonction de celle-ci.
+	\item L'énergie nécessaire pour la séparation entre le \chemform{CO_2} et l'eau est négligeable,
+	\item Seul 75\% de l'énergie produite par le four est réellement utilisée pour chauffer le reformage primaire
+	\item Toutes les réactions sauf celles du reformage primaire sont complètes (ou quasi-complètes)
+	\item La température du four est de \unit{1000}{\kelvin}
+	\item La production de \chemform{NH_3} est de \unit{1500}{\ton\per\dday}
+\end{itemize}
+	
+Pour toutes ces hypothèses, voici les différentes consommations énergétiques des parties de la chaîne de production (dans l'ordre):
+\begin{itemize}
+	\item Reformage primaire(RF1): \unit{36343.48}{\kilo\joules}
+	\item Four du RF1 : \unit{-48457.49}{\kilo\joules}
+	\item Reformage secondaire(RF2) : \unit{-5578.73}{\kilo\joules}
+	\item Water-Gas_Shift(WGS) : \unit{-19602.05}{\kilo\joules}
+	\item Séparation : \unit{0}{\kilo\joules}
+	\item Synthèse : \unit{-28573.18}{\kilo\joules}
+\end{itemize}
+Nous remarquons que la partie la plus énergivore du procédé et la seule à demander de l'énergie est le réformage primaire. C'est pourquoi le four est nécessaire pour favoriser les réactions qui produisent du dihydrogène.
+
+\section{Dimensionnement des productions de produits secondaires}
+
+Ensuite, vient les production de produits non-désirés que nous devrons traités ou relâcher dans la nature s'ils ne sont pas toxiques. Voici donc les productions des divers produits en commençant par le dioxyde de carbone.
+
+\subsection{Le dioxyde de carbone}
+
+Les hypothèses dont identiques à celles formulées dans la section du dimensionnement énergétique\ref{dim}. Voici donc les productions de \chemform{CO_2} par seconde:
+
+\begin{itemize}
+	\item Reformage primaire(RF1): \unit{99.34}{\mole}\\
+	\item Four du RF1 : \unit{60.12}{\mole}\\
+	\item Reformage secondaire(RF2) : \unit{0}{\mole}\\
+	\item Water-Gas_Shift(WGS) : \unit{352.36}{\mole}\\
+	\item Séparation : \unit{0}{\mole}\\
+	\item Synthèse : \unit{0}{\mole}\\
+\end{itemize}
+
+Nous observons que cette fois-ci la réaction la plus polluante est le Water-gas-shift. Elle est malheureusement la plus usitée pour la production de dihydrogène. Notons que l'énergie du four peut provenir d'une autre source que la combustion de méthane.
+
+\subsection{Argon et autres produits}
+
+Ici, nous parlerons des autres produits comme l'argon ou les oxydes d'azotes produit dans le four par le combustion dans un espace fermé de méthane. L'argon provient de l'air et sa concentration est élevée est due à une hypothèse (très) simplificatrice : l'air est composé de 78\% de diazote, de 21\% de dioxygène et de 1\% d'argon. Donc, nous avons que
+\begin{itemize}
+	\item nombre de moles d'argon présent dans le système : \unit{6.55}{\mole\per\second}
+	\item masse de \chemform{NO_x} (et surtout de \chemform{NO_2}) présente : entre 0.6 et \unit{1.3}{\ton\per\second}
+\end{itemize}
+
+\section{Pistes pour améliorer l'empreinte écologique du procédé}
+Cette section présente brièvement les pistes plausible pouvant remédier aux problèmes. Certaines implique l'utilisation d'un autre procédé, d'autres un traitement des déchets. Voici donc nos pistes de solutions:
+\begin{itemize}
+	\item Utiliser un procédé de production de dihydrogène moins polluant(électrolyse, partial oxydation, ...)
+	\item Chauffer le reformage primaire avec une source d'énergie verte
+	\item Récupérer l'énergie dégagée par les diverses réactions exothermiques
+	\item Reconvertir le \chemform{CO_2} et les autres déchets produits ou les vendre(par exemple : transformer le dioxyde de carbone en acide carbonique ou vendre le \chemform{CO_2} pour le conditionnement d'aliments,...)
+	\item Utiliser d'autres matières premières pour la production de dihydrogène et de diazote et éviter les poisons catalytiques à traiter
+\end{itemize}
+\section{Conclusion}
+En conclusion, notre procédé est fort polluant mais est le plus utilisé industriellement. Utiliser d'autres procédés de production est possible mais ils sont soit peu développé, soit industriellement pas viable. Nous avons donc une production de \unit{1500}{\ton\per\dday} de \chemform{NH_3} pour une température dans le reformage primaire de \unit{1000}{\kelvin}. Au final, pour notre chaîne de production, la production d'une tonne d'ammoniac rejette \unit{1.150}{\ton}, soit \unit{1.725}{\ton\per\dday}. Aussi, le four produit, entre autres, des oxydes d'azote très dangereux qui sont, notamment, à l'origine des pluies acides. Pour notre production journalière, nous produisons entre 0.9 et \unit{1.95}{\ton\per\dday}.
 \biblio{sources-tache3}
 \input{../footer.tex}
