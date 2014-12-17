@@ -12,10 +12,6 @@ Tâche 3 :
 - pistes d'amélioration
 - finir sur le problème traité dans la tâche 8
 
-Pauline
---------
-TODO
-
 Antoine
 -------
 ### Slides 1 : mindmap
@@ -77,5 +73,11 @@ ses caractéristiques (rendement).
 
 Je vais maintenant passer la parole à Pauline qui va continuer à
 vous parler des micro-algues en évoquant leurs avantages/inconvénients.
+
+Pauline
+--------
+TODO
+
 Peter
 -----
+TODO
