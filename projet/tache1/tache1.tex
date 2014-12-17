@@ -425,8 +425,7 @@ où $\Delta G_2$ est donné par l'équation \ref{delta-g2}.
 
 \paragraph{Remarque} Pour plus de précisions et afin d'automatiser le calcul
 de ces constantes d'équilibres, nous avons créé deux fonctions Matlab, \lstinline{ComputeK1(T)}
-et \lstinline{ComputeK2(T)} qui suivent exactement cette démarche et que vous
-pouvez retrouver dans l'annexe \ref{code-matlab-outil}.
+et \lstinline{ComputeK2(T)} qui suivent exactement cette démarche.
 
 \subsection{Etat d'avancement}
 Analysons maintenant plus en détails les deux réactions qui ont lieu dans le réformage primaire.
@@ -610,9 +609,10 @@ $$
 
 $$
 	\begin{array}{rl}
-		 	\Delta H_1(T) = \Delta H(\unit{298.15}{\kelvin})  + \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
-																														+  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT\\
-																												&=  \unit{188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3}{\joule\per\mole} % Unité correcte?
+		 	\Delta H_1(T) &= \Delta H(\unit{298.15}{\kelvin})  
+										+ \int_{298.15}^{T} C_{p_{CO(g)}} dT + 3\int_{298.15}^{T} C_{p_{H_2(g)}} dT 
+											+  \int_{T}^{298.15} C_{p_{CH_4(g)}} dT + \int_{T}^{298.15}C_{p_{H_{2}O_{(g)}}}dT\\
+										&=  \unit{188369.87 + 71.16 T -0.04163 T^2 + (8.09\cdot 10^{-6}) T^3}{\joule\per\mole} % Unité correcte?
 	\end{array}
 $$	
 
@@ -771,12 +771,14 @@ Il s'agit donc d'une réaction exothermique.
 \paragraph{Conclusion}
 En fixant la température du reformage primaire à \unit{1000}{\kelvin}, nous pouvons déterminer les enthalpies des deux 
 réactions qui s’y passent :
-\Delta H1 = \unit{225.99}{\kilo\joule} par mole de \chemform{CH_{4}} qui réagit, par seconde.
-\Delta H2 = \unit{-36.25}{\kilo\joule} par mole de \chemform{CO} qui réagit, par seconde.
+\begin{itemize}
+	\item $\Delta H1 =$ \unit{225.99}{\kilo\joule} par mole de \chemform{CH_4} qui réagit, par seconde ;
+	\item $\Delta H2 =$ \unit{-36.25}{\kilo\joule} par mole de \chemform{CO} qui réagit, par seconde.
+\end{itemize}
 
 La quantité de chaleur dont nous avons besoin lors du reformage primaire peut alors être déterminée selon l’équation suivante : 
-Q = \Delta H1*n_{\ce{CH4}} +\Delta H2*n_{\ce{CO}} = 225,99*n_{\ce{CH4}} - 36,250*n_{\ce{CO}}
-(où Q est en kJ/s)
+$$Q = \Delta H1\cdot n_{\ce{CH4}} +\Delta H2\cdot n_{\ce{CO}} = 225.99\cdot n_{\ce{CH4}} - 36.250\cdot n_{\ce{CO}}$$
+(où $Q$ est en kJ/s)
 
 Le four ne transmettant que 75\% de sa chaleur au reformage primaire, il nous faut alors multiplier la chaleur 
 obtenue par un facteur 4/3 afin de connaître la quantité de chaleur réelle que devrait émettre la réaction de combustion 
@@ -838,21 +840,21 @@ bilan de matière et lors du calcul de l'état d'avancement des réactions
 dans le reformage primaire. Il résout donc un système à 4 équations
 et à 4 inconnues et ne sélectionne que les solutions positives et réelles.
 Il présente les résultats sous forme d'un tableau reprenant les flux de chaque
-composants à chaque étape du procédé. Les résultats sont présentés en \unit{\ton\per\day} et en \unit{\mole\per\second}.
+composants à chaque étape du procédé. Les résultats sont présentés en tonnes par jour
+et en moles par seconde.
 Nous avons également intégré le calcul du nombre de tubes nécessaires au
 passage du mélange \chemform{CH_4(g)} et \chemform{H_2O(g)}.
 
-Le code Matlab des opérations calculatoires de l'outil de gestion peut être trouvé à l'annexe \ref{code-matlab-outil}.
-Remarquez que celui-ci utilise deux autres fonctions \lstinline{ComputeK1}
+Notre outil de gestion utilise deux autres fonctions \lstinline{ComputeK1}
 et \lstinline{ComputeK2} qui permettent respectivement de calculer la constante
 d'équilibre et la variation d'enthalpie de la première et de la deuxième
 réaction du reformage primaire pour une température $T$.
 Une interface graphique est mise à votre disposition pour une utilisation plus aisée de notre outil de gestion.
-Pour l'utiliser, il lancer le fichier \textbf{OutilDeGestionGraphicalUserInterface.m}
+Pour l'utiliser, il faut lancer le fichier \textbf{OutilDeGestionGraphicalUserInterface.m}
 (attention de ne pas le confondre avec \textit{OutilDeGestionGraphicalUserInterface.fig},
-avec lequel les calculs \textbf{ne fonctionneront pas} si on l'ouvre directement. Taper simplement
+avec lequel les calculs \textbf{ne fonctionneront pas} si on l'ouvre directement). Taper ensuite simplement
 ``OutilDeGestionGraphicalUserInterface'' dans la console : \textsc{Matlab}
-ouvrira automatiquement le bon fichier). Il vous faudra ensuite entrer le débit de
+ouvrira automatiquement le bon fichier. Il vous faudra ensuite entrer le débit de
 \chemform{NH_3} requis et la température du réacteur du réformage primaire.
 
 % ------------------------------------------
@@ -879,7 +881,8 @@ une production intermédiaire de
 A partir de ces graphes nous pouvons
 établir un domaine de faisabilité de
 la réaction. En observant le graphe
-du débit molaire de \ce{H2O} entrant
+du débit molaire de \ce{H2O} (voir 
+figure \ref{fig:etude-h2o}, à droite) entrant
 (et sortant) de la phase de séparation,
 on observe que ce débit molaire
 devient négatif pour une température
@@ -915,11 +918,12 @@ La deuxième version de notre flow-sheet se trouve à la figure \ref{flow-sheet-
 \end{figure}
 \newpage
 
-\section{Code Matlab de l'outil de gestion}
-\label{code-matlab-outil}
-\lstinputlisting{matlab/OutilDeGestionV2.m}
-\lstinputlisting{matlab/ComputeK1.m}
-\lstinputlisting{matlab/ComputeK2.m}
+% Useless
+%\section{Code Matlab de l'outil de gestion}
+%\label{code-matlab-outil}
+%\lstinputlisting{matlab/OutilDeGestionV2.m}
+%\lstinputlisting{matlab/ComputeK1.m}
+%\lstinputlisting{matlab/ComputeK2.m}
 
 \section{Graphes des débits intermédiaires en fonction
 de la température}
@@ -932,42 +936,42 @@ de la température}
 
 \begin{figure}[htb!]
 	\centering
-	\begin{subfigure}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/ch4_in2_four.jpg}
-	\end{subfigure}
-	\begin{subfigure}
+	}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/o2_in1_four.jpg}	
-	\end{subfigure}
+	}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering
-	\begin{subfigure}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/ch4_in1_reformage_primaire.jpg}
-	\end{subfigure}
-	\begin{subfigure}
-		\includegraphics[scale=0.40]{media/etude_param/useful/h2o_in1_reformage_primaire.jpg}	
-	\end{subfigure}
+	}
+	\subfigure{
+		\includegraphics[scale=0.40]{media/etude_param/useful/h2o_in1_reformage_primaire.jpg}
+	}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering
-	\begin{subfigure}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/ch4_in3_reformage_secondaire.jpg}
-	\end{subfigure}
-	\begin{subfigure}
-		\includegraphics[scale=0.40]{media/etude_param/useful/co_in1_reformer_secondaire.jpg}	
-	\end{subfigure}
+	}
+	\subfigure{
+		\includegraphics[scale=0.40]{media/etude_param/useful/co_in1_reformer_secondaire.jpg}
+	}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering
-	\begin{subfigure}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/co2_in1_reformer_secondaire.jpg}
-	\end{subfigure}
-	\begin{subfigure}
+	}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/h2_in1_reformer_secondaire.jpg}	
-	\end{subfigure}
+	}
 \end{figure}
 
 \begin{figure}[htb!]
@@ -977,32 +981,35 @@ de la température}
 
 \begin{figure}[htb!]
 	\centering
-	\begin{subfigure}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/co_in2_wgs.jpg}
-	\end{subfigure}
-	\begin{subfigure}
+	}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/co2_in2_wgs.jpg}	
-	\end{subfigure}
+	}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering
-	\begin{subfigure}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/h2_in2_wgs.jpg}
-	\end{subfigure}
-	\begin{subfigure}
+	}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/h2o_in3_wgs.jpg}	
-	\end{subfigure}
+	}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering
-	\begin{subfigure}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/co2_in_out_separation.jpg}
-	\end{subfigure}
-	\begin{subfigure}
+	}
+	\subfigure{
 		\includegraphics[scale=0.40]{media/etude_param/useful/h2o_in_out_separation.jpg}	
-	\end{subfigure}
+	}
+	\caption{Sur la figure de droite, on peut remarquer que le débit d'eau devient
+	négatif pour une température d'appriximativement \unit{1035}{\kelvin}.}
+	\label{fig:etude-h2o}
 \end{figure}
 
 \input{../footer.tex}
