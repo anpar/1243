@@ -1,1 +1,243 @@
-% TODO
+\documentclass{beamer} 
+
+\usepackage[utf8]{inputenc} 
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx} 
+\usepackage[squaren, Gray]{SIunits} 
+\usepackage{amsmath}  
+\usepackage{tabularx} 
+\usepackage{chemist} 
+\usepackage[version=3]{mhchem}
+\usepackage{color}
+
+\usetheme{warsaw} 
+ 
+\title{Projet P3} 
+\subtitle{Introduction au génie chimique : analyse du procédé de production d'ammoniac} 
+\author{\textbf{Groupe 124.3}\\
+\textsc{Frenyo} Péter (6266-12-00)\\
+\textsc{Gillain} Nathan (7879-12-00)\\
+\textsc{Lamine} Guillaume (7109-13-00)\\
+\textsc{Piraux} Pauline (2520-13-00)\\
+\textsc{Paris} Antoine (3158-13-00)\\
+\textsc{Quiriny} Simon (4235-13-00)\\
+\textsc{Schrurs} Sébastien (7978-13-00)}
+\date{\today}
+ 
+\begin{document} 
+ 
+	\begin{frame} 
+		\titlepage 
+	\end{frame} 
+	
+	\begin{frame}
+		\frametitle{Plan de l'exposé}
+		\tableofcontents
+	\end{frame}
+	
+	\begin{frame}
+		\section{Introduction}
+		\frametitle{Plan de l'exposé}
+		\tableofcontents[currentsubsection,sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
+	\end{frame}
+	
+	\begin{frame}
+	\frametitle{Analyse de l'impact environnemental : Démarche}
+	\begin{itemize}
+		\item[-] Recherche des valeurs à quantifier grâce à un brainstorming ;
+		\item[-] Recherche des différentes températures des réacteurs ;
+		\item[-] Quantification des flux de produits secondaires grâce à l'outil de gestion ;
+		\item[-] Calcul de l'énergie dégagée/absorbée par les différentes réactions ;
+		\item[-] Pistes d'amélioration.
+	\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+	\frametitle{Analyse de l'impact environnemental : Résultats}
+	Pour une production de \unit{1500}{\ton\per\dday} avec une température 
+	de \unit{1000}{\kelvin} dans le reformage primaire, nous 	produisons pour tout le procédé :
+	\begin{itemize}
+		\item[-] \unit{1725}{\ton\per\dday} de \chemform{CO_2} ;
+		\item[-] Entre 0.9 et \unit{1.95}{\ton\per\dday} de \chemform{NO_x} ;
+		\item[-] \unit{-53.75}{\kilo\joule\per\dday} ;
+		\item[-] \unit{22.6}{\ton\per\dday} de \chemform{Ar}.
+	\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+	\frametitle{Analyse de l'impact environnemental : Pistes pour améliorer le procédé}
+	Nous avons réfléchi aux divers points négatifs et avons trouvé quelques pistes pour y remédier :
+	\begin{itemize}
+		\item[-] Utiliser un procédé de production de dihydrogène moins polluant(électrolyse, partial oxydation, ...) .
+		\item[-] Chauffer le reformage primaire avec une source d'énergie verte ;
+		\item[-] Récupérer l'énergie dégagée par les diverses réactions exothermiques ;
+		\item[-] Reconvertir le \chemform{CO_2} et les autres déchets produits ou les vendre ;
+		\item[-] Utiliser d'autres matières premières pour la production de dihydrogène et ;
+		de diazote et éviter les poisons catalytiques à traiter.
+	\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\section{Tâche 8 - amélioration du procédé}
+		\frametitle{Plan de l'exposé}
+		\tableofcontents[currentsubsection,sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Démarche}
+		\framesubtitle{Analyse des enjeux environnementaux}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Démarche}
+		\framesubtitle{Choix d'une source d'impact et pistes d'amélioration} % FIX : s ou pas?
+		Notre choix : le \chemform{CO_2}.\\
+		Deux possibilités : soit \textbf{réduire les émissions}, soit \textbf{recycler}.
+		
+		Pour reduire les émissions :
+		\begin{itemize}
+			\item Changer le procédé de combustion ;
+			\item Changer le procédé de création de dihydrogène.
+		\end{itemize}
+		Pour recycler :
+		\begin{itemize}
+			\item Produire du carburant à partir d'algues ;
+			\item Recycler en matière première ;
+			\item Revendre le \chemform{CO_2} à d'autres usines
+			en ayant besoin.
+		\end{itemize}
+	\end{frame}
+	
+		\begin{frame}
+		\frametitle{Démarche}
+		\framesubtitle{Choix d'une source d'impact et pistes d'amélioration} % FIX : s ou pas?
+		Notre choix : le \chemform{CO_2}.\\
+		Deux possibilités : soit \textbf{réduire les émissions}, soit \textbf{recycler}.
+		
+		Pour reduire les émissions :
+		\begin{itemize}
+			\item Changer le procédé de combustion ;
+			\item Changer le procédé de création de dihydrogène.
+		\end{itemize}
+		Pour recycler :
+		\begin{itemize}
+			\item \textbf{Produire du carburant à partir d'algues} ;
+			\item Recycler en matière première ;
+			\item Revendre le \chemform{CO_2} à d'autres usines
+			en ayant besoin.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Notre proposition : l'algocarburant}
+		\framesubtitle{Fonctionnement}
+		\begin{figure}
+			\centering
+			\includegraphics[scale=0.6]{media/fonctionnement.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Notre proposition : l'algocarburant}
+		\framesubtitle{Facteurs importants pour le développement des micro-algues}
+		\Large{\begin{itemize}
+			\item Luminosité (rayons UV) ;
+			\item Température ;
+			\item Régulation des nutriments ;
+			\item Qualité du \chemform{CO_2} ;
+			\item Espèce d'algue.
+		\end{itemize}}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Nos arguments}
+		\framesubtitle{Avantages...}
+		\begin{center}
+			\small{
+			\begin{tabular}{p{0.45\textwidth}|p{0.45\textwidth}}
+				\textbf{Micro-algues} & \textbf{Algocarburants} \\
+				\hline
+					\begin{itemize}
+						\item[\textcolor{green}{+}] Croissance ;
+						\item[\textcolor{green}{+}] Pas de compétition avec les cultures alimentaires;
+						\item[\textcolor{green}{+}] Rendement ;
+						\item[\textcolor{green}{+}] Faible emprunte environnementale ;
+						\item[\textcolor{green}{+}] Facilité à cultiver.
+					\end{itemize}   & 
+					\begin{itemize}
+						\item[\textcolor{green}{+}] Directement consommable par nos moteurs ;
+						\item[\textcolor{green}{+}] Rejets de \chemform{CO_2} moins élevés.
+					\end{itemize}
+			\end{tabular}}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Nos arguments}
+		\framesubtitle{... mais aussi quelques inconvénients}
+		\begin{itemize}
+				\item[\textcolor{red}{-}] Faute de production en masse : prix élevés ;
+				\item[\textcolor{red}{-}] Extraction de l'huile coûteuse et dévoreuse d'énergie ;
+				\item[\textcolor{red}{-}] Nécessité de rendre le \chemform{CO_2} propre à la 
+				consommation des algues ;
+				\item[\textcolor{red}{-}] Quantité élevé d'azote et de phosphore élevé
+				dans la biomasse.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Nos arguments}
+		\framesubtitle{Etude quantitative}
+		Notre production de \chemform{CO_2} :
+		\begin{itemize}
+			\item Procédé : \unit{x}{\ton} par an ;
+			\item Combustion : \unit{x}{\ton} par an.
+		\end{itemize}
+		Production des micro-algues :
+		\begin{itemize} 
+			\item \unit{1}{\hectare} d'algue $\approx$ \unit{x}{\kilo\gram} de biomasse $\approx$
+			\unit{y}{\kilo\gram} d'huile $\approx$ \unit{z}{\liter} de carburant ;
+			\item \unit{1}{\kilo\gram} de biomasse $\approx$ \unit{1.8}{\kilo\gram}
+			de \chemform{CO_2} fixé.
+		\end{itemize}
+		\fbox{\begin{minipage}{0.9\textwidth}Avec \unit{x}{\hectare} d'algues, on produit \unit{x}{\liter}
+		de carburant et on recycle \unit{x}{\ton} de \chemform{CO_2} par
+		an. C'est à dire X \% de nos émissions.\end{minipage}}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Nos arguments}
+		\framesubtitle{D'un point de vue économique}
+		
+	\end{frame}
+
+	\begin{frame}
+		\section{Conclusion des tâches 3 et 8}
+		\frametitle{Plan de l'exposé}
+		\tableofcontents[currentsubsection,sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
+	\end{frame}
+	
+	\begin{frame}
+		\section{Bilan de groupe}
+		\frametitle{Plan de l'exposé}
+		\tableofcontents[currentsubsection,sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
+	\end{frame}
+	
+	\begin{frame}
+		% TODO
+	\end{frame}
+	
+	\begin{frame}
+		\section{Conclusion du projet}
+		\frametitle{Plan de l'exposé}
+		\tableofcontents[currentsubsection,sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
+	\end{frame}
+	
+	\begin{frame}
+		% TODO
+	\end{frame}
+	
+\end{document}
