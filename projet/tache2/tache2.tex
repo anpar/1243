@@ -1,4 +1,4 @@
-\input{../lib.tex}
+\\input{../lib.tex}
 \doctitle{Conception plus détaillée de la dernière étape du procédé :
 la synthèse d'ammoniac proprement dite}
 
@@ -160,7 +160,7 @@ A partir de ces différentes équations, nous pouvons exprimer l'ammoniac
 sortant en fonction des composants à l'entrée, du coefficient, de la pression
 totale et de la température. Les détails du calcul sont laissés à l'attention 
 du lecteur. Nous arrivons finalement à l'équation~\eqref{eq:finale}, qui peut
-être résolue numériquement à l'aide de l'outil \textsc{Matlab}.  
+être résolue numériquement à l'aide de l'outil \textsc{Matlab}.
 
 \begin{align}
 	K(T) & = \frac{4x\cdot p_0\cdot (\ce{N2_{,in} + H2_{,in} + Ar_{in}} - 
@@ -181,7 +181,36 @@ $$
 \end{cases}
 $$
  
-% ajouter la conclusion des observations du graphe matlab quand on aura des résultas corrects
+A l'aide de notre programme \textsc{Matlab} résolvant l'équation finale~\eqref{eq:finale}  nous avons tracer des graphiques mettant en valeur nos résultats.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{media/purgeTemperature.jpg} 
+	\caption{Modélisation de la production de \chemform{NH_3} du procédé \textsc{Haber Bosh}}
+	\label{fig:purgeTemperature}
+\end{figure}
+
+Ce graphe \cite{fig:purgeTemperature} a été réalisé à une pression constante de \unit{270}{\bbar}, pour \unit{1}{\mole\per\second} de \chemform{N_2}, une purge de 10\% et pour des températures de \unit{300-800}{\kelvin}. On observe conformément à nos attentes que le débit de \chemform{NH_3} diminue lorsque la température augmente. Le rendement est proche de 100\% à température ambiante, cela s'explique également par le recyclage des réactifs. A \unit{800}{\kelvin} le rendement chute à 80\%.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{media/purgePression.jpg} 
+	\caption{Modélisation de la production de \chemform{NH_3} du procédé \textsc{Haber Bosh}}
+	\label{fig:purgePression}
+\end{figure}
+
+Ce graphe \cite{fig:purgePression} a été réalisé à une température constante de \unit{750}{\kelvin}, pour \unit{1}{\mole\per\second} de \chemform{N_2}, une purge de 10\% et pour des pressions de \unit{150-600}{\bbar}. On observe conformément à nos attentes que le débit de \chemform{NH_3} augmente lorsque la pression augmente aussi. A \unit{200}{bbar} le rendement est de l'ordre de 80\%, tandis que lorsque le pression est supérieure à \unit{450}{bbar} le rendement dépasse les 90\%.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{media/purge.jpg} 
+	\caption{Modélisation de la production de \chemform{NH_3} du procédé \textsc{Haber Bosh}}
+	\label{fig:purge}
+\end{figure}
+
+Ce graphe \cite{fig:purge} a été réalisé à une température constante de \unit{750}{\kelvin}, une pression constante de \unit{270}{bbar}, pour \unit{1}{\mole\per\second} de \chemform{N_2} et pour des purges de 10\% à 100\%. On observe conformément à nos attentes que le débit de \chemform{NH_3} diminue lorsque la purge augmente. Lorsque la purge est totale le rendement est de 40\% tandis qu'avec une purge de 10\% nous atteignons 85\%.
+
 
 \section{Utilisation du logiciel \textsc{Aspen+}}
 Nous avons ensuite utilisée le logiciel \textsc{Aspen+}
