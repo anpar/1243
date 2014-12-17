@@ -64,7 +64,13 @@ amount = varargin(1);
 amount = amount{1,1};
 temperature = varargin(2);
 temperature = temperature{1,1};
-ctemp = OutilDeGestionV2(amount, temperature, false);
+method = varargin(3);
+method = method{1,1};
+if method == 1
+    ctemp = OutilDeGestionV2(amount, temperature, false);
+else
+    ctemp = OutilDeGestionPurge(amount,temperature,800,270,4,false);
+end
 tubenumber = ctemp(1);
 % combine data with blank lines
  MCH4 = 16.05;

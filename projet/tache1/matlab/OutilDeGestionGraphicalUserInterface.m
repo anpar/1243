@@ -22,7 +22,7 @@ function varargout = OutilDeGestionGraphicalUserInterface(varargin)
 
 % Edit the above text to modify the response to help OutilDeGestionGraphicalUserInterface
 
-% Last Modified by GUIDE v2.5 30-Nov-2014 20:18:40
+% Last Modified by GUIDE v2.5 17-Dec-2014 13:44:44
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -54,6 +54,9 @@ function OutilDeGestionGraphicalUserInterface_OpeningFcn(hObject, eventdata, han
 
 % Choose default command line output for OutilDeGestionGraphicalUserInterface
 handles.output = hObject;
+
+%%%%%%%%%%%%%%%%%%%%%SET BASIC METHOD TO THE FIRST ONE!!!!!!!!
+handles.method = 1;
 
 % Update handles structure
 guidata(hObject, handles);
@@ -103,7 +106,7 @@ function calculatebutton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of calculatebutton
-
+method = handles.method;
 amount = get(handles.amount,'String');
 temperature = get(handles.temperature,'String');
 
@@ -112,7 +115,7 @@ temperature = str2num(temperature);
 if isempty(amount) || isempty(temperature)
     errordlg({'Please enter valid values for the amount of ammonia and the temperature!'; 'A valid value is a number (example : 1000) and nothing else.'},'Value Entered Error')
 else
-OutilDeGestionGraphicalUserInterfaceTable(amount,temperature);
+    OutilDeGestionGraphicalUserInterfaceTable(amount,temperature,method);
 end
 
 
@@ -212,6 +215,54 @@ function temperature_CreateFcn(hObject, eventdata, handles)
 % handles    empty - handles not created until after all CreateFcns called
 
 % Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in methodchoice.
+function methodchoice_Callback(hObject, eventdata, handles)
+% hObject    handle to methodchoice (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns methodchoice contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from methodchoice
+handles.method = get(hObject,'Value');
+guidata(hObject, handles);
+
+
+% --- Executes during object creation, after setting all properties.
+function methodchoice_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to methodchoice (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in popupmenu3.
+function popupmenu3_Callback(hObject, eventdata, handles)
+% hObject    handle to popupmenu3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns popupmenu3 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popupmenu3
+
+
+% --- Executes during object creation, after setting all properties.
+function popupmenu3_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popupmenu3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
 %       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
