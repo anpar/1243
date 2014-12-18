@@ -57,10 +57,10 @@ procédés qui permettront :
 
 ### Slide 4 : autres facteurs importants
 Pour assurer un rendement optimal, d'autres facteurs entre encore en jeu :
-* La température à laquelle les algues sont stockés (il ne faut pas nécessairement
-chauffer à de hautes température mais il faut quand même assurer une température
-minimale) ;
-* La régulation des nutriments (qui peut être faite via des capteurs par exemple) ;
+* La température à laquelle les algues sont stockés ;
+* La régulation des nutriments, qui peut être faite via des capteurs par exemple. En effet, 
+c'est quand les algues sont en carrences de nutriments qu'elles fixent mieux le CO2, il
+est donc important de bien réguler l'apport en nutriment ;
 * La qualité du CO2 fournie aux algues. S'il s'agit de CO2 pure, pas de problème! Si
 le CO2 est mélangé à du NOx par exemple (et entre parenthèse, c'est le cas de celui
 que rejette notre four), ce n'est pas un problème dans un premier temps. Les micro-
