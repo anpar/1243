@@ -35,6 +35,7 @@ alors à nous :
 de création du dihydrogène ;
 * Recycler en produisant du carburant ou d'autre matière première, ou en revendant le CO2 
 à d'autres usines en ayant besoin.
+
 ### Slide 2bis : mise en évidence de la piste
 Parmis toutes ces pistes, nous avons décidé de recycler le CO2 à l'aide
 de micro-algues afin de produire du bio-carburant.
