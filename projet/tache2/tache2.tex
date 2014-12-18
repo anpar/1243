@@ -89,9 +89,9 @@ Le tableau~\ref{tab:ammoniac} fait le bilan à l'équilibre thermodynamique.
 			\hline
 			$a(x)$ & 
 			%$\frac{2n_{1} - x}{2 n_{g,tot}} \frac{p_{tot}}{p \degree}$ 
-			$\frac{2n_{1} - x}{2 n_{g,tot}} \frac{p_{tot}}{p_0}$ &
-			$\frac{2n_{2} - 3x}{2 n_{g,tot}} \frac{p_{tot}}{p_0}$ &
-			$\frac{x}{n_{g,tot}} \frac{p_{tot}}{p_0}$ \\
+			$\frac{2n_{1} - x}{2 n_{g,tot}} \frac{p_{tot}}{p\std}$ &
+			$\frac{2n_{2} - 3x}{2 n_{g,tot}} \frac{p_{tot}}{p\std}$ &
+			$\frac{x}{n_{g,tot}} \frac{p_{tot}}{p\std}$ \\
 		\end{tabular}
 		\caption{Tableau d'avancement de la réaction de synthèse de l'ammoniac.}
 		\label{tab:ammoniac}
@@ -104,7 +104,7 @@ d'azote, d'hydrogène et d'argon. La variable $x$ est l'avancement de la réacti
 
 On retire de cela et du tableau~\ref{tab:ammoniac}, une expression de la constante d'équilibre :
 
-$$K(T) = \frac{4x\cdot p_0\cdot n_{g,tot}}{(2n_1 - x)^{1/2} (2n_2 - 3x)^{3/2} \cdot p_{tot}}.$$
+$$K(T) = \frac{4x\cdot p\std \cdot n_{g,tot}}{(2n_1 - x)^{1/2} (2n_2 - 3x)^{3/2} \cdot p_{tot}}.$$
 
 Cette constante d'équilibre peut également être calculée en procédant de la même manière que pour le réformage primaire. 
 % Comment citer une section en latex ??
@@ -163,7 +163,7 @@ du lecteur. Nous arrivons finalement à l'équation~\eqref{eq:finale}, qui peut
 être résolue numériquement à l'aide de l'outil \textsc{Matlab}.
 
 \begin{align}
-	K(T) & = \frac{4x\cdot p_0\cdot (\ce{N2_{,in} + H2_{,in} + Ar_{in}} - 
+	K(T) & = \frac{4x\cdot p\std \cdot (\ce{N2_{,in} + H2_{,in} + Ar_{in}} - 
 	\ce{NH3_{,syn}}(k + 1)) (1 - k)}{(\ce{2N2_{,in} - NH3_{,syn}})^{1/2} (\ce{2H2_{,in} - 3NH3_{,syn}})^{3/2} \cdot p_{tot}}
 	\label{eq:finale}
 \end{align}
