@@ -15,7 +15,7 @@ Tâche 3 :
 Antoine
 -------
 ### Slides 1 : mindmap
-Afin d'analyser les sources enjeux environnementaux, nous avons appliqué les conseils reçu
+Afin d'analyser les sources d'impacts environnementaux, nous avons appliqué les conseils reçus
 lors de l'atelier de créativité en groupe en réalisant un mindmap.
 Pour construire ce mindmap, nous avons procédé par couches successives :
 * D'abord nous avons cherché les causes principales d'impact sur l'environnement, à savoir
@@ -44,6 +44,7 @@ de micro-algues afin de produire du bio-carburant.
 Nous nous sommes donc penché de plus près sur le fonctionnement de ces
 micro-algues. Pour fonctionner une micro-algues a besoin
 de trois choses fondamentales : 
+* d'eau (même usée) ;
 * du CO2 en excès ;
 * des rayons UV ;
 * des nutriments.
