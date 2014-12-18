@@ -15,16 +15,14 @@ Tâche 3 :
 Antoine
 -------
 ### Slides 1 : mindmap
-Afin d'analyser les sources d'impacts environnementaux, nous avons appliqué les conseils reçus
-lors de l'atelier de créativité en groupe en réalisant un mindmap.
+Afin d'analyser les sources d'impacts environnementaux, nous avons 
+réaliser un mindmap en groupe.
 Pour construire ce mindmap, nous avons procédé par couches successives :
 * D'abord nous avons cherché les causes principales d'impact sur l'environnement, à savoir
-les pertes de chaleurs (on chauffe pour "rien" et donc on perd de l'énergie qu'un aurait pu
-économiser) et les rejets de déchets ;
-* Ensuite nous avons listé les déchets rejetés par notre procédé : les oxydes d'azotes, le
-dioxyde de carbone, le dihydrogène et l'argon ;
-* Nous avons identifié la "source" de ces déchets (+ les citer) ainsi que leurs conséquences
-sur l'environnement (+ les citer) ;
+les pertes de chaleurs et les rejets de déchets ;
+* Ensuite nous avons listé les déchets rejetés par notre procédé ;
+* Nous avons identifié l'origine de ces déchets ainsi que leurs conséquences
+sur l'environnement ;
 * Enfin, nous avons évoqué des solutions pour réduire l'impact environnemental causé
 par ces rejets.
 
@@ -35,15 +33,16 @@ donc sur le CO2 que nous avons décider de nous concentrer. Deux possibilités s
 alors à nous :
 * Réduire les émissions en changeant le procédé de combustion ou en changeant le procédé
 de création du dihydrogène ;
-* Recycler en produisant du carburant ou d'autre matière première ou en revendant le CO2 
+* Recycler en produisant du carburant ou d'autre matière première, ou en revendant le CO2 
 à d'autres usines en ayant besoin.
+### Slide 2bis : mise en évidence de la piste
 Parmis toutes ces pistes, nous avons décidé de recycler le CO2 à l'aide
 de micro-algues afin de produire du bio-carburant.
 
 ### Slide 3 : fonctionnement
-Nous nous sommes donc penché de plus près sur le fonctionnement de ces
-micro-algues. Pour fonctionner une micro-algues a besoin
-de trois choses fondamentales : 
+Nous nous sommes donc penché de plus près sur le fonctionnement du procédé
+de transformation du CO2 par ces micro-algues.
+Ce procédé requiert 4 choses fondamentales : 
 * d'eau (même usée) ;
 * du CO2 en excès ;
 * des rayons UV ;
@@ -52,12 +51,10 @@ Les algues vont alors fixé le CO2 et le transformer en biomasse.
 On va ensuite récolter ces micro-algues et les soumettre à différents
 procédés qui permettront :
 * de récolter la biomasse ;
-* d'extraire l'huile de la biomasse ;
+* de séparer la biomasse et l'eau ;
 * de raffiner l'huile pour enfin obtenir du bio-carburant ;
 
 ### Slide 4 : autres facteurs importants
-*Remarque* : luminosité à retirer de ce slide, c'est redondant : on en parle
-déjà au-dessus, il faudra renommer ce slide "Facteurs supplémentaires".
 Pour assurer un rendement optimal, d'autres facteurs entre encore en jeu :
 * La température à laquelle les algues sont stockés (il ne faut pas nécessairement
 chauffer à de hautes température mais il faut quand même assurer une température
