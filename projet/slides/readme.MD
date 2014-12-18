@@ -80,4 +80,33 @@ TODO
 
 Peter
 -----
-TODO
+Nous pouvons rapidement aborder l'évolution de la méthodologie de travail de notre groupe, 
+et, par le même chemin, du groupe même. S'il y a bien un point sur lequel une évolution
+fût observable au sein de notre groupe, c'est la régularité.
+En effet, après un départ assez chaotique de la distribution des tâches, nous avons décidé
+de nous retrouver quelques fois en bibliothèque. Ce "quelques fois" s'est transformé, sur 
+la fin du quadrimestre, en un minimum d'une fois par semaine, plusieurs fois si nécessaire.
+Ainsi, nous nous retrouvions à peu près tous les mercredis et jeudis pour travailler sur le projet.
+Nous avons de plus chacun pris en main le site Github, site opensource de partage de document
+très adapté aux travaux de groupes. Cela permettait à un superviseur de vérifier chacune des
+soumissions et modifications apportées aux documents et de ne les laisser passer que si elles
+étaient exemptes d'erreurs. Lorsque tout les membres du groupe ont appris à utiliser cette 
+plateforme, le travail était devenu non seulement plus facile mais surtout nous évitait les
+erreurs sortant de nulle part.
+
+Tout ceci nous ramène petit à petit vers la conclusion de notre travail.
+Nul besoin de dire que ce travail nous a permis d'élargir notre domaine pratique de 
+connaissance. Car, en effet, après un projet Q1 de mécanique et un projet Q2 d'électronique,
+ce projet Q3 de chimie nous a maintenant permis de mettre un visage sur ce qu'est vraiment 
+l'application des savoirs étudiés au cours. Il est connu que les notions générales sur un
+éventail de matières est très apprécié par toute entreprise, et la diversité des projets
+donnés à l'UCL nous permet d'approfondir chacune de ces connaissances au-delà du niveau 
+théorique. Le bilan sur une série de réacteurs, la prise en compte de rendements ou autres
+imperfections des systèmes, la recherche personnelle de technologies contemporaine
+s permettant de faire face à des problèmes très présents actuellement et qui interviendront
+sans nul doute à l'avenir dans notre vocation (le challenge que pose le rejet de dioxyde de
+carbone ou les problèmes liés à la sécurité, nécessaire pour le bon fonctionnement d'un tel
+système, pour ne citer que ceux-ci), la prise en main de logiciels aussi élaborés qu'Aspen+
+et Matlab nous permettant d'effectuer ces tâches,... En repensant à toutes ces choses, nous
+pouvons palpablement/véridiquement sentir notre rapprochement avec le vrai métier d'ingénieur.
+Merci de votre écoute. 
