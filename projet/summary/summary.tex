@@ -61,9 +61,10 @@ pondérées par leur coefficient stoéchiométrique.
 \paragraph{Influence de la pression} L'enthalpie
 ne dépend pas de la pression.
 
-% TODO : ajouter entropie et enthalpie de libre comme
-% c'est quand même utilisé dans le projet pour calculer
-% les constantes d'équilibre.
+
+TODO : ajouter entropie et enthalpie de libre comme
+c'est quand même utilisé dans le projet pour calculer
+les constantes d'équilibre.
 
 \subsection{Calcul d'un équilibre global pour plusieurs réactions simultanées
 (comme dans le réformeur primaire)}
@@ -116,7 +117,7 @@ grâce au bilan de matière.
 
 \subsection{Analyse et justification de l'effet des paramètres $T$ et $p$ sur l'équilibre
 réactionnel (comme étudié pour la synthèse de l'ammoniac)}
-% Je touche pas grand chose à ce genre de truc #hateChemistry
+Quelqu'un sait faire cette partie en expliquant bien?
 
 \section{Sciences des procédés}
 \subsection{Notion de fonctionnement de soupapes de sécurité et de disques de rupture}
@@ -214,20 +215,98 @@ Le composant 124-MC rencontré dans la tâche 4 est un
 échangeur de chaleur.
 
 \subsection{Notions de sécurités industrielle}
-Voir analyse HAZOP.
+Voir analyse HAZOP, quelque'un voit quelque chose
+d'utile à mettre ici?
 
 \section{Connaissance du procédé de synthèse de l'ammoniac}
 \subsection{Etapes principales du procédé (tel que schématisé dans la tâche 1)}
-\subsection{Fonctionnement du réacteur de synthèse} 
+Voir flow-sheet à la figure \ref{fig:flow-sheet}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=0.8]{media/flow-sheet-v2.jpg}
+	\caption{Flow-sheet.}
+	\label{fig:flow-sheet}
+\end{figure}
+
+\subsection{Fonctionnement du réacteur de synthèse}
+Le réacteur de synthèse se compose des élements suivants 
+(voir figure \ref{fig:flow-sheet-aspen}) :
+\begin{itemize}
+	\item Un compresseur isentropique ;
+	\item Un préchauffeur ;
+	\item Un réacteur ;
+	\item Un refroidisseur ;
+	\item Une unité flash pour la séparation des produits ;
+	\item Un spliter pour la purge.
+\end{itemize}
+Les différentes conditions opératoires sont reprises
+sur la figure \ref{fig:flow-sheet-aspen}.
+\begin{figure}[ht!]
+	\centering
+	\rotatebox{90}{\includegraphics[scale=0.7]{media/flow-sheet-aspen.jpg}}
+	\caption{Flow-sheet du réacteur de synthèse.}
+	\label{fig:flow-sheet-aspen}
+\end{figure}
+
 \subsection{Principe du recyclage de réactifs et de la purge}
+Sur la purge je gère pas trop... Guillaume? Simon?
+
 \subsection{Points principaux de production et de consommation d'énergie du procédé}
+Le réformeur primaire est le plus gros consommateur d'énergie, c'est d'ailleurs
+la seule réaction endothermique du procédé. L'énergie requise est apportée par
+le four, qui a un rendement de 75\%.
+
 \subsection{Principaux risques pour la santé et l'environnement liés aux réactifs et produits}
+\paragraph{Le méthane} Le méthane est un gaz à effet de serre qui influe
+sur le climat. Il est considéré comme le 3ème gaz responsable du
+réchauffement climatique.
+\paragraph{Le monoxyde de carbone} Il peut causer des intoxications s'il est
+présent trop importante. Sur le long terme, il augmente le risque de maladie
+cardiovasculaire. Le \chemform{CO} est également impliqué de façon majeure
+dans les effets de la pollution atmosphérique.
+\paragraph{Diazote} A priori aucun effet nocif pour l'environnement.
+\paragraph{Argon} Risque de suffocation dans les secteurs confinés, peut
+entrainer des vertiges, nausées, vomissements, pertes de consience et la mort.
+L'argon ne présente aucun risques connus pour l'environnement.
+\paragraph{Dioxyde de carbone} Le \chemform{CO_2} serait le deuxième
+gaz à effet de serre le plus important dans l'atmosphère après la vapeur
+d'eau, contribuant à hauteur de 26\% et 60\% à ce phénomème. Ce gaz
+est également dangereux pour la santé et peut même être mortel si
+la concentration dans l'air est trop élevée.
+\paragraph{Dihydrogène} Dangeureux si à inhalation, peut être mortel.
+Aucun effet sur l'environnement, le gaz
+sera rapidement absorbé dans des secteurs bien-aérés. Aucun
+effet non plus sur les animaux ou la vie aquatique connus à l'heure
+actuelle.
+\paragraph{Ammoniac} C'est un des principaux responsables
+de l'acidification des sols et des bois. L'ammoniac rejeté
+dans l'atmosphère favorise aussi les pluies acides. Il 
+n'intervient cependant pas dans le réchauffement climatique et n'a pas
+d'effet sur la couche d'ozone. L'ammoniac
+est également nuisible pour les mieux aquatiques et certains
+animaux primitifs. Enfin, la production d'ammoniac est une grande
+consommatrice d'électricté, représentant jusqu'à 2\% de la
+production mondiale.
+
+L'ammoniac est également toxique pour l'être humain et a
+diverses conséquences sur la santé.
+\paragraph{Oxydes d'azote} Les oxydes d'azotes \chemform{NO_x}
+représentent le \chemform{NO} et \chemform{NO_2}, ce sont
+deux polluants atmosphériques. Le \chemform{NO_2} est aussi
+un gaz à effet de serre. Ils interviennent également
+dans les pluies acides.
+Le \chemform{NO_2} est très toxique (40 fois plus que le
+\chemform{CO} et 4 fois plus que \chemform{NO}) et
+pénètre profondément dans les poumons.
 
 \section{Laboratoire d'électrolyse de l'eau}
 
 \section{Questions de réflexion sur les thématiques traitées
 dans le cadre du projet}
 \subsection{Compréhension globale des impacts du procédé de l'ammoniac sur l'environnement}
+Le processus utilisé est extrément polluant en terme de rejet de \chemform{CO_2}, et
+plus particulièrement le Water-Gas-Shift et le réformeur primaire.
 \subsection{Compréhension globale des stratégies mises en place pour limiter la consommation 
 énergétique sur un site de production d'ammoniac tel celui de Yara}
 
