@@ -61,7 +61,6 @@ pondérées par leur coefficient stoéchiométrique.
 \paragraph{Influence de la pression} L'enthalpie
 ne dépend pas de la pression.
 
-
 TODO : ajouter entropie et enthalpie de libre comme
 c'est quand même utilisé dans le projet pour calculer
 les constantes d'équilibre.
@@ -219,8 +218,119 @@ Voir analyse HAZOP, quelque'un voit quelque chose
 d'utile à mettre ici?
 
 \section{Connaissance du procédé de synthèse de l'ammoniac}
+On peut résumer la chimie industrielle de l'azote comme suit :
+\begin{chemmath}
+	N_2 \rightarrow NH_3 \rightarrow HNO_3 \rightarrow NH_4NO_3
+	\rightarrow \text{engrais}.
+\end{chemmath}
+Notons qu'on peut également utiliser le \chemform{NH_3} et le \chemform{HNO_3}
+pour produire des matières plastiques (fibres acryliques, polyamides)
+et pour produire des insecticides, des fondigicides\footnote{Un fongicide
+est une substance conçue exclusivement pour éliminer ou limiter le
+développement des champignons parasites des végétaux.}, etc.
+
 \subsection{Etapes principales du procédé (tel que schématisé dans la tâche 1)}
-Voir flow-sheet à la figure \ref{fig:flow-sheet}.
+Pour situer les différents blocs dans le procédé général, voir 
+flow-sheet à la figure \ref{fig:flow-sheet}.
+\subsubsection{Généralités}
+Pour produire l'ammoniac, on utilise le procédé Haber-Bosch
+dont la réaction s'écrit
+\begin{chemmath}
+	N_2 + 3H_2 \rightarrow 2NH_3.
+\end{chemmath}
+Un catalyseur est aussi souvent utilisé.
+Les conditions opératoires sont une température
+aux alentours des \unit{500}{\degreecelsius} et
+une pression de 100 à 1000 bars.
+
+Cette réaction a besoin de deux matières
+premières :
+\begin{itemize}
+	\item \chemform{N_2} : que l'on prend dans l'air
+	directement ;
+	\item \chemform{H_2} que l'on peut se procurer
+	de plusieurs manières :
+	\begin{itemize}
+		\item Carbochimie ;
+		\item Pétrochimie ;
+		\item Gaz naturel.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Fabrication du gaz de synthèse}
+Pour fabriquer le gaz de synthèse \chemform{H_2}
+dont nous avons besoin, on utilise le gaz naturel
+\chemform{CH_4} dans une réaction que l'on appelle
+le reforming primaire 
+\begin{chemmath}
+	CH_4 + H_2O \Leftrightarrow CO + 3H_2 \text{ (endothermique)}.
+\end{chemmath}
+Il y a également plusieurs réactions secondaires à
+considérer, dans le cadre du projet, on ne considère
+que la suivante
+\begin{chemmath}
+	CO + H2_O \Leftrightarrow CO_2 + H_2.
+\end{chemmath}
+Les conditions opératoires sont une pression
+de \unit{25-30}{\bbar} et une température
+de réaction de \unit{750-800}{\degreecelsius}.
+On utilise souvent des anneaux de nickel comme
+catalyseur.
+On note aussi que cette réaction est largement
+endothermique et a donc besoin d'énergie pour avoir
+lieu.
+
+\subsubsection{Apport d'énergie au reforming primaire : le four}
+La réaction du reforming primaire a besoin
+d'énergie pour avoir lieu, cette énergie est apportée
+par le four. Dans le cadre du projet, la réaction
+du four est
+\begin{chemmath}
+	CH_4 + 2O_2 \rightarrow CO_2 + H_2O \text{ (exothermique)}.
+\end{chemmath}
+On considère que le four a un rendement de 75\%.
+
+\subsubsection{Reforming secondaire oxydant}
+La réaction du reforming secondaire est
+\begin{chemmath}
+	CH_4 + \frac{1}{2}O_2 \rightarrow CO + 2H_2.
+\end{chemmath}
+Cette réaction permet de retirer le \chemform{CH_4} qui n'a
+pas réagit dans le reforming primaire. % FIX : quelque confirme ça?
+Des réactions secondaires ont également lieu mais elles
+sont négligées dans le cadre du projet.
+Les conditions opératoires sont une pression
+de \unit{25-30}{\bbar} et une température
+de \unit{900}{\degreecelsius} de telle sorte
+qu'une combustion partielle ait lieue.
+On utilise souvent le nickel comme catalyseur.
+
+\subsubsection{Conversion du \chemform{CO} : Water-Gaz-Shift}
+Dans le bloc du Water-Gaz-Shift, on a la réaction
+suivante
+\begin{chemmath}
+	CO + H_2O \Leftrightarrow CO_2 + H_2 \text{ (exothermique)}. 
+\end{chemmath}
+Le facteur limitant de cette réaction est la température.
+En diminuant la température, l'équilibre est avantageusement
+déplacé mais la cinétique est fortement ralentie. On
+utilise donc habituellement un convertisseur à deux étages :
+\begin{itemize}
+	\item	Etage 1 : la température est aux alentours de
+	\unit{400}{\degreecelsius} de telle sorte que la cinétique
+	ne soit pas trop ralentie. On peut alors utiliser
+	des catalyseurs bon marché. 70\% à 80\% de la conversion a lieu
+	ici ;
+	\item Etage 2 : la température est aux alentours de
+	\unit{200}{\degreecelsius}, c'est pourquoi il faut utilise
+	des catalyseurs plus chers pour accélerer la réaction.
+\end{itemize}
+
+Néanmoins ces aspects du Water-Gaz-Shift n'ont pas
+vraiment été abordé dans le cadre du projet.
+
+\subsubsection{Décarbonatation}
+Le principe est d'absorber ou de récupérer le \chemform{CO_2}.
 
 \begin{figure}[ht!]
 	\centering
