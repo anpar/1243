@@ -116,7 +116,32 @@ grâce au bilan de matière.
 
 \subsection{Analyse et justification de l'effet des paramètres $T$ et $p$ sur l'équilibre
 réactionnel (comme étudié pour la synthèse de l'ammoniac)}
-Quelqu'un sait faire cette partie en expliquant bien?
+\subsubsection{Température}
+\paragraph{Enoncé}
+Si un système fermé en équilibre subit un élévation
+de température, une réaction chimique endothermique verra
+sa réaction directe favorisée et une réaction chimique
+exothermique verra sa réaction inverse favorisée.
+\paragraph{Démonstration}
+On peut démontrer cette influence de la température
+à partir de la relation de Van't Hoff. $K$ étant
+la constante d'équilibre de la réaction, on peut écrire
+\[ \frac{\mathrm{d}(\ln(K))}{\mathrm{d}T} = \frac{\Delta_rH\std}{RT^2}.\]
+Comme $RT^2$ est positif, $\mathrm{d}(\ln(K))$ est du signe de
+$\Delta_rH\std\mathrm{dT}$. Donc si $\mathrm{dT} > 0$ (augmentation
+de la température), pour une réaction endothermique avec
+$\Delta_rH\std > 0$, la constante d'équilibre est bien croissante.
+Pour une réaction exothermique, c'est l'inverse.
+
+\subsubsection{Pression}
+\paragraph{Enoncé}
+Si la pression s'élève, un équilibre chimique qui
+présente des gaz dans ses produits ou réactifs verra la réaction
+qui consomme le plus de gaz (et donc en produit le moins)
+favorisée. L'équilibre va évoluer dans le sens de la diminution
+des phases gazeuses (si elles existent).
+\paragraph{Démonstration}
+TODO.
 
 \section{Sciences des procédés}
 \subsection{Notion de fonctionnement de soupapes de sécurité et de disques de rupture}
@@ -214,8 +239,46 @@ Le composant 124-MC rencontré dans la tâche 4 est un
 échangeur de chaleur.
 
 \subsection{Notions de sécurités industrielle}
-Voir analyse HAZOP, quelque'un voit quelque chose
-d'utile à mettre ici?
+\subsubsection{Gestion du risque}
+\paragraph{Danger} Le terme danger désigne une situation
+qui menace dans une certaine mesure la vie, l'environnement
+ou la propriété.
+Un concept clé pour l'identification des dangers est la
+présence d'énergie ou de produit. Des dommages ou des dégats
+peuvent avoir lieu s'il y a contact entre les produits
+et une cible, ou s'il y a un transfert d'énergie vers une cible.
+\paragraph{Risque} Le risque est un concept intellectuel qui
+a été invenité pour rendre possible la discussion à propos
+d'incertitude pour une situation particulière. On utilise
+ce concept de risque pour communiquer à propos de la
+possibilité qu'un danger puisse faire des dégâts.
+
+Il y a plusieurs façon d'approcher le concept de risque :
+\begin{itemize}
+	\item Les approches pragmatique :
+	\begin{itemize}
+		\item Approche actuarielle ;
+		\item Approche toxicologique et épidémiologique ;
+		\item Approche de l'ingénieur (probabilité) ;
+		\item Approche économique (comparaison risque et
+		bénéfice).
+	\end{itemize}
+	\item Les approches multi-dimensionnelles :
+	\begin{itemize}
+		\item Approche psychologique ;
+		\item Théories sociales ;
+		\item Théories historiques et curlturelles.
+	\end{itemize}
+\end{itemize}
+
+Dans le cadre des risques technologiques, les approches
+multi-dimensionnelles sont difficiles à utiliser. On
+utilise donc une approche pragmatique : l'approche
+de l'ingénieur. Dans cette approche, on calcule le risque
+comme suit :
+\[ \text{Risque } = \text{ Probabilité} \times \text{ Dégâts}. \]
+On peut donc calculer, mesurer, comparer, comprendre les
+risques.
 
 \section{Connaissance du procédé de synthèse de l'ammoniac}
 On peut résumer la chimie industrielle de l'azote comme suit :
@@ -334,7 +397,7 @@ Le principe est d'absorber ou de récupérer le \chemform{CO_2}.
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[scale=0.8]{media/flow-sheet-v2.jpg}
+	\includegraphics[scale=0.6]{media/flow-sheet-v2.jpg}
 	\caption{Flow-sheet.}
 	\label{fig:flow-sheet}
 \end{figure}
@@ -354,13 +417,37 @@ Les différentes conditions opératoires sont reprises
 sur la figure \ref{fig:flow-sheet-aspen}.
 \begin{figure}[ht!]
 	\centering
-	\rotatebox{90}{\includegraphics[scale=0.7]{media/flow-sheet-aspen.jpg}}
+	\rotatebox{90}{\includegraphics[scale=0.5]{media/flow-sheet-aspen.jpg}}
 	\caption{Flow-sheet du réacteur de synthèse.}
 	\label{fig:flow-sheet-aspen}
 \end{figure}
 
 \subsection{Principe du recyclage de réactifs et de la purge}
-Sur la purge je gère pas trop... Guillaume? Simon?
+La réaction de synthèse d'ammoniac se passe à l'équilibre thermodynamique.
+On travaille à pression constante puisque nous sommes en système ouvert. 
+Le but du recyclage est de maximiser le rendement seulement on se rend 
+compte que il  va y avoir une accumulation d'argon dans le réacteur si 
+l'on renvoie à l'entrée de celuui-ci, la totalité de ce qui n'a pas réagit. 
+Il est donc nécessaire de faire une purge, c'est-à-dire rejeter un certain 
+coefficient de \ce{N2}, de \ce{H2} et de \ce{Ar}. Pour le calcul de la constante
+d'équilibre, on procède exactement de la même manière que pour le réformage primaire. 
+On avait l'expression suivante : 
+$$K(T) = \frac{4x\cdot p\std \cdot n_{g,tot}}{(2n_1 - x)^{1/2} (2n_2 - 3x)^{3/2} \cdot p_{tot}}.$$
+Il est important de comprendre que $n_1, n_2 et n_3$ représentent l'ensemble
+de ce qui rentre respectivement en \ce{N2, H2 et Ar}, c'est-à-dire les recyclages compris.
+Ensuite, nous posons un coefficient $k$ de proportion qui est le rapport
+entre ce qui est recyclé et ce qui sort du réacteur. On peut faire l'hypothèse
+que la purge enlève une proportion égale de moles pour chaque composé. Cela 
+signifie que le rapport $k$ est le même pour les 3 composés. Nous l'avions 
+choisi : $k \in [0 \text{(ouvert)}, 1 \text{(fermé)}[$.
+Enfin, la dernière chose importante à  faire est de s'assurer qu'il n'y ait pas
+d'accumulation d'argon dans le réacteur ce qui entrainerait une baisse de rendement. 
+Il faut donc que en régime, l'argon rentrant soit égal à l'argon purgé. On a alors : 
+$\ce{Ar_{syn}} = \ce{Ar_{in}+Ar_{rec}}$. 
+Finalement, si l'on veut pouvoir exprimer les entrées en fonction du rapport de 
+purge, de la pression, la température et le débit d'ammoniac sortant on doit se 
+mettre dans la condition idéale ou les débits sont parfaitement conformes aux
+coefficients stœchiométriques.
 
 \subsection{Points principaux de production et de consommation d'énergie du procédé}
 Le réformeur primaire est le plus gros consommateur d'énergie, c'est d'ailleurs
